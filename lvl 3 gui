@@ -1,0 +1,584 @@
+#does not contain character class or lvl 1 stuff. 
+
+class Level_3_intro_page(character,BoxLayout):
+    _disabled_count = 0
+
+    def __init__(self, race, hp, stealth, strength, charisma, home, **kwargs):
+
+        character.__init__(self, race, hp, stealth, strength, charisma, home)
+        BoxLayout.__init__(self, **kwargs)
+        self.orientation = "vertical"
+
+        self.level_3_intro_page()
+
+    def level_3_intro_page(self):
+        frame = GridLayout(cols=1, rows=1, size_hint_y=None)
+        frame.bind(minimum_height=frame.setter('height'))
+        scroll = ScrollView(do_scroll_x=False, do_scroll_y=True, size_hint=(1, None),
+                            size=(Window.width, Window.height * (1 / 3)))
+        texta = Label(text=f"""You arrive at Tiefling village, exhausted
+from spending days on the road. You
+decide the best place to start the
+investigation would be the village
+tavern. After getting a much needed
+drink, you start asking around about
+Feca.When you ask the man behind the
+counter, he points towards the half 
+naked bearded man outside the bar.
+’That’s him right there’.You had heard
+stories of him being a drunk loudmouth,
+but actually seeing him like that was rather
+hilarious.\n""", color=(0, 0, 0, 1), size_hint=(1, None), pos=(self.width, 400))
+        frame.add_widget(texta)
+        scroll.add_widget(frame)
+        self.add_widget(scroll)
+
+        self.add_widget(Label(text=f"""Do you invite him for another round
+or use a more direct method to
+find out what he knows…""", color=(0, 0, 0, 1)))
+
+        choice = GridLayout(cols=2, rows=1)
+        friendlybutton = Button(text="Be Friendly")
+        aggressivebutton = Button(text="Be Aggressive")
+        friendlybutton.bind(on_press=self.friendly)
+        aggressivebutton.bind(on_press=self.aggressive)
+        choice.add_widget(friendlybutton)
+        choice.add_widget(aggressivebutton)
+        self.add_widget(choice)
+
+    def friendly(self, instance):
+        if h.charisma==True:
+            game.screenmanager.current = "Level 3 friendly charisma"
+            pass
+        else:
+            game.screenmanager.current = "Level 3 friendly no charisma"
+            pass
+
+    def aggressive(self, instance):
+        if h.str>=500:
+            game.screenmanager.current = "Level 3 aggressive yes"
+            pass
+        else:
+            game.screenmanager.current = "Level 3 aggressive no"
+            pass
+
+class Level_3_friendly_charisma(character, BoxLayout):
+    _disabled_count = 0
+
+    def __init__(self, race, hp, stealth, strength, charisma, home, **kwargs):
+
+        character.__init__(self, race, hp, stealth, strength, charisma, home)
+        BoxLayout.__init__(self, **kwargs)
+        self.orientation = "vertical"
+
+        self.level_3_friendly_charisma()
+
+    def level_3_friendly_charisma(self):
+        frame = GridLayout(cols=1, rows=1, size_hint_y=None)
+        frame.bind(minimum_height=frame.setter('height'))
+        scroll = ScrollView(do_scroll_x=False, do_scroll_y=True, size_hint=(1, None),
+                            size=(Window.width, Window.height * (1 / 3)))
+        texta = Label(text=f"""'You walk up to him, he immediately
+shouts “Th-There’s my drinking buddy!What say
+you buy me another round to old times eh pal”.
+He must be rather desperate if he made you, a
+complete stranger is buddy.
+“Sure Feca, lets go get you a drink”.
+You get two pints of mead and slowly watch him
+get drunk. For a rather tiny man he sure could
+hold his drink. You were worried you’d run out of
+cash before you got anything out of him.Then, he 
+suddenly says,’Say what,you look trustworthy.
+Ya wanna share some secrets,I’ll go first. Ya know that
+inn that was raided a few days ago, I supplied them
+with the weapons .It was a proper massacre I hear,
+all thanks to my weapons.Their Ruthorham weapons
+looked like toys in front of my creations I tell ya!’
+“So they were from Ruthorham?” you ask
+“Where else would they be from, it’s where their dumb
+kind lurks all the time!Hey now, it’s your turn.Tell me
+a secret!”
+“Ah-well that’s easy, I’m gay Feca”
+“You’re WHAT! Ge-Get out of my sight.You and your kind are
+truly the scum of the Earth,worse than them Ruthorham 
+folks yeah!”
+“Oh well, as you say Feca,nice meeting you”
+“Don’t talk to me!”
+So the rumors of him being bigoted were true too.
+Doesn't matter though, he told you exactly where to
+go.After resting a little more you set out for Ruthorham
+the next morning\n""", color=(0, 0, 0, 1), size_hint=(1, None), pos=(self.width, 400))
+        frame.add_widget(texta)
+        scroll.add_widget(frame)
+        self.add_widget(scroll)
+
+        self.add_widget(Label(text=f"""Proceed to Ruthorham?""", color=(0, 0, 0, 1)))
+
+        choice = GridLayout(cols=1, rows=1)
+        continuebutton = Button(text="Continue")
+        continuebutton.bind(on_press=self.proceed)
+        choice.add_widget(continuebutton)
+        self.add_widget(choice)
+
+    def proceed(self, instance):
+        game.screenmanager.current = "Level 4 Intro"
+
+class Level_3_aggressive_yes(character, BoxLayout):
+    _disabled_count = 0
+
+    def __init__(self, race, hp, stealth, strength, charisma, home, **kwargs):
+        character.__init__(self, race, hp, stealth, strength, charisma, home)
+        BoxLayout.__init__(self, **kwargs)
+        self.orientation = "vertical"
+
+        self.level_3_aggressive_yes()
+
+    def level_3_aggressive_yes(self):
+        frame = GridLayout(cols=1, rows=1, size_hint_y=None)
+        frame.bind(minimum_height=frame.setter('height'))
+        scroll = ScrollView(do_scroll_x=False, do_scroll_y=True, size_hint=(1, None),
+                            size=(Window.width, Window.height * (1 / 3)))
+        texta = Label(text=f"""You walk up to him and grab
+him by the neck 
+“H-Hey let go of me!!”
+“Guards!Guards!!”
+You quickly punch him in the face
+to silence him.You drag him to the
+back of the inn and tie him to the
+stable doors.
+“Now Feca, These past few days have
+been rather unpleasant for me, no
+thanks to you.So don’t make me ask you
+twice.Who bought the weapons for the
+mercenaries that attacked the inn on
+Dragontail Walk!”
+“I-I don’t know what you’re talking
+about!! Me swears!”
+You punch him in the stomach and draw 
+your {weapon}
+“Do your worst! If I talk Hera will have my head!”
+“If you don’t, Hera won’t get the chance to”
+“Go to hell!”
+This was taking too much time, you take out your
+knife and stab him in the gut. He screams and twitches.
+” All right All right!! It was a group from Ruthorham.
+They warned me not to talk, now make this stop!!”
+“See, that was easy, now hold still”
+You bandage him up and release him.
+“This never happened Feca, are we clear?”
+“Y-Yes”
+“Good”
+With that out of the way, you now knew exactly where to go.
+After resting a little more you set out for Ruthorham the 
+next morning\n""", color=(0, 0, 0, 1), size_hint=(1, None), pos=(self.width, 400))
+        frame.add_widget(texta)
+        scroll.add_widget(frame)
+        self.add_widget(scroll)
+
+        self.add_widget(Label(text=f"""Proceed to Ruthorham?""", color=(0, 0, 0, 1)))
+
+        choice = GridLayout(cols=1, rows=1)
+        continuebutton = Button(text="Continue")
+        continuebutton.bind(on_press=self.proceed)
+        choice.add_widget(continuebutton)
+        self.add_widget(choice)
+
+    def proceed(self, instance):
+        game.screenmanager.current = "Level 4 Intro"
+
+class Level_3_aggressive_no(character, BoxLayout):
+    _disabled_count = 0
+
+    def __init__(self, race, hp, stealth, strength, charisma, home, **kwargs):
+        character.__init__(self, race, hp, stealth, strength, charisma, home)
+        BoxLayout.__init__(self, **kwargs)
+        self.orientation = "vertical"
+
+        self.level_3_aggressive_no()
+
+    def level_3_aggressive_no(self):
+        frame = GridLayout(cols=1, rows=1, size_hint_y=None)
+        frame.bind(minimum_height=frame.setter('height'))
+        scroll = ScrollView(do_scroll_x=False, do_scroll_y=True, size_hint=(1, None),
+                            size=(Window.width, Window.height * (1 / 3)))
+        texta = Label(text=f"""You walk up to him and grab
+him by the neck
+“H-Hey let go of me!!” “Guards!Guards!!”
+You quickly punch him in the face
+to silence him.You drag him to the 
+back of the inn and tie him to the
+stable doors.
+“Now Feca, These past few days have
+been rather unpleasant for me, no thanks
+to you.So don’t make me ask you twice.Who
+bought the weapons for the mercenaries that
+attacked the inn on Dragontail Walk!”
+“I-I don’t know what you’re talking about!! Me swears!”
+You punch him in the stomach and draw your {weapon}
+“Do your worst! If I talk Hera will have my head!”
+“If you don’t, Hera won’t get the chance to”
+“Go to hell!”
+This was taking too much time, you take out your
+knife and stab him in the gut. He screams and twitches.
+He goes limp,his breathing is faint.You realise
+you messed up.After releasing him you rush to the
+village doctor and tell him Feca was stabbed in a
+bar fight.The doctor says he’s unconscious
+but may survive 
+
+You blew it, now he won’t tell you anything
+even if he survives. There must be some other
+way to find out more about the attack. You head
+to his shop and notice the lights are out, maybe
+no one’s inside?You manage to break in through 
+the back window.It’s pitch black, though you 
+manage to light a lamp and look around. You 
+find a fancy trunk with a huge padlock on
+it. Using your {weapon} you break it and find
+it’s full of gold from Ruthorham .That must mean 
+his “clients” must be from Ruthorham, and that’s 
+where you must go next. As you’re leaving you 
+accidentally trip the lamp,and it lands directly
+on his mead collection. The fire spreads quickly
+and you manage to get out of there. Guards and
+villagers alike quickly surround the burning
+building.
+“Stop right there {h.race}! Explain Yourself!""", color=(0, 0, 0, 1), size_hint=(1, None), pos=(self.width, 400))
+        frame.add_widget(texta)
+        scroll.add_widget(frame)
+        self.add_widget(scroll)
+
+        self.add_widget(Label(text=f"""""", color=(0, 0, 0, 1)))
+
+        choice = GridLayout(cols=1, rows=1)
+        nextbutton = Button(text="Next")
+        nextbutton.bind(on_press=self.proceed_1)
+        choice.add_widget(nextbutton)
+        self.add_widget(choice)
+
+    def proceed_1(self, instance):
+        game.screenmanager.current = "Level 3 caught"
+
+class Level_3_friendly_no_charisma(character, BoxLayout):
+    _disabled_count = 0
+
+    def __init__(self, race, hp, stealth, strength, charisma, home, **kwargs):
+        character.__init__(self, race, hp, stealth, strength, charisma, home)
+        BoxLayout.__init__(self, **kwargs)
+        self.orientation = "vertical"
+
+        self.level_3_friendly_no_charisma()
+
+    def level_3_friendly_no_charisma(self):
+        frame = GridLayout(cols=1, rows=1, size_hint_y=None)
+        frame.bind(minimum_height=frame.setter('height'))
+        scroll = ScrollView(do_scroll_x=False, do_scroll_y=True, size_hint=(1, None),
+                            size=(Window.width, Window.height * (1 / 3)))
+        texta = Label(text=f"""You walk up to him, he immediately shouts
+“Th-There’s my drinking buddy!What say you
+buy me another round to old times eh pal”.
+He must be rather desperate if he made you,
+a complete stranger is buddy.
+“Sure Feca, lets go get you a drink”.
+You get two pints of mead and slowly watch 
+him get drunk. For a rather tiny man he sure
+could hold his drink. You were worried you’d
+run out of cash before you got anything out of
+him.Desperate for information, you ask him 
+“So,what do you know about the inn that burned
+down a few days ago”.He looked at you suspiciously.
+“No-Nothing! Why do you ask!Ya know what, you’re 
+not my buddy!A buddy won’t ask incriminating questions
+like that.N-Now get out before I call the guards!!”
+
+You blew it, now he won’t tell you anything. There 
+must be some other way to find out more about the 
+attack.You head to his shop and notice the lights
+are out, maybe no one’s inside?You manage to break
+in through the back window.It’s pitch black, though
+you manage to light a lamp and look around. You 
+find a fancy trunk with a huge padlock on it.
+Using your {weapon} you break it and find it’s full
+of gold from Ruthorham .That must mean his “clients” must
+be from Ruthorham, and that’s where you must go next.
+
+As you’re leaving you accidentally trip the lamp,and it
+lands directly on his mead collection. The fire spreads
+quickly and you manage to get out of there.Guards and
+villagers alike quickly surround the burning building.
+“Stop right there {h.race}! Explain Yourself!""", color=(0, 0, 0, 1), size_hint=(1, None), pos=(self.width, 400))
+        frame.add_widget(texta)
+        scroll.add_widget(frame)
+        self.add_widget(scroll)
+
+        self.add_widget(Label(text=f"""""", color=(0, 0, 0, 1)))
+
+        choice = GridLayout(cols=1, rows=1)
+        nextbutton = Button(text="Next")
+        nextbutton.bind(on_press=self.proceed_1)
+        choice.add_widget(nextbutton)
+        self.add_widget(choice)
+
+    def proceed_1(self, instance):
+        game.screenmanager.current = "Level 3 caught"
+
+class Level_3_caught(character, BoxLayout):
+    _disabled_count = 0
+
+    def __init__(self, race, hp, stealth, strength, charisma, home, **kwargs):
+
+        character.__init__(self, race, hp, stealth, strength, charisma, home)
+        BoxLayout.__init__(self, **kwargs)
+        self.orientation = "vertical"
+
+        self.level_3_caught()
+
+    def level_3_caught(self):
+        frame = GridLayout(cols=1, rows=1, size_hint_y=None)
+        frame.bind(minimum_height=frame.setter('height'))
+        scroll = ScrollView(do_scroll_x=False, do_scroll_y=True, size_hint=(1, None),
+                            size=(Window.width, Window.height * (1 / 3)))
+        texta = Label(text=f"""“Woah now, let’s all just calm down.
+That was nothing more than an accident,
+I’m sure we can find a compromise here”.
+You throw a pouch of Ruthorham gold you took
+from the trunk.
+“That pouch is more valuable than anything either
+of you own, let me go and it’s all yours”.
+One of the guards slowly approaches the pouch
+and picks it up.
+“By the Gods, it’s Ruthorham gold!”
+The captain of the guards fires an arrow that
+whizzes past your ear.
+“Thanks for the treasure scum!”
+
+You need to think fast.
+""", color=(0, 0, 0, 1), size_hint=(1, None), pos=(self.width, 400))
+        frame.add_widget(texta)
+        scroll.add_widget(frame)
+        self.add_widget(scroll)
+
+        self.add_widget(Label(text=f"""Take them head on or try and take them out one by one? """, color=(0, 0, 0, 1)))
+
+        choice = GridLayout(cols=2, rows=1)
+        attackbutton = Button(text="Be Aggressive")
+        tacticalbutton = Button(text="Be Tactical")
+        attackbutton.bind(on_press=self.attack)
+        tacticalbutton.bind(on_press=self.tactical)
+        choice.add_widget(attackbutton)
+        choice.add_widget(tacticalbutton)
+        self.add_widget(choice)
+
+    def attack(self, instance):
+        if h.str>=500:
+            game.screenmanager.current = "Level 3 attack"
+            pass
+        else:
+            game.screenmanager.current = "Level 3 attack death"
+            pass
+
+    def tactical(self, instance):
+        if h.charisma==True:
+            game.screenmanager.current = "Level 3 tactical"
+            pass
+        else:
+            game.screenmanager.current = "Level 3 tactical death"
+            pass
+
+class Level_3_attack(character, BoxLayout):
+    _disabled_count = 0
+    if h.str>=550:
+        h.hp -= 50
+    else:
+        h.hp -=100
+    print(h.hp)
+
+    def __init__(self, race, hp, stealth, strength, charisma, home, **kwargs):
+        character.__init__(self, race, hp, stealth, strength, charisma, home)
+        BoxLayout.__init__(self, **kwargs)
+        self.orientation = "vertical"
+
+        self.level_3_attack()
+
+    def level_3_attack(self):
+        frame = GridLayout(cols=1, rows=1, size_hint_y=None)
+        frame.bind(minimum_height=frame.setter('height'))
+        scroll = ScrollView(do_scroll_x=False, do_scroll_y=True, size_hint=(1, None),
+                            size=(Window.width, Window.height * (1 / 3)))
+        texta = Label(text=f"""You take out your {weapon} and charge
+at the guards. Seeing the berserker in
+front of them, the guards drop their weapons
+and flee. The captain orders his men back, 
+and attacks you with the ones remaining. 
+You cut through them with ease, until it’s 
+just you and the captain.“You monster!” Shouts
+the captain as he swings his sword at you wildly.
+You duck and strike him down.
+
+As soon as the carnage is over, you head for
+Ruthorham without looking back. You know you
+can never return to Tiefling again.""", color=(0, 0, 0, 1), size_hint=(1, None), pos=(self.width, 400))
+        frame.add_widget(texta)
+        scroll.add_widget(frame)
+        self.add_widget(scroll)
+
+        self.add_widget(Label(text=f"""Proceed to Ruthorham?""", color=(0, 0, 0, 1)))
+
+        choice = GridLayout(cols=1, rows=1)
+        continuebutton = Button(text="Continue")
+        continuebutton.bind(on_press=self.proceed)
+        choice.add_widget(continuebutton)
+        self.add_widget(choice)
+
+    def proceed(self, instance):
+        game.screenmanager.current = "Level 4 Intro"
+
+
+class Level_3_tactical(character, BoxLayout):
+    _disabled_count = 0
+
+    def __init__(self, race, hp, stealth, strength, charisma, home, **kwargs):
+        character.__init__(self, race, hp, stealth, strength, charisma, home)
+        BoxLayout.__init__(self, **kwargs)
+        self.orientation = "vertical"
+
+        self.level_3_tactical()
+
+    def level_3_tactical(self):
+        frame = GridLayout(cols=1, rows=1, size_hint_y=None)
+        frame.bind(minimum_height=frame.setter('height'))
+        scroll = ScrollView(do_scroll_x=False, do_scroll_y=True, size_hint=(1, None),
+                            size=(Window.width, Window.height * (1 / 3)))
+        texta = Label(text=f"""You use a smoke bomb and manage
+to disappear in the chaos. After climbing a
+nearby building, you use your bow to snipe 
+off the guards below looking for you below. 
+One by one they fall in the darkness of the
+night.Once you cleared a path for yourself, 
+you slowly descend and leave Tiefling village 
+knowing you can never return.
+""", color=(0, 0, 0, 1), size_hint=(1, None), pos=(self.width, 400))
+        frame.add_widget(texta)
+        scroll.add_widget(frame)
+        self.add_widget(scroll)
+
+        self.add_widget(Label(text=f"""Proceed to Ruthorham?""", color=(0, 0, 0, 1)))
+
+        choice = GridLayout(cols=1, rows=1)
+        continuebutton = Button(text="Continue")
+        continuebutton.bind(on_press=self.proceed)
+        choice.add_widget(continuebutton)
+        self.add_widget(choice)
+
+    def proceed(self, instance):
+        game.screenmanager.current = "Level 4 Intro"        
+
+class Level_3_tactical_death(character, BoxLayout):
+    _disabled_count = 0
+
+    def __init__(self, race, hp, stealth, strength, charisma, home, **kwargs):
+        character.__init__(self, race, hp, stealth, strength, charisma, home)
+        BoxLayout.__init__(self, **kwargs)
+        self.orientation = "vertical"
+
+        self.level_3_tactical_death()
+
+    def level_3_tactical_death(self):
+        frame = GridLayout(cols=1, rows=1, size_hint_y=None)
+        frame.bind(minimum_height=frame.setter('height'))
+        scroll = ScrollView(do_scroll_x=False, do_scroll_y=True, size_hint=(1, None),
+                            size=(Window.width, Window.height * (1 / 3)))
+        texta = Label(text=f"""You try to run away hoping to
+regroup and take the guards on later,
+but you’re hit on the head with a stone
+by a villager. Knocked out, the guards 
+easily capture you and execute you!
+
+Alas mighty hero! Your tale ends here....""", color=(0, 0, 0, 1), size_hint=(1, None), pos=(self.width, 400))
+        frame.add_widget(texta)
+        scroll.add_widget(frame)
+        self.add_widget(scroll)
+
+        self.add_widget(Label(text=f"""Game Over""", color=(0, 0, 0, 1)))
+
+class Level_3_attack_death(character, BoxLayout):
+    _disabled_count = 0
+
+    def __init__(self, race, hp, stealth, strength, charisma, home, **kwargs):
+        character.__init__(self, race, hp, stealth, strength, charisma, home)
+        BoxLayout.__init__(self, **kwargs)
+        self.orientation = "vertical"
+
+        self.level_3_attack_death()
+
+    def level_3_attack_death(self):
+        frame = GridLayout(cols=1, rows=1, size_hint_y=None)
+        frame.bind(minimum_height=frame.setter('height'))
+        scroll = ScrollView(do_scroll_x=False, do_scroll_y=True, size_hint=(1, None),
+                            size=(Window.width, Window.height * (1 / 3)))
+        texta = Label(text=f""" You take out your {weapon} and charge
+at the guards, a brave gesture.But foolish.
+They fire arrow after arrow till you drop 
+dead in your tracks
+
+Alas mighty hero! Your tale ends here....""", color=(0, 0, 0, 1), size_hint=(1, None), pos=(self.width, 400))
+        frame.add_widget(texta)
+        scroll.add_widget(frame)
+        self.add_widget(scroll)
+
+        self.add_widget(Label(text=f"""Game Over""", color=(0, 0, 0, 1)))
+
+        
+        
+        
+        
+        self.level_3_intro_page = Level_3_intro_page(h.race,h.hp,h.stealth,h.str,h.charisma,h.home)
+        screen = Screen(name="Level 3 Intro")
+        screen.add_widget(self.level_3_intro_page)
+        self.screenmanager.add_widget(screen)
+
+        self.level_3_friendly_charisma = Level_3_friendly_charisma(h.race,h.hp,h.stealth,h.str,h.charisma,h.home)
+        screen = Screen(name="Level 3 friendly charisma")
+        screen.add_widget(self.level_3_friendly_charisma)
+        self.screenmanager.add_widget(screen)
+
+        self.level_3_aggressive_yes = Level_3_aggressive_yes(h.race,h.hp,h.stealth,h.str,h.charisma,h.home)
+        screen = Screen(name="Level 3 aggressive yes")
+        screen.add_widget(self.level_3_aggressive_yes)
+        self.screenmanager.add_widget(screen)
+
+        self.level_3_aggressive_no = Level_3_aggressive_no(h.race, h.hp, h.stealth, h.str, h.charisma, h.home)
+        screen = Screen(name="Level 3 aggressive no")
+        screen.add_widget(self.level_3_aggressive_no)
+        self.screenmanager.add_widget(screen)
+
+        self.level_3_friendly_no_charisma = Level_3_friendly_no_charisma(h.race,h.hp,h.stealth,h.str,h.charisma,h.home)
+        screen = Screen(name="Level 3 friendly no charisma")
+        screen.add_widget(self.level_3_friendly_no_charisma)
+        self.screenmanager.add_widget(screen)
+
+        self.level_3_caught = Level_3_caught(h.race,h.hp,h.stealth,h.str,h.charisma,h.home)
+        screen = Screen(name="Level 3 caught")
+        screen.add_widget(self.level_3_caught)
+        self.screenmanager.add_widget(screen)
+
+        self.level_3_attack = Level_3_attack(h.race, h.hp, h.stealth, h.str, h.charisma, h.home)
+        screen = Screen(name="Level 3 attack")
+        screen.add_widget(self.level_3_attack)
+        self.screenmanager.add_widget(screen)
+
+
+        self.level_3_tactical = Level_3_tactical(h.race, h.hp, h.stealth, h.str, h.charisma, h.home)
+        screen = Screen(name="Level 3 tactical")
+        screen.add_widget(self.level_3_tactical)
+        self.screenmanager.add_widget(screen)
+
+        self.level_3_attack_death = Level_3_attack_death(h.race, h.hp, h.stealth, h.str, h.charisma, h.home)
+        screen = Screen(name="Level 3 attack death")
+        screen.add_widget(self.level_3_attack_death)
+        self.screenmanager.add_widget(screen)
+
+        self.level_3_tactical_death = Level_3_tactical_death(h.race, h.hp, h.stealth, h.str, h.charisma, h.home)
+        screen = Screen(name="Level 3 tactical death")
+        screen.add_widget(self.level_3_tactical_death)
+        self.screenmanager.add_widget(screen)
