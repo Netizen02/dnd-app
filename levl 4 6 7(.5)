@@ -124,8 +124,8 @@ with us if you want this to succeed”
 """, color=(0, 0, 0, 1)))
 
         choice = GridLayout(cols=2, rows=1)
-        lonebutton = Button(text="Do not attack the fort")
-        helpbutton = Button(text="Attack the fort")
+        lonebutton = Button(text="Refuse help")
+        helpbutton = Button(text="Accept help")
         lonebutton.bind(on_press=self.lone)
         helpbutton.bind(on_press=self.help)
         choice.add_widget(lonebutton)
