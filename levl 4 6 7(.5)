@@ -1,0 +1,1343 @@
+class Level_4_intro_page(character,BoxLayout):
+    _disabled_count = 0
+
+    def __init__(self, race, hp, stealth, strength, charisma, home, **kwargs):
+
+        character.__init__(self, race, hp, stealth, strength, charisma, home)
+        BoxLayout.__init__(self, **kwargs)
+        self.orientation = "vertical"
+
+        self.level_4_intro_page()
+
+    def level_4_intro_page(self):
+        frame = GridLayout(cols=1, rows=1, size_hint_y=None)
+        frame.bind(minimum_height=frame.setter('height'))
+        scroll = ScrollView(do_scroll_x=False, do_scroll_y=True, size_hint=(1, None),
+                            size=(Window.width, Window.height * (1 / 3)))
+        texta = Label(text=f"""The road has been long.On the
+way you learnt more about Revan, 
+the man leading the mercenaries.Before
+long you could see it,Ruthorham’s gold
+central spire towering above everything
+surrounding it.On the road you had heard
+that a group of mercenaries had essentially
+taken over one of the town’s forts.As soon as
+you entered the town, you knew the rumours were
+true. The vile mercenaries were roaming the streets
+like they owned the damn place.You’re almost tempted
+to head straight to the fort and take them
+all on at once.\n""", color=(0, 0, 0, 1), size_hint=(1, None), pos=(self.width, 400))
+        frame.add_widget(texta)
+        scroll.add_widget(frame)
+        self.add_widget(scroll)
+
+        self.add_widget(Label(text=f"""Do you give in to your temptations? Or tackle it more rationally.
+""", color=(0, 0, 0, 1)))
+
+        choice = GridLayout(cols=2, rows=1)
+        rationalbutton = Button(text="Do not attack the fort")
+        aggressivebutton = Button(text="Attack the fort")
+        rationalbutton.bind(on_press=self.rational)
+        aggressivebutton.bind(on_press=self.aggressive)
+        choice.add_widget(rationalbutton)
+        choice.add_widget(aggressivebutton)
+        self.add_widget(choice)
+
+    def rational(self, instance):
+        game.screenmanager.current = "Level 4 sane"
+        pass
+
+    def aggressive(self, instance):
+        game.screenmanager.current = "Level 4 fort attack"
+        pass
+
+
+
+class Level_4_sane(character,BoxLayout):
+    _disabled_count = 0
+
+    def __init__(self, race, hp, stealth, strength, charisma, home, **kwargs):
+
+        character.__init__(self, race, hp, stealth, strength, charisma, home)
+        BoxLayout.__init__(self, **kwargs)
+        self.orientation = "vertical"
+
+        self.level_4_sane()
+
+    def level_4_sane(self):
+        frame = GridLayout(cols=1, rows=1, size_hint_y=None)
+        frame.bind(minimum_height=frame.setter('height'))
+        scroll = ScrollView(do_scroll_x=False, do_scroll_y=True, size_hint=(1, None),
+                            size=(Window.width, Window.height * (1 / 3)))
+        texta = Label(text=f"""You calm yourself down, and head to
+the town inn to get more information.
+You find a nice corner for yourself and
+start looking around for suspicious folk.
+No need to look very hard though, as you
+see 4 hooded men staring at you, they seem
+the unsavoury kind. You retire to your
+chambers, knowing they are following you.
+You enter a dark hallway and immediately 
+draw out your {weapon}, but before you can
+turn around you’re knocked on the ground,with
+the men surrounding you.
+
+“Slow as ever {name},It’s a wonder you’re 
+still alive without us”
+
+You recognized his voice immediately
+”Screw you Deruvur!” You shout.
+
+Your war buddies always knew how to make you
+look like a fool, you just didn't expect to see
+them here.
+
+“What are you guys doing here anyway?”
+
+“Well we heard about the inn at Dragontail Walk,
+traced it to Hera. We’ve been chasing her ever since
+the war ended. Why are you here?” 
+
+“I was in Dragontail Walk when the attack
+happened,hadnto find out who was behind it.
+Who is this Hera anyway?
+
+“She is Revan’s right hand man. She was 
+there the night our squad was sent to Dewvault.
+We’re positive she is the one who killed Haldi
+that night. We have to avenge him”
+
+“Woah, there’s no we here guys, this is my fight.
+I need to do this alone”
+
+The guys look at each other,”Are you 
+joking {name},you’d have to be crazy to
+think you can take them all out alone.
+It’s a whole bloody army.You better come
+with us if you want this to succeed”
+\n""", color=(0, 0, 0, 1), size_hint=(1, None), pos=(self.width, 400))
+        frame.add_widget(texta)
+        scroll.add_widget(frame)
+        self.add_widget(scroll)
+
+        self.add_widget(Label(text=f"""Do you take their help? Or do you still prefer being a lone wolf
+""", color=(0, 0, 0, 1)))
+
+        choice = GridLayout(cols=2, rows=1)
+        lonebutton = Button(text="Do not attack the fort")
+        helpbutton = Button(text="Attack the fort")
+        lonebutton.bind(on_press=self.lone)
+        helpbutton.bind(on_press=self.help)
+        choice.add_widget(lonebutton)
+        choice.add_widget(helpbutton)
+        self.add_widget(choice)
+
+    def lone(self, instance):
+        game.screenmanager.current = "Level 4 lone"
+        pass
+
+    def help(self, instance):
+        game.screenmanager.current = "Level 4 help"
+        pass
+
+
+class Level_4_lone(character, BoxLayout):
+    _disabled_count = 0
+
+    def __init__(self, race, hp, stealth, strength, charisma, home, **kwargs):
+        character.__init__(self, race, hp, stealth, strength, charisma, home)
+        BoxLayout.__init__(self, **kwargs)
+        self.orientation = "vertical"
+
+        self.level_4_lone()
+
+    def level_4_lone(self):
+        frame = GridLayout(cols=1, rows=1, size_hint_y=None)
+        frame.bind(minimum_height=frame.setter('height'))
+        scroll = ScrollView(do_scroll_x=False, do_scroll_y=True, size_hint=(1, None),
+                            size=(Window.width, Window.height * (1 / 3)))
+        texta = Label(text=f"""“I’m sorry guys, you’d just slow me down”
+
+“Okay you’ve officially lost it buddy. Do you
+have a plan? What do you think you’ll do even
+if you somehow manage to climb those massive 50
+feet walls undetected. Do you expect Hera will
+just surrender after seeing you amazing climbing
+skills?You don’t even have the gear to take them on”
+
+“....”
+
+“Yeah I thought so, now shut up and follow us”
+
+You begrudgingly tag along. 
+They were right though, it’s not like you could have 
+done anything alone.
+""", color=(0, 0, 0, 1), size_hint=(1, None), pos=(self.width, 400))
+        frame.add_widget(texta)
+        scroll.add_widget(frame)
+        self.add_widget(scroll)
+
+        self.add_widget(Label(text=f"""""", color=(0, 0, 0, 1)))
+
+        choice = GridLayout(cols=1, rows=1)
+        nextbutton = Button(text="Next")
+        nextbutton.bind(on_press=self.proceed_1)
+        choice.add_widget(nextbutton)
+        self.add_widget(choice)
+
+    def proceed_1(self, instance):
+        game.screenmanager.current = "Level 4 safehouse"
+
+
+class Level_4_help(character, BoxLayout):
+    _disabled_count = 0
+    h.stealth +=50
+    def __init__(self, race, hp, stealth, strength, charisma, home, **kwargs):
+        character.__init__(self, race, hp, stealth, strength, charisma, home)
+        BoxLayout.__init__(self, **kwargs)
+        self.orientation = "vertical"
+
+        self.level_4_help()
+
+    def level_4_help(self):
+        frame = GridLayout(cols=1, rows=1, size_hint_y=None)
+        frame.bind(minimum_height=frame.setter('height'))
+        scroll = ScrollView(do_scroll_x=False, do_scroll_y=True, size_hint=(1, None),
+                            size=(Window.width, Window.height * (1 / 3)))
+        texta = Label(text=f"""“I guess you are right, just like
+the old days eh”
+
+“That’s my boy!Now quickly, follow us to
+our room, we have a plan you might be interested
+in hearing. Oh and drink this, for luck.
+""", color=(0, 0, 0, 1), size_hint=(1, None), pos=(self.width, 400))
+        frame.add_widget(texta)
+        scroll.add_widget(frame)
+        self.add_widget(scroll)
+
+        self.add_widget(Label(text=f"""""", color=(0, 0, 0, 1)))
+
+        choice = GridLayout(cols=1, rows=1)
+        nextbutton = Button(text="Next")
+        nextbutton.bind(on_press=self.proceed_1)
+        choice.add_widget(nextbutton)
+        self.add_widget(choice)
+
+    def proceed_1(self, instance):
+        game.screenmanager.current = "Level 4 safehouse"
+
+class Level_4_fort_attack(character, BoxLayout):
+    _disabled_count = 0
+
+    def __init__(self, race, hp, stealth, strength, charisma, home, **kwargs):
+        character.__init__(self, race, hp, stealth, strength, charisma, home)
+        BoxLayout.__init__(self, **kwargs)
+        self.orientation = "vertical"
+
+        self.level_4_fort_attack()
+
+    def level_4_fort_attack(self):
+        frame = GridLayout(cols=1, rows=1, size_hint_y=None)
+        frame.bind(minimum_height=frame.setter('height'))
+        scroll = ScrollView(do_scroll_x=False, do_scroll_y=True, size_hint=(1, None),
+                            size=(Window.width, Window.height * (1 / 3)))
+        texta = Label(text=f"""As you get closer to the fort
+you start seeing less of the mercenaries.
+You survey the location and find what seems
+to be a rather neglected portion of the wall.
+After making sure the coast was clear, you
+climb the wall and get inside.
+It’s quiet, too quiet.
+
+You enter the first room to your left,there you
+find shipping manifests.It seems they packed everything
+the night before and left for Mount Lynaru.You grab whatever
+information you can and exit the room.As soon as you
+step into the main courtyard you hear a voice
+
+‘What’s this, a rat in the darkness’
+
+You look up and see a commander staring at you
+from the walls.It’s Hera!
+
+‘Darling, I’m afraid you’re trespassing,and those
+notes you found in there are confidential.Around 
+here that sort of an offence means execution.
+Get him boys!’
+
+You pull out your {weapon} as mercenaries start 
+rappelling down the walls.
+""", color=(0, 0, 0, 1), size_hint=(1, None), pos=(self.width, 400))
+        frame.add_widget(texta)
+        scroll.add_widget(frame)
+        self.add_widget(scroll)
+
+        self.add_widget(Label(text=f"""""", color=(0, 0, 0, 1)))
+
+        choice = GridLayout(cols=1, rows=1)
+        nextbutton = Button(text="Next")
+        nextbutton.bind(on_press=self.proceed_1)
+        choice.add_widget(nextbutton)
+        self.add_widget(choice)
+
+    def proceed_1(self, instance):
+        game.screenmanager.current = "Level 5 solo"
+
+
+class Level_4_safehouse(character, BoxLayout):
+    _disabled_count = 0
+
+    def __init__(self, race, hp, stealth, strength, charisma, home, **kwargs):
+        character.__init__(self, race, hp, stealth, strength, charisma, home)
+        BoxLayout.__init__(self, **kwargs)
+        self.orientation = "vertical"
+
+        self.level_4_safehouse()
+
+    def level_4_safehouse(self):
+        frame = GridLayout(cols=1, rows=1, size_hint_y=None)
+        frame.bind(minimum_height=frame.setter('height'))
+        scroll = ScrollView(do_scroll_x=False, do_scroll_y=True, size_hint=(1, None),
+                            size=(Window.width, Window.height * (1 / 3)))
+        texta = Label(text=f"""They take you to an underground room.
+After fumbling around with the keys,Deruvur
+manages to open the door.
+
+‘What is this place?’ You ask
+
+‘This is our safehouse, make yourself comfortable’
+
+You walk around the room and find everyone’s gear
+stacked in a corner. They were still as unorganized
+as they were during the war.
+
+Caldor tapped your shoulder,’Mind joining us,we’ll
+show you the plan’
+
+‘We suspect Revan and Hera are in town, specifically
+in the fort.Lucky for us their guards don’t have a very
+strong sense of loyalty.We bribed one of them and he’ll
+be here soon with the fort schematics and Revan’s 
+location.I’d suggest get some sleep till he arrives”
+
+A few hours later you hear a knock on the door.
+
+Caldor gets up and says ‘What is the music of life?’
+
+‘Silence my friend’ says the man on the door
+
+Caldor opens the door,’Took you long enough,do you have 
+the information?’
+
+‘Yes’ says Anor,the spy. ‘But you won’t like it.Revan has
+emptied the fort and is moving everyone to a base in Mt.Lynaru.
+He wants to lay low for a while there.Here are the orders
+he sent everyone.He left Hera in charge here’
+
+‘Good job Anor,here’s your payment’,says Deruvur as he hands
+him a pouch of gold.
+
+Something feels off though.
+""", color=(0, 0, 0, 1), size_hint=(1, None), pos=(self.width, 400))
+        frame.add_widget(texta)
+        scroll.add_widget(frame)
+        self.add_widget(scroll)
+
+        self.add_widget(Label(text=f"""""", color=(0, 0, 0, 1)))
+
+        choice = GridLayout(cols=1, rows=1)
+        nextbutton = Button(text="Next")
+        nextbutton.bind(on_press=self.proceed_1)
+        choice.add_widget(nextbutton)
+        self.add_widget(choice)
+
+    def proceed_1(self, instance):
+        if h.race=='Dwarf':
+            game.screenmanager.current = "Level 4 Dwarf"
+        else:
+            game.screenmanager.current = "Level 4 No Dwarf"
+
+
+class Level_4_No_Dwarf(character,BoxLayout):
+    _disabled_count = 0
+
+    def __init__(self, race, hp, stealth, strength, charisma, home, **kwargs):
+
+        character.__init__(self, race, hp, stealth, strength, charisma, home)
+        BoxLayout.__init__(self, **kwargs)
+        self.orientation = "vertical"
+
+        self.level_4_No_Dwarf()
+
+    def level_4_No_Dwarf(self):
+        frame = GridLayout(cols=1, rows=1, size_hint_y=None)
+        frame.bind(minimum_height=frame.setter('height'))
+        scroll = ScrollView(do_scroll_x=False, do_scroll_y=True, size_hint=(1, None),
+                            size=(Window.width, Window.height * (1 / 3)))
+        texta = Label(text=f"""Anor quickly leaves. A few minutes later
+you notice something stuck under the table.
+You gather everyone around.It looks like a bomb
+
+‘Anor!Should have expected he’d betray us too.
+What do we do about this’
+
+Suddenly you hear footsteps approaching the 
+safehouse,and metal clanking.
+
+‘Soldiers.He sold us out!Only way out is through
+the door and they know it’ says Caldor 
+
+‘Then let's not keep them waiting’ you say as you 
+grab your {weapon}.You barge out the door together 
+and see yourself surrounded by the mercenaries.
+\n""", color=(0, 0, 0, 1), size_hint=(1, None), pos=(self.width, 400))
+        frame.add_widget(texta)
+        scroll.add_widget(frame)
+        self.add_widget(scroll)
+
+        self.add_widget(Label(text=f"""Do you fight them, or try and disappear?
+""", color=(0, 0, 0, 1)))
+
+        choice = GridLayout(cols=2, rows=1)
+        fightbutton = Button(text="Fight")
+        escapebutton = Button(text="Run")
+        fightbutton.bind(on_press=self.fight)
+        escapebutton.bind(on_press=self.escape)
+        choice.add_widget(fightbutton)
+        choice.add_widget(escapebutton)
+        self.add_widget(choice)
+
+    def fight(self, instance):
+        game.screenmanager.current = "Level 5 group fight"
+        pass
+    def escape(self, instance):
+        if h.stealth>=550:
+            game.screenmanager.current = "Level 4 disappear"
+            pass
+        else:
+            game.screenmanager.current = "Level 4 no disappear"
+            pass
+
+
+
+class Level_4_disappear(character, BoxLayout):
+    _disabled_count = 0
+
+    def __init__(self, race, hp, stealth, strength, charisma, home, **kwargs):
+        character.__init__(self, race, hp, stealth, strength, charisma, home)
+        BoxLayout.__init__(self, **kwargs)
+        self.orientation = "vertical"
+
+        self.level_4_disappear()
+
+    def level_4_disappear(self):
+        frame = GridLayout(cols=1, rows=1, size_hint_y=None)
+        frame.bind(minimum_height=frame.setter('height'))
+        scroll = ScrollView(do_scroll_x=False, do_scroll_y=True, size_hint=(1, None),
+                            size=(Window.width, Window.height * (1 / 3)))
+        texta = Label(text=f"""Deruvur fires an arrow and tells you
+all to duck. It explodes and creates
+a blinding light,disorienting the
+soldiers for a few seconds.You quickly
+use all your smoke bombs to cover your
+team’s escape as you cut through them.
+You manage to get out,but the soldiers 
+are chasing you. The entire town is on 
+high alert,and the city gates are 
+closed.
+
+‘{name}, head for the sewers.Use them 
+to get out of the city, we’ll stay here 
+and cover keep them busy’
+
+‘I’m not leaving you guys!’
+
+‘No time to argue!This is our only shot at
+getting to Revan’,with that,Caldor pushes 
+you down the manhole. It’s a rough fall but
+you can hear the fighting above.There is 
+nothing you can do for them now.
+
+After a few hours in horrible stench you make
+it out of the sewers and emerge outside the
+city. In the distance you see Mt.Lynaru.
+Revan will pay,this time it’s personal.
+""", color=(0, 0, 0, 1), size_hint=(1, None), pos=(self.width, 400))
+        frame.add_widget(texta)
+        scroll.add_widget(frame)
+        self.add_widget(scroll)
+
+        self.add_widget(Label(text=f"""""", color=(0, 0, 0, 1)))
+
+        choice = GridLayout(cols=1, rows=1)
+        nextbutton = Button(text="Next")
+        nextbutton.bind(on_press=self.proceed_1)
+        choice.add_widget(nextbutton)
+        self.add_widget(choice)
+
+    def proceed_1(self, instance):
+        game.screenmanager.current = "Level 6 Intro"
+
+
+
+class Level_4_no_disappear(character, BoxLayout):
+    _disabled_count = 0
+
+    def __init__(self, race, hp, stealth, strength, charisma, home, **kwargs):
+        character.__init__(self, race, hp, stealth, strength, charisma, home)
+        BoxLayout.__init__(self, **kwargs)
+        self.orientation = "vertical"
+
+        self.level_4_no_disappear()
+
+    def level_4_no_disappear(self):
+        frame = GridLayout(cols=1, rows=1, size_hint_y=None)
+        frame.bind(minimum_height=frame.setter('height'))
+        scroll = ScrollView(do_scroll_x=False, do_scroll_y=True, size_hint=(1, None),
+                            size=(Window.width, Window.height * (1 / 3)))
+        texta = Label(text=f"""Deruvur fires an arrow and tells you
+all to duck. It explodes and creates a
+blinding light,disorienting the soldiers
+for a few seconds.You quickly use all your
+smoke bombs to cover your team’s escape 
+as you cut through them. You manage to get
+out,but the soldiers are chasing you.
+The entire town is on high alert,and the city
+gates are closed.
+
+‘Well that was worth a short’
+
+The soldiers quickly surround you
+
+‘Just like the old days guys’ says Caldor
+""", color=(0, 0, 0, 1), size_hint=(1, None), pos=(self.width, 400))
+        frame.add_widget(texta)
+        scroll.add_widget(frame)
+        self.add_widget(scroll)
+
+        self.add_widget(Label(text=f"""""", color=(0, 0, 0, 1)))
+
+        choice = GridLayout(cols=1, rows=1)
+        nextbutton = Button(text="Next")
+        nextbutton.bind(on_press=self.proceed_1)
+        choice.add_widget(nextbutton)
+        self.add_widget(choice)
+
+    def proceed_1(self, instance):
+        game.screenmanager.current = "Level 5 group fight"
+
+
+class Level_4_Dwarf(character,BoxLayout):
+    _disabled_count = 0
+
+    def __init__(self, race, hp, stealth, strength, charisma, home, **kwargs):
+
+        character.__init__(self, race, hp, stealth, strength, charisma, home)
+        BoxLayout.__init__(self, **kwargs)
+        self.orientation = "vertical"
+
+        self.level_4_Dwarf()
+
+    def level_4_Dwarf(self):
+        frame = GridLayout(cols=1, rows=1, size_hint_y=None)
+        frame.bind(minimum_height=frame.setter('height'))
+        scroll = ScrollView(do_scroll_x=False, do_scroll_y=True, size_hint=(1, None),
+                            size=(Window.width, Window.height * (1 / 3)))
+        texta = Label(text=f"""Anor quickly leaves. A few minutes later
+you notice something stuck under the table.
+You gather everyone around.It looks like a 
+bomb
+
+‘Anor!Should have expected he’d betray us too.
+What do we do about this’
+
+Suddenly you hear footsteps approaching the 
+safehouse,and metal clanking.
+
+‘Soldiers.He sold us out!Only way out is through
+the door and they know it’ says Caldor
+
+‘Actually,no’ says Deruvur as he slides a cabinet.
+‘This is a secret passageway that leads to the old
+underground tunnels.It’s small but we can easily fit.’
+
+‘Why didn’t you tell us about this before?’
+
+‘You never asked’
+\n""", color=(0, 0, 0, 1), size_hint=(1, None), pos=(self.width, 400))
+        frame.add_widget(texta)
+        scroll.add_widget(frame)
+        self.add_widget(scroll)
+
+        self.add_widget(Label(text=f"""Do you fight them, or try and escape?
+""", color=(0, 0, 0, 1)))
+
+        choice = GridLayout(cols=2, rows=1)
+        fightbutton = Button(text="Fight")
+        escapebutton = Button(text="escape")
+        fightbutton.bind(on_press=self.fight)
+        escapebutton.bind(on_press=self.escape)
+        choice.add_widget(fightbutton)
+        choice.add_widget(escapebutton)
+        self.add_widget(choice)
+
+    def fight(self, instance):
+        game.screenmanager.current = "Level 5 group fight"
+        pass
+    def escape(self, instance):
+        game.screenmanager.current = "Level 4 dwarf escape"
+        pass
+
+
+class Level_4_Dwarf_escape(character, BoxLayout):
+    _disabled_count = 0
+
+    def __init__(self, race, hp, stealth, strength, charisma, home, **kwargs):
+        character.__init__(self, race, hp, stealth, strength, charisma, home)
+        BoxLayout.__init__(self, **kwargs)
+        self.orientation = "vertical"
+
+        self.level_4_Dwarf_escape()
+
+    def level_4_Dwarf_escape(self):
+        frame = GridLayout(cols=1, rows=1, size_hint_y=None)
+        frame.bind(minimum_height=frame.setter('height'))
+        scroll = ScrollView(do_scroll_x=False, do_scroll_y=True, size_hint=(1, None),
+                            size=(Window.width, Window.height * (1 / 3)))
+        texta = Label(text=f"""The team quickly enters the passageway.
+Before long, the bomb goes off and 
+the walls of the safehouse collapse,
+blocking the passageway entrance.
+Only way out is ahead.
+
+After a few hours in the dark passageway 
+and tunnels you emerge outside the city.
+
+‘What do we do now’? You ask
+
+‘We came here for Hera, i’m not leaving till
+she’s dead’
+
+‘That’s your fight.I’m heading for the mountain,
+for Revan’
+
+‘Don’t be foolish {name}’ shouts Caldor
+
+‘You didn't see what he did to Dragontail Walk!
+I was there.All the screams,the lives lost,hell I
+should have died there too! Revan needs to answer.
+I don’t care if I die up there, I owe it to myself
+to try.’
+ 
+‘In that case,good luck.Remember you can always return here.
+You know how to find us’
+
+‘I do,I’ll see you guys soon’
+
+You set out alone,Lynaru in the distance.
+""", color=(0, 0, 0, 1), size_hint=(1, None), pos=(self.width, 400))
+        frame.add_widget(texta)
+        scroll.add_widget(frame)
+        self.add_widget(scroll)
+
+        self.add_widget(Label(text=f"""""", color=(0, 0, 0, 1)))
+
+        choice = GridLayout(cols=1, rows=1)
+        nextbutton = Button(text="Next")
+        nextbutton.bind(on_press=self.proceed_1)
+        choice.add_widget(nextbutton)
+        self.add_widget(choice)
+
+    def proceed_1(self, instance):
+        game.screenmanager.current = "Level 6 Intro"
+
+
+class Level_6_intro_page(character, BoxLayout):
+    _disabled_count = 0
+
+    def __init__(self, race, hp, stealth, strength, charisma, home, **kwargs):
+        character.__init__(self, race, hp, stealth, strength, charisma, home)
+        BoxLayout.__init__(self, **kwargs)
+        self.orientation = "vertical"
+
+        self.level_6_intro_page()
+
+    def level_6_intro_page(self):
+        frame = GridLayout(cols=1, rows=1, size_hint_y=None)
+        frame.bind(minimum_height=frame.setter('height'))
+        scroll = ScrollView(do_scroll_x=False, do_scroll_y=True, size_hint=(1, None),
+                            size=(Window.width, Window.height * (1 / 3)))
+        texta = Label(text=f"""Mt.Lynaru, one of the tallest mountains in
+the realm. You had never been this
+close to it before. After taking a
+few moments to admire the view around,
+you snap out of it and remember why you
+are here.It’s time to get to Revan
+""", color=(0, 0, 0, 1), size_hint=(1, None), pos=(self.width, 400))
+        frame.add_widget(texta)
+        scroll.add_widget(frame)
+        self.add_widget(scroll)
+
+        self.add_widget(Label(text=f"""""", color=(0, 0, 0, 1)))
+
+        choice = GridLayout(cols=1, rows=1)
+        nextbutton = Button(text="Next")
+        nextbutton.bind(on_press=self.proceed_1)
+        choice.add_widget(nextbutton)
+        self.add_widget(choice)
+
+    def proceed_1(self, instance):
+        if h.race=='Rito':
+            game.screenmanager.current = "Level 6 Rito"
+        else:
+            game.screenmanager.current = "Level 6 climb"
+
+
+class Level_6_Rito(character, BoxLayout):
+    _disabled_count = 0
+
+    def __init__(self, race, hp, stealth, strength, charisma, home, **kwargs):
+        character.__init__(self, race, hp, stealth, strength, charisma, home)
+        BoxLayout.__init__(self, **kwargs)
+        self.orientation = "vertical"
+
+        self.level_6_Rito()
+
+    def level_6_Rito(self):
+        frame = GridLayout(cols=1, rows=1, size_hint_y=None)
+        frame.bind(minimum_height=frame.setter('height'))
+        scroll = ScrollView(do_scroll_x=False, do_scroll_y=True, size_hint=(1, None),
+                            size=(Window.width, Window.height * (1 / 3)))
+        texta = Label(text=f"""You immediately fly to the top of
+the mountain.The feeling of wind on
+your wings brings back memories of 
+a time when you were safe. 
+You feel better and your resolve is stronger.
+""", color=(0, 0, 0, 1), size_hint=(1, None), pos=(self.width, 400))
+        frame.add_widget(texta)
+        scroll.add_widget(frame)
+        self.add_widget(scroll)
+
+        self.add_widget(Label(text=f"""""", color=(0, 0, 0, 1)))
+
+        choice = GridLayout(cols=1, rows=1)
+        nextbutton = Button(text="Next")
+        nextbutton.bind(on_press=self.proceed_1)
+        choice.add_widget(nextbutton)
+        self.add_widget(choice)
+
+    def proceed_1(self, instance):
+        game.screenmanager.current = "Level 7 courtyard"
+
+
+
+class Level_6_climb(character,BoxLayout):
+    _disabled_count = 0
+
+    def __init__(self, race, hp, stealth, strength, charisma, home, **kwargs):
+
+        character.__init__(self, race, hp, stealth, strength, charisma, home)
+        BoxLayout.__init__(self, **kwargs)
+        self.orientation = "vertical"
+
+        self.level_6_climb()
+
+    def level_6_climb(self):
+        frame = GridLayout(cols=1, rows=1, size_hint_y=None)
+        frame.bind(minimum_height=frame.setter('height'))
+        scroll = ScrollView(do_scroll_x=False, do_scroll_y=True, size_hint=(1, None),
+                            size=(Window.width, Window.height * (1 / 3)))
+        texta = Label(text=f""" It’s a long, hard climb.But that
+will not stop you, for you are
+filled with determination.
+You begin your journey up the
+great mountain. Good thing you
+already had some mountain climbing
+experience from the war, so it did
+not prove too challenging.
+
+A few hours later, while you were 
+resting in a small cave, you noticed 
+a rather odd shape on a cliffside near
+you.You decide to investigate it.As you 
+got closer you see that it is a small 
+rock-cut statue with a few stone bowls 
+near it.\n""", color=(0, 0, 0, 1), size_hint=(1, None), pos=(self.width, 400))
+        frame.add_widget(texta)
+        scroll.add_widget(frame)
+        self.add_widget(scroll)
+
+        self.add_widget(Label(text=f"""Do you want to make an offering?""", color=(0, 0, 0, 1)))
+
+        choice = GridLayout(cols=2, rows=1)
+        yesbutton = Button(text="Yes")
+        nobutton = Button(text="No")
+        yesbutton.bind(on_press=self.yes)
+        nobutton.bind(on_press=self.no)
+        choice.add_widget(yesbutton)
+        choice.add_widget(nobutton)
+        self.add_widget(choice)
+
+    def yes(self, instance):
+        game.screenmanager.current = "Level 6 offering"
+        pass
+    def no(self, instance):
+        game.screenmanager.current = "Level 6 no offering"
+        pass
+
+
+
+class Level_6_yes(character, BoxLayout):
+    _disabled_count = 0
+
+    def __init__(self, race, hp, stealth, strength, charisma, home, **kwargs):
+        character.__init__(self, race, hp, stealth, strength, charisma, home)
+        BoxLayout.__init__(self, **kwargs)
+        self.orientation = "vertical"
+
+        self.level_6_yes()
+
+    def level_6_yes(self):
+        frame = GridLayout(cols=1, rows=1, size_hint_y=None)
+        frame.bind(minimum_height=frame.setter('height'))
+        scroll = ScrollView(do_scroll_x=False, do_scroll_y=True, size_hint=(1, None),
+                            size=(Window.width, Window.height * (1 / 3)))
+        texta = Label(text=f"""Nothing happens at first.You aren’t
+surprised and begin to leave,when you
+notice the shrine begins to glow.
+It’s dim initially, but it’s intensity
+increases.You touch the statue and find
+it’s warm.You start feeling stronger and your
+injuries begin healing.After a while it stops
+and everything goes back to normal.
+
+Was it a blessing?You’re not sure.All you 
+know is that you feel a lot better.
+With your rejuvenated confidence,you 
+proceed up the mountain.
+""", color=(0, 0, 0, 1), size_hint=(1, None), pos=(self.width, 400))
+        frame.add_widget(texta)
+        scroll.add_widget(frame)
+        self.add_widget(scroll)
+
+        self.add_widget(Label(text=f"""""", color=(0, 0, 0, 1)))
+
+        choice = GridLayout(cols=1, rows=1)
+        nextbutton = Button(text="Next")
+        nextbutton.bind(on_press=self.proceed_1)
+        choice.add_widget(nextbutton)
+        self.add_widget(choice)
+
+    def proceed_1(self, instance):
+        game.screenmanager.current = "Level 7 Intro"
+
+
+
+class Level_6_no(character, BoxLayout):
+    _disabled_count = 0
+
+    def __init__(self, race, hp, stealth, strength, charisma, home, **kwargs):
+        character.__init__(self, race, hp, stealth, strength, charisma, home)
+        BoxLayout.__init__(self, **kwargs)
+        self.orientation = "vertical"
+
+        self.level_6_no()
+
+    def level_6_no(self):
+        frame = GridLayout(cols=1, rows=1, size_hint_y=None)
+        frame.bind(minimum_height=frame.setter('height'))
+        scroll = ScrollView(do_scroll_x=False, do_scroll_y=True, size_hint=(1, None),
+                            size=(Window.width, Window.height * (1 / 3)))
+        texta = Label(text=f"""‘But nothing more than a rock sculpture’
+
+You turn back and rest in the cave.
+After a while, you continue up the
+mountain.One way or another,
+you know your journey will end soon.
+""", color=(0, 0, 0, 1), size_hint=(1, None), pos=(self.width, 400))
+        frame.add_widget(texta)
+        scroll.add_widget(frame)
+        self.add_widget(scroll)
+
+        self.add_widget(Label(text=f"""""", color=(0, 0, 0, 1)))
+
+        choice = GridLayout(cols=1, rows=1)
+        nextbutton = Button(text="Next")
+        nextbutton.bind(on_press=self.proceed_1)
+        choice.add_widget(nextbutton)
+        self.add_widget(choice)
+
+    def proceed_1(self, instance):
+        game.screenmanager.current = "Level 7 Intro"
+
+
+
+class Level_7_intro_page(character,BoxLayout):
+    _disabled_count = 0
+
+    def __init__(self, race, hp, stealth, strength, charisma, home, **kwargs):
+
+        character.__init__(self, race, hp, stealth, strength, charisma, home)
+        BoxLayout.__init__(self, **kwargs)
+        self.orientation = "vertical"
+
+        self.level_7_intro_page()
+
+    def level_7_intro_page(self):
+        frame = GridLayout(cols=1, rows=1, size_hint_y=None)
+        frame.bind(minimum_height=frame.setter('height'))
+        scroll = ScrollView(do_scroll_x=False, do_scroll_y=True, size_hint=(1, None),
+                            size=(Window.width, Window.height * (1 / 3)))
+        texta = Label(text=f""" You arrive at Revan’s camp. It’s pretty 
+impressive he was able to set it
+all up in just a few days. After
+scouting from a rock above the camp
+you find a path that leads to Revan’s tent.
+As you’re leaving you find a bottle with
+something in it.
+\n""", color=(0, 0, 0, 1), size_hint=(1, None), pos=(self.width, 400))
+        frame.add_widget(texta)
+        scroll.add_widget(frame)
+        self.add_widget(scroll)
+
+        self.add_widget(Label(text=f"""Do you drink it?""", color=(0, 0, 0, 1)))
+
+        choice = GridLayout(cols=2, rows=1)
+        yesbutton = Button(text="Yes")
+        nobutton = Button(text="No")
+        yesbutton.bind(on_press=self.yes)
+        nobutton.bind(on_press=self.no)
+        choice.add_widget(yesbutton)
+        choice.add_widget(nobutton)
+        self.add_widget(choice)
+
+    def yes(self, instance):
+        game.screenmanager.current = "Level 7 yes drink"
+        pass
+    def no(self, instance):
+        game.screenmanager.current = "Level 7 no drink"
+        pass
+
+
+
+class Level_7_yes_drink(character,BoxLayout):
+    _disabled_count = 0
+
+    def __init__(self, race, hp, stealth, strength, charisma, home, **kwargs):
+
+        character.__init__(self, race, hp, stealth, strength, charisma, home)
+        BoxLayout.__init__(self, **kwargs)
+        self.orientation = "vertical"
+
+        self.level_7_yes_drink()
+
+    def level_7_yes_drink(self):
+        frame = GridLayout(cols=1, rows=1, size_hint_y=None)
+        frame.bind(minimum_height=frame.setter('height'))
+        scroll = ScrollView(do_scroll_x=False, do_scroll_y=True, size_hint=(1, None),
+                            size=(Window.width, Window.height * (1 / 3)))
+        texta = Label(text=f"""It tastes like one of the skill
+enhancement potions handed out during the war.
+It’s not very effective but it still helps.
+\n""", color=(0, 0, 0, 1), size_hint=(1, None), pos=(self.width, 400))
+        frame.add_widget(texta)
+        scroll.add_widget(frame)
+        self.add_widget(scroll)
+
+        self.add_widget(Label(text=f"""Do you want to attack the camp?Or sneak in?""", color=(0, 0, 0, 1)))
+
+        choice = GridLayout(cols=2, rows=1)
+        attackbutton = Button(text="Attack")
+        sneakbutton = Button(text="Sneak")
+        attackbutton.bind(on_press=self.attack)
+        sneakbutton.bind(on_press=self.sneak)
+        choice.add_widget(attackbutton)
+        choice.add_widget(sneakbutton)
+        self.add_widget(choice)
+
+    def attack(self, instance):
+        if h.str >= 500:
+            game.screenmanager.current = "Level 7 attack"
+            pass
+        else:
+            game.screenmanager.current = "Level 7 no attack"
+            pass
+
+    def sneak(self, instance):
+        if h.stealth >= 600:
+            game.screenmanager.current = "Level 7 sneak"
+            pass
+        else:
+            game.screenmanager.current = "Level 7 no sneak"
+            pass
+
+
+class Level_7_no_drink(character,BoxLayout):
+    _disabled_count = 0
+
+    def __init__(self, race, hp, stealth, strength, charisma, home, **kwargs):
+
+        character.__init__(self, race, hp, stealth, strength, charisma, home)
+        BoxLayout.__init__(self, **kwargs)
+        self.orientation = "vertical"
+
+        self.level_7_no_drink()
+
+    def level_7_no_drink(self):
+        frame = GridLayout(cols=1, rows=1, size_hint_y=None)
+        frame.bind(minimum_height=frame.setter('height'))
+        scroll = ScrollView(do_scroll_x=False, do_scroll_y=True, size_hint=(1, None),
+                            size=(Window.width, Window.height * (1 / 3)))
+        texta = Label(text=f"""\n""", color=(0, 0, 0, 1), size_hint=(1, None), pos=(self.width, 400))
+        frame.add_widget(texta)
+        scroll.add_widget(frame)
+        self.add_widget(scroll)
+
+        self.add_widget(Label(text=f"""Do you want to attack the camp?Or sneak in?""", color=(0, 0, 0, 1)))
+
+        choice = GridLayout(cols=2, rows=1)
+        attackbutton = Button(text="Attack")
+        sneakbutton = Button(text="Sneak")
+        attackbutton.bind(on_press=self.attack)
+        sneakbutton.bind(on_press=self.sneak)
+        choice.add_widget(attackbutton)
+        choice.add_widget(sneakbutton)
+        self.add_widget(choice)
+
+    def attack(self, instance):
+        if h.str>=500:
+            game.screenmanager.current = "Level 7 attack"
+            pass
+        else:
+            game.screenmanager.current = "Level 7 no attack"
+            pass
+    def sneak(self, instance):
+        if h.stealth>=600:
+            game.screenmanager.current = "Level 7 sneak"
+            pass
+        else:
+            game.screenmanager.current = "Level 7 no sneak"
+            pass
+
+
+class Level_7_attack(character, BoxLayout):
+    _disabled_count = 0
+
+    def __init__(self, race, hp, stealth, strength, charisma, home, **kwargs):
+        character.__init__(self, race, hp, stealth, strength, charisma, home)
+        BoxLayout.__init__(self, **kwargs)
+        self.orientation = "vertical"
+
+        self.level_7_attack()
+
+    def level_7_attack(self):
+        frame = GridLayout(cols=1, rows=1, size_hint_y=None)
+        frame.bind(minimum_height=frame.setter('height'))
+        scroll = ScrollView(do_scroll_x=False, do_scroll_y=True, size_hint=(1, None),
+                            size=(Window.width, Window.height * (1 / 3)))
+        texta = Label(text=f"""You drop down on a guard below, neutralizing him.
+This attracts the attention of the entire 
+camp, but you don’t care. You’re here for 
+Revan, and nothing is going to stop you.
+
+An unmatched fury takes over you as you take 
+out the entire camp in combat.Seeing your rage
+and strength terrorizes your enemies, moments
+before they fall to your {weapon}. When the 
+dust settles, you stand victorious on a pile
+of mercenary corpses. But there’s no sign of Revan.
+You head to his tent to investigate.
+""", color=(0, 0, 0, 1), size_hint=(1, None), pos=(self.width, 400))
+        frame.add_widget(texta)
+        scroll.add_widget(frame)
+        self.add_widget(scroll)
+
+        self.add_widget(Label(text=f"""""", color=(0, 0, 0, 1)))
+
+        choice = GridLayout(cols=1, rows=1)
+        nextbutton = Button(text="Next")
+        nextbutton.bind(on_press=self.proceed_1)
+        choice.add_widget(nextbutton)
+        self.add_widget(choice)
+
+    def proceed_1(self, instance):
+        game.screenmanager.current = "Level 7 courtyard"
+
+
+
+class Level_7_attack_no(character, BoxLayout):
+    _disabled_count = 0
+
+    def __init__(self, race, hp, stealth, strength, charisma, home, **kwargs):
+        character.__init__(self, race, hp, stealth, strength, charisma, home)
+        BoxLayout.__init__(self, **kwargs)
+        self.orientation = "vertical"
+
+        self.level_7_attack_no()
+
+    def level_7_attack_no(self):
+        frame = GridLayout(cols=1, rows=1, size_hint_y=None)
+        frame.bind(minimum_height=frame.setter('height'))
+        scroll = ScrollView(do_scroll_x=False, do_scroll_y=True, size_hint=(1, None),
+                            size=(Window.width, Window.height * (1 / 3)))
+        texta = Label(text=f"""You drop down on a guard below,
+neutralizing him.This attracts the attention of
+the entire camp,and soon you find yourself facing
+an overwhelming force. You put up a good fight but
+the numbers are not in your favour, and you soon
+perish
+
+
+""", color=(0, 0, 0, 1), size_hint=(1, None), pos=(self.width, 400))
+        frame.add_widget(texta)
+        scroll.add_widget(frame)
+        self.add_widget(scroll)
+
+        self.add_widget(Label(text=f"""Game Over""", color=(0, 0, 0, 1)))
+
+
+
+
+class Level_7_sneak(character, BoxLayout):
+    _disabled_count = 0
+
+    def __init__(self, race, hp, stealth, strength, charisma, home, **kwargs):
+        character.__init__(self, race, hp, stealth, strength, charisma, home)
+        BoxLayout.__init__(self, **kwargs)
+        self.orientation = "vertical"
+
+        self.level_7_sneak()
+
+    def level_7_sneak(self):
+        frame = GridLayout(cols=1, rows=1, size_hint_y=None)
+        frame.bind(minimum_height=frame.setter('height'))
+        scroll = ScrollView(do_scroll_x=False, do_scroll_y=True, size_hint=(1, None),
+                            size=(Window.width, Window.height * (1 / 3)))
+        texta = Label(text=f"""You drop down into the camp, hiding
+in bushes and under carts as you 
+make your way through the camp.
+You take out archers in watchtowers
+and guards blocking your way.Finally
+you enter Revan’s tent, but find it
+to be empty
+""", color=(0, 0, 0, 1), size_hint=(1, None), pos=(self.width, 400))
+        frame.add_widget(texta)
+        scroll.add_widget(frame)
+        self.add_widget(scroll)
+
+        self.add_widget(Label(text=f"""""", color=(0, 0, 0, 1)))
+
+        choice = GridLayout(cols=1, rows=1)
+        nextbutton = Button(text="Next")
+        nextbutton.bind(on_press=self.proceed_1)
+        choice.add_widget(nextbutton)
+        self.add_widget(choice)
+
+    def proceed_1(self, instance):
+        game.screenmanager.current = "Level 7 Intro"
+
+
+
+class Level_7_sneak_no(character, BoxLayout):
+    _disabled_count = 0
+
+    def __init__(self, race, hp, stealth, strength, charisma, home, **kwargs):
+        character.__init__(self, race, hp, stealth, strength, charisma, home)
+        BoxLayout.__init__(self, **kwargs)
+        self.orientation = "vertical"
+
+        self.level_7_sneak_no()
+
+    def level_7_sneak_no(self):
+        frame = GridLayout(cols=1, rows=1, size_hint_y=None)
+        frame.bind(minimum_height=frame.setter('height'))
+        scroll = ScrollView(do_scroll_x=False, do_scroll_y=True, size_hint=(1, None),
+                            size=(Window.width, Window.height * (1 / 3)))
+        texta = Label(text=f"""You drop down into the camp, hiding
+in bushes and under carts as you
+make your way through the camp.
+An archer from a watchtower spots
+you and alerts everyone, and soon
+you find yourself facing an overwhelming
+force. You put up a good fight but
+the numbers are not in your favour,and
+you soon perish
+
+""", color=(0, 0, 0, 1), size_hint=(1, None), pos=(self.width, 400))
+        frame.add_widget(texta)
+        scroll.add_widget(frame)
+        self.add_widget(scroll)
+
+        self.add_widget(Label(text=f"""Game Over""", color=(0, 0, 0, 1)))
+        
+        
+
+
+###############################################################################################
+
+        self.level_4_intro_page = Level_4_intro_page(h.race, h.hp, h.stealth, h.str, h.charisma, h.home)
+        screen = Screen(name="Level 4 Intro")
+        screen.add_widget(self.level_4_intro_page)
+        self.screenmanager.add_widget(screen)
+
+
+        self.level_4_fort_attack = Level_4_fort_attack(h.race, h.hp, h.stealth, h.str, h.charisma, h.home)
+        screen = Screen(name="Level 4 fort attack")
+        screen.add_widget(self.level_4_fort_attack)
+        self.screenmanager.add_widget(screen)
+
+
+        self.level_4_sane = Level_4_sane(h.race, h.hp, h.stealth, h.str, h.charisma, h.home)
+        screen = Screen(name="Level 4 sane")
+        screen.add_widget(self.level_4_sane)
+        self.screenmanager.add_widget(screen)
+
+
+        self.level_4_lone = Level_4_lone(h.race, h.hp, h.stealth, h.str, h.charisma, h.home)
+        screen = Screen(name="Level 4 lone")
+        screen.add_widget(self.level_4_lone)
+        self.screenmanager.add_widget(screen)
+
+
+        self.level_4_help = Level_4_help(h.race, h.hp, h.stealth, h.str, h.charisma, h.home)
+        screen = Screen(name="Level 4 help")
+        screen.add_widget(self.level_4_help)
+        self.screenmanager.add_widget(screen)
+
+        self.level_4_safehouse = Level_4_safehouse(h.race, h.hp, h.stealth, h.str, h.charisma, h.home)
+        screen = Screen(name="Level 4 safehouse")
+        screen.add_widget(self.level_4_safehouse)
+        self.screenmanager.add_widget(screen)
+
+        self.level_4_Dwarf = Level_4_Dwarf(h.race, h.hp, h.stealth, h.str, h.charisma, h.home)
+        screen = Screen(name="Level 4 Dwarf")
+        screen.add_widget(self.level_4_Dwarf)
+        self.screenmanager.add_widget(screen)
+
+        self.level_4_No_Dwarf = Level_4_No_Dwarf(h.race, h.hp, h.stealth, h.str, h.charisma, h.home)
+        screen = Screen(name="Level 4 No Dwarf")
+        screen.add_widget(self.level_4_No_Dwarf)
+        self.screenmanager.add_widget(screen)
+
+        self.level_4_disappear = Level_4_disappear(h.race, h.hp, h.stealth, h.str, h.charisma, h.home)
+        screen = Screen(name="Level 4 disappear")
+        screen.add_widget(self.level_4_disappear)
+        self.screenmanager.add_widget(screen)
+
+        self.level_4_no_disappear = Level_4_no_disappear(h.race, h.hp, h.stealth, h.str, h.charisma, h.home)
+        screen = Screen(name="Level 4 safehouse")
+        screen.add_widget(self.level_4_no_disappear)
+        self.screenmanager.add_widget(screen)
+
+        self.level_4_Dwarf_escape = Level_4_Dwarf_escape(h.race, h.hp, h.stealth, h.str, h.charisma, h.home)
+        screen = Screen(name="Level 4 Dwarf escape")
+        screen.add_widget(self.level_4_Dwarf_escape)
+        self.screenmanager.add_widget(screen)
+
+        self.level_6_intro_page = Level_6_intro_page(h.race, h.hp, h.stealth, h.str, h.charisma, h.home)
+        screen = Screen(name="Level 6 Intro")
+        screen.add_widget(self.level_6_intro_page)
+        self.screenmanager.add_widget(screen)
+
+        self.level_6_Rito = Level_6_Rito(h.race, h.hp, h.stealth, h.str, h.charisma, h.home)
+        screen = Screen(name="Level 6 Rito")
+        screen.add_widget(self.level_6_Rito)
+        self.screenmanager.add_widget(screen)
+
+        self.level_6_climb = Level_6_climb(h.race, h.hp, h.stealth, h.str, h.charisma, h.home)
+        screen = Screen(name="Level 6 climb")
+        screen.add_widget(self.level_6_climb)
+        self.screenmanager.add_widget(screen)
+
+        self.level_6_yes = Level_6_yes(h.race, h.hp, h.stealth, h.str, h.charisma, h.home)
+        screen = Screen(name="Level 6 offering")
+        screen.add_widget(self.level_6_yes)
+        self.screenmanager.add_widget(screen)
+
+        self.level_6_no = Level_6_no(h.race, h.hp, h.stealth, h.str, h.charisma, h.home)
+        screen = Screen(name="Level 6 no offering")
+        screen.add_widget(self.level_6_no)
+        self.screenmanager.add_widget(screen)
+
+        self.level_7_intro = Level_7_intro_page(h.race, h.hp, h.stealth, h.str, h.charisma, h.home)
+        screen = Screen(name="Level 7 Intro")
+        screen.add_widget(self.level_7_intro)
+        self.screenmanager.add_widget(screen)
+
+        self.level_7_yes_drink = Level_7_yes_drink(h.race, h.hp, h.stealth, h.str, h.charisma, h.home)
+        screen = Screen(name="Level 7 yes drink")
+        screen.add_widget(self.level_7_yes_drink)
+        self.screenmanager.add_widget(screen)
+
+        self.level_7_no_drink = Level_7_no_drink(h.race, h.hp, h.stealth, h.str, h.charisma, h.home)
+        screen = Screen(name="Level 7 no drink")
+        screen.add_widget(self.level_7_no_drink)
+        self.screenmanager.add_widget(screen)
+
+        self.level_7_attack = Level_7_attack(h.race, h.hp, h.stealth, h.str, h.charisma, h.home)
+        screen = Screen(name="Level 7 attack")
+        screen.add_widget(self.level_7_attack)
+        self.screenmanager.add_widget(screen)
+
+        self.level_7_attack_no = Level_7_attack_no(h.race, h.hp, h.stealth, h.str, h.charisma, h.home)
+        screen = Screen(name="Level 7 no attack")
+        screen.add_widget(self.level_7_attack_no)
+        self.screenmanager.add_widget(screen)
+
+        self.level_7_sneak = Level_7_sneak(h.race, h.hp, h.stealth, h.str, h.charisma, h.home)
+        screen = Screen(name="Level 7 sneak")
+        screen.add_widget(self.level_7_sneak)
+        self.screenmanager.add_widget(screen)
+
+        self.level_7_sneak_no = Level_7_sneak_no(h.race, h.hp, h.stealth, h.str, h.charisma, h.home)
+        screen = Screen(name="Level 7 no sneak")
+        screen.add_widget(self.level_7_sneak_no)
+        self.screenmanager.add_widget(screen)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
