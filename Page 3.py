@@ -3438,6 +3438,7 @@ and see yourself surrounded by the mercenaries.
 
     def escape(self, instance):
         if h.stealth >= 550:
+            game.lvl4disappear()
             game.screenmanager.current = "Level 4 disappear"
         else:
             game.screenmanager.current = "Level 4 no disappear"
@@ -3690,6 +3691,7 @@ underground tunnels.It’s small but we can easily fit.’
             game.screenmanager.current = "Level 5 group game over"
 
     def escape(self, instance):
+        game.lvl4dwarfescape()
         game.screenmanager.current = "Level 4 dwarf escape"
 
 
