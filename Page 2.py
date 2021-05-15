@@ -6611,6 +6611,8 @@ class Home_page(BoxLayout):
         titledisplay = Label(text= f"""Dragon Tale Quest""", color = (0, 0, 0, 1), font_size = 32)
         self.add_widget(titledisplay)
         subtitledisplay = Label(text = f"""A Choose your Own adventure Story""", color = (0,0,0, 1), font_size = 20)
+        pic = Image(source='extra files for mini project\homescreen image.png')
+        self.add_widget(pic)
         self.add_widget(subtitledisplay)
         self.grid()
 
