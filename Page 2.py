@@ -59,24 +59,16 @@ class Level_6_intro_page(character, BoxLayout):
         self.bottom_bar()
 
     def bottom_bar(self):
-        grid = GridLayout(cols=4, rows=1, padding=5, spacing=10)
+        grid = GridLayout(cols=3, rows=1, padding=5, spacing=10)
         homescreen_button = Button(text="Home")
         music_button = Button(text="Music")
-        stop_music_button = Button(text = "Stop Music")
         back_button = Label(text=" ")
         grid.add_widget(back_button)
         grid.add_widget(homescreen_button)
         homescreen_button.bind(on_press=self.Homescreen)
         grid.add_widget(music_button)
         music_button.bind(on_press=self.music)
-        grid.add_widget(stop_music_button)
-        stop_music_button.bind(on_press= self.stop_music)
         self.add_widget(grid)
-
-    def stop_music(self, instance):
-        sound = SoundLoader.load(
-            'extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav')
-        sound.stop()
 
     def music(self,instance):
         sound = SoundLoader.load(
@@ -364,7 +356,6 @@ class Level_6_no(character, BoxLayout):
         grid = GridLayout(cols=4, rows=1, padding=5, spacing=10)
         homescreen_button = Button(text="Home")
         music_button = Button(text="Music")
-        stop_music_button = Button(text="Stop Music")
         back_button = Button(text="Back")
         grid.add_widget(back_button)
         back_button.bind(on_press=self.back)
@@ -372,14 +363,7 @@ class Level_6_no(character, BoxLayout):
         homescreen_button.bind(on_press=self.Homescreen)
         grid.add_widget(music_button)
         music_button.bind(on_press=self.music)
-        grid.add_widget(stop_music_button)
-        stop_music_button.bind(on_press=self.stop_music)
         self.add_widget(grid)
-
-    def stop_music(self, instance):
-        sound = SoundLoader.load(
-            'extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav')
-        sound.stop()
 
     def music(self, instance):
         sound = SoundLoader.load(
@@ -792,8 +776,8 @@ has led to this moment…
         else:
             game.screenmanager.current = "Level 7 attack 0"
 
-    def defend(self, instance):h.defense
-        if  == 0:
+    def defend(self, instance):
+        if h.defense == 0:
             game.screenmanager.current = "Level 7 defend 0"
             h.defense += 1
         elif h.defense == 1:
@@ -1725,7 +1709,7 @@ class Level_5_Duel_Decline(character, BoxLayout):
     def back(self, instance):
         game.screenmanager.current = "Level 5 solo"
 
-    def level_5_solo_human(self):
+    def level_5_duel_decline(self):
         frame = GridLayout(cols=1, rows=1, size_hint_y=None)
         frame.bind(minimum_height=frame.setter('height'))
         scroll = ScrollView(do_scroll_x=False, do_scroll_y=True, size_hint=(1, None),
@@ -1792,7 +1776,7 @@ class Level_5_Duel_Accept(character, BoxLayout):
     def back(self, instance):
         game.screenmanager.current = "Level 5 solo"
 
-    def level_5_solo_human(self):
+    def level_5_duel_Accept(self):
         frame = GridLayout(cols=1, rows=1, size_hint_y=None)
         frame.bind(minimum_height=frame.setter('height'))
         scroll = ScrollView(do_scroll_x=False, do_scroll_y=True, size_hint=(1, None),
@@ -1943,7 +1927,7 @@ class Level_5_solo_Game_over(character, BoxLayout):
         BoxLayout.__init__(self, **kwargs)
         self.orientation = "vertical"
 
-        self.level_5_duel_decline()
+        self.level_5_soloko()
         self.bottom_bar()
 
     def bottom_bar(self):
@@ -1965,7 +1949,7 @@ class Level_5_solo_Game_over(character, BoxLayout):
     def Homescreen(self, instance):
         game.screenmanager.current = "Home"
 
-    def level_5_solo_human(self):
+    def level_5_soloko(self):
         frame = GridLayout(cols=1, rows=1, size_hint_y=None)
         frame.bind(minimum_height=frame.setter('height'))
         scroll = ScrollView(do_scroll_x=False, do_scroll_y=True, size_hint=(1, None),
@@ -2229,7 +2213,7 @@ class Level_5_group_outside(character, BoxLayout):
     def Homescreen(self, instance):
         game.screenmanager.current = "Home"
 
-    def lvl5_group(self):
+    def lvl5_groupOutside(self):
         frame = GridLayout(cols=1, rows=1, size_hint_y=None)
         frame.bind(minimum_height=frame.setter('height'))
         scroll = ScrollView(do_scroll_x=False, do_scroll_y=True, size_hint=(1, None), scroll_y = (1),
@@ -2398,7 +2382,7 @@ class Level_5_group_warlock(character, BoxLayout):
 
         self.orientation = "vertical"
 
-        self.lvl5_groupOutside()
+        self.lvl5_groupw()
         self.bottom_bar()
 
     def bottom_bar(self):
@@ -2425,7 +2409,7 @@ class Level_5_group_warlock(character, BoxLayout):
     def back(self,instance):
         game.screenmanager.current = "Level 5 group outside"
 
-    def lvl5_group(self):
+    def lvl5_groupw(self):
         frame = GridLayout(cols=1, rows=1, size_hint_y=None)
         frame.bind(minimum_height=frame.setter('height'))
         scroll = ScrollView(do_scroll_x=False, do_scroll_y=True, size_hint=(1, None), scroll_y = (1),
@@ -2597,17 +2581,17 @@ class Level_4_sane(character, BoxLayout):
         sound = SoundLoader.load('extra files for mini project\Legend Of Zelda Theme (8 Bit Remix Cover Version) [Tribute to NES] - 8 Bit Universe.wav')
         sound.play()
 
-        def Homescreen(self, instance):
-            game.screenmanager.current = "Home"
+    def Homescreen(self, instance):
+        game.screenmanager.current = "Home"
 
-        def back(self, instance):
-            game.screenmanager.current = "Level 4 Intro"
+    def back(self, instance):
+        game.screenmanager.current = "Level 4 Intro"
 
     def level_4_sane(self):
         frame = GridLayout(cols=1, rows=1, size_hint_y=None)
         frame.bind(minimum_height=frame.setter('height'))
         scroll = ScrollView(do_scroll_x=False, do_scroll_y=True, size_hint=(1, None),
-                            size=(Window.width, Window.height * (1 / 3)))
+                            size=(Window.width, Window.height * (1 / 3)), scroll_distance = 80)
         texta = Label(text=f"""You calm yourself down, and head to
 the town inn to get more information.
 You find a nice corner for yourself and
@@ -2751,7 +2735,6 @@ done anything alone.
 
 class Level_4_help(character, BoxLayout):
     _disabled_count = 0
-    h.stealth += 50
 
     def __init__(self, race, hp, stealth, strength, charisma, home,name, weapon, artifact, defense, **kwargs):
         character.__init__(self, race, hp, stealth, strength, charisma, home,name, weapon, artifact, defense)
@@ -2800,7 +2783,8 @@ in hearing. Oh and drink this, for luck.
         scroll.add_widget(frame)
         self.add_widget(scroll)
         self.add_widget(Label(text=f""""""))
-
+        h.stealth += 50
+        print(h.stealth)
         choice = GridLayout(cols=1, rows=1)
         nextbutton = Button(text="Next")
         nextbutton.bind(on_press=self.proceed_1)
@@ -3369,7 +3353,7 @@ she’s dead’
 ‘That’s your fight.I’m heading for the mountain,
 for Revan’
 
-‘Don’t be foolish {h.name} shouts Caldor
+‘Don’t be foolish {h.name}’ shouts Caldor
 
 ‘You didn't see what he did to Dragontail Walk!
 I was there.All the screams,the lives lost,hell I
@@ -3783,11 +3767,8 @@ You need to think fast.
 
 class Level_3_attack(character, BoxLayout):
     _disabled_count = 0
-    if h.strength>=550:
-        h.hp -= 50
-    else:
-        h.hp -=100
-    print(h.hp)
+
+
 
     def __init__(self, race, hp, stealth, strength, charisma, home, name, weapon, artifact, defense, **kwargs):
         character.__init__(self, race, hp, stealth, strength, charisma, home,name, weapon, artifact, defense)
@@ -3819,7 +3800,11 @@ can never return to Tiefling again.""", color=(0, 0, 0, 1), size_hint=(1, None),
         self.add_widget(scroll)
 
         self.add_widget(Label(text=f"""Proceed to Ruthorham?""", color=(0, 0, 0, 1)))
-
+        if h.strength >= 550:
+            h.hp -= 50
+        else:
+            h.hp -= 100
+        print(h.hp)
         choice = GridLayout(cols=1, rows=1)
         continuebutton = Button(text="Continue")
         continuebutton.bind(on_press=self.proceed)
@@ -6167,10 +6152,9 @@ class Level_1_intro_page(character,BoxLayout):
         self.bottom_bar()
 
     def bottom_bar(self):
-        grid = GridLayout(cols=4, rows=1, padding=5, spacing=10)
+        grid = GridLayout(cols=3, rows=1, padding=5, spacing=10)
         homescreen_button = Button(text="Home")
         music_button = Button(text="Music")
-        stop_music_button = Button(text="Stop Music")
         back_button = Button(text="Back")
         grid.add_widget(back_button)
         back_button.bind(on_press=self.back)
@@ -6178,14 +6162,7 @@ class Level_1_intro_page(character,BoxLayout):
         homescreen_button.bind(on_press=self.Homescreen)
         grid.add_widget(music_button)
         music_button.bind(on_press=self.music)
-        grid.add_widget(stop_music_button)
-        stop_music_button.bind(on_press=self.stop_music)
         self.add_widget(grid)
-
-    def stop_music(self, instance):
-        sound = SoundLoader.load(
-            'extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav')
-        sound.stop()
 
     def music(self, instance):
         sound = SoundLoader.load(
