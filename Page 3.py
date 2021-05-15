@@ -114,7 +114,7 @@ are here.It’s time to get to Revan
 
 class Level_6_Rito(character, BoxLayout):
     _disabled_count = 0
-    h.hp += 150
+
 
     def __init__(self, race, hp, stealth, strength, charisma, home, name, weapon, artifact, defense, **kwargs):
         character.__init__(self, race, hp, stealth, strength, charisma, home, name, weapon, artifact, defense)
@@ -128,7 +128,6 @@ class Level_6_Rito(character, BoxLayout):
         grid = GridLayout(cols=3, rows=1, padding=5, spacing=10)
         homescreen_button = Button(text="Home")
         music_button = Button(text="Music")
-        stop_music_button = Button(text="Stop Music")
         back_button = Button(text="Back")
         grid.add_widget(back_button)
         back_button.bind(on_press=self.back)
@@ -163,7 +162,7 @@ You feel better and your resolve is stronger.
         frame.add_widget(texta)
         scroll.add_widget(frame)
         self.add_widget(scroll)
-
+        h.hp += 150
         self.add_widget(Label(text=f"""""", color=(0, 0, 0, 1)))
 
         choice = GridLayout(cols=1, rows=1)
@@ -188,7 +187,7 @@ class Level_6_climb(character, BoxLayout):
         self.bottom_bar()
 
     def bottom_bar(self):
-        grid = GridLayout(cols=4, rows=1, padding=5, spacing=10)
+        grid = GridLayout(cols=3, rows=1, padding=5, spacing=10)
         homescreen_button = Button(text="Home")
         music_button = Button(text="Music")
         back_button = Button(text="Back")
@@ -215,7 +214,7 @@ class Level_6_climb(character, BoxLayout):
         frame = GridLayout(cols=1, rows=1, size_hint_y=None)
         frame.bind(minimum_height=frame.setter('height'))
         scroll = ScrollView(do_scroll_x=False, do_scroll_y=True, size_hint=(1, None),
-                            size=(Window.width, Window.height * (1 / 3)))
+                            size=(Window.width, Window.height * (1 / 3)), scroll_distance = 100)
         texta = Label(text=f""" It’s a long, hard climb.But that
 will not stop you, for you are
 filled with determination.
@@ -272,7 +271,6 @@ class Level_6_yes(character, BoxLayout):
         grid = GridLayout(cols=4, rows=1, padding=5, spacing=10)
         homescreen_button = Button(text="Home")
         music_button = Button(text="Music")
-        stop_music_button = Button(text="Stop Music")
         back_button = Button(text="Back")
         grid.add_widget(back_button)
         back_button.bind(on_press=self.back)
@@ -280,15 +278,8 @@ class Level_6_yes(character, BoxLayout):
         homescreen_button.bind(on_press=self.Homescreen)
         grid.add_widget(music_button)
         music_button.bind(on_press=self.music)
-        grid.add_widget(stop_music_button)
-        stop_music_button.bind(on_press=self.stop_music)
         self.add_widget(grid)
-
-    def stop_music(self, instance):
-        sound = SoundLoader.load(
-            'extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav')
-        sound.stop()
-
+        
     def music(self, instance):
         sound = SoundLoader.load(
             'extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav')
