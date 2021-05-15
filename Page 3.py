@@ -1,3 +1,4 @@
+
 import kivy
 
 # importing App class:
@@ -85,7 +86,7 @@ class Level_6_intro_page(character, BoxLayout):
         frame = GridLayout(cols=1, rows=1, size_hint_y=None)
         frame.bind(minimum_height=frame.setter('height'))
         scroll = ScrollView(do_scroll_x=False, do_scroll_y=True, size_hint=(1, None),
-                            size=(Window.width, Window.height * (1 / 3)), scroll_distance = 100)
+                            size=(Window.width, Window.height * (1 / 3)))
         texta = Label(text=f"""Mt.Lynaru, one of the tallest mountains in
 the realm. You had never been this
 close to it before. After taking a
@@ -114,7 +115,6 @@ are here.It’s time to get to Revan
 
 class Level_6_Rito(character, BoxLayout):
     _disabled_count = 0
-
 
     def __init__(self, race, hp, stealth, strength, charisma, home, name, weapon, artifact, defense, **kwargs):
         character.__init__(self, race, hp, stealth, strength, charisma, home, name, weapon, artifact, defense)
@@ -215,7 +215,7 @@ class Level_6_climb(character, BoxLayout):
         frame = GridLayout(cols=1, rows=1, size_hint_y=None)
         frame.bind(minimum_height=frame.setter('height'))
         scroll = ScrollView(do_scroll_x=False, do_scroll_y=True, size_hint=(1, None),
-                            size=(Window.width, Window.height * (1 / 3)), scroll_distance = 100)
+                            size=(Window.width, Window.height * (1 / 3)), scroll_distance=100)
         texta = Label(text=f""" It’s a long, hard climb.But that
 will not stop you, for you are
 filled with determination.
@@ -224,7 +224,6 @@ great mountain. Good thing you
 already had some mountain climbing
 experience from the war, so it did
 not prove too challenging.
-
 A few hours later, while you were 
 resting in a small cave, you noticed 
 a rather odd shape on a cliffside near
@@ -280,7 +279,7 @@ class Level_6_yes(character, BoxLayout):
         grid.add_widget(music_button)
         music_button.bind(on_press=self.music)
         self.add_widget(grid)
-        
+
     def music(self, instance):
         sound = SoundLoader.load(
             'extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav')
@@ -296,7 +295,7 @@ class Level_6_yes(character, BoxLayout):
         frame = GridLayout(cols=1, rows=1, size_hint_y=None)
         frame.bind(minimum_height=frame.setter('height'))
         scroll = ScrollView(do_scroll_x=False, do_scroll_y=True, size_hint=(1, None),
-                            size=(Window.width, Window.height * (1 / 3)), scroll_distance = 100)
+                            size=(Window.width, Window.height * (1 / 3)))
         texta = Label(text=f"""Nothing happens at first.You aren’t
 surprised and begin to leave,when you
 notice the shrine begins to glow.
@@ -305,7 +304,6 @@ increases.You touch the statue and find
 it’s warm.You start feeling stronger and your
 injuries begin healing.After a while it stops
 and everything goes back to normal.
-
 Was it a blessing?You’re not sure.All you 
 know is that you feel a lot better.
 With your rejuvenated confidence,you 
@@ -366,9 +364,8 @@ class Level_6_no(character, BoxLayout):
         frame = GridLayout(cols=1, rows=1, size_hint_y=None)
         frame.bind(minimum_height=frame.setter('height'))
         scroll = ScrollView(do_scroll_x=False, do_scroll_y=True, size_hint=(1, None),
-                            size=(Window.width, Window.height * (1 / 3)), scroll_distance = 100)
+                            size=(Window.width, Window.height * (1 / 3)))
         texta = Label(text=f"""‘But nothing more than a rock sculpture’
-
 You turn back and rest in the cave.
 After a while, you continue up the
 mountain.One way or another,
@@ -407,7 +404,7 @@ class Level_7_intro_page(character, BoxLayout):
         music_button = Button(text="Music")
         back_button = Label(text=" ")
         grid.add_widget(back_button)
-        back_button.bind(on_press=self.back)
+
         grid.add_widget(homescreen_button)
         homescreen_button.bind(on_press=self.Homescreen)
         grid.add_widget(music_button)
@@ -520,7 +517,7 @@ It’s not very effective but it still helps.
 
     def attack(self, instance):
         if h.strength >= 500:
-            game. lvl7attack()
+            game.lvl7attack()
             game.screenmanager.current = "Level 7 attack"
         else:
             game.screenmanager.current = "Level 7 no attack"
@@ -590,7 +587,7 @@ class Level_7_no_drink(character, BoxLayout):
 
     def attack(self, instance):
         if h.strength >= 500:
-            game. lvl7attack()
+            game.lvl7attack()
             game.screenmanager.current = "Level 7 attack"
         else:
             game.screenmanager.current = "Level 7 no attack"
@@ -619,7 +616,7 @@ class Level_7_attack(character, BoxLayout):
         music_button = Button(text="Music")
         back_button = Label(text=" ")
         grid.add_widget(back_button)
-        back_button.bind(on_press=self.back)
+
         grid.add_widget(homescreen_button)
         homescreen_button.bind(on_press=self.Homescreen)
         grid.add_widget(music_button)
@@ -643,7 +640,6 @@ class Level_7_attack(character, BoxLayout):
 This attracts the attention of the entire 
 camp, but you don’t care. You’re here for 
 Revan, and nothing is going to stop you.
-
 An unmatched fury takes over you as you take 
 out the entire camp in combat.Seeing your rage
 and strength terrorizes your enemies, moments
@@ -687,7 +683,7 @@ class Level_7_attack_no(character, BoxLayout):
         music_button = Button(text="Music")
         back_button = Label(text=" ")
         grid.add_widget(back_button)
-        back_button.bind(on_press=self.back)
+
         grid.add_widget(homescreen_button)
         homescreen_button.bind(on_press=self.Homescreen)
         grid.add_widget(music_button)
@@ -713,8 +709,6 @@ the entire camp,and soon you find yourself facing
 an overwhelming force. You put up a good fight but
 the numbers are not in your favour, and you soon
 perish
-
-
 """, color=(0, 0, 0, 1), size_hint=(1, None), pos=(self.width, 400))
         frame.add_widget(texta)
         scroll.add_widget(frame)
@@ -740,7 +734,7 @@ class Level_7_sneak(character, BoxLayout):
         music_button = Button(text="Music")
         back_button = Label(text=" ")
         grid.add_widget(back_button)
-        back_button.bind(on_press=self.back)
+
         grid.add_widget(homescreen_button)
         homescreen_button.bind(on_press=self.Homescreen)
         grid.add_widget(music_button)
@@ -801,7 +795,7 @@ class Level_7_sneak_no(character, BoxLayout):
         music_button = Button(text="Music")
         back_button = Label(text=" ")
         grid.add_widget(back_button)
-        back_button.bind(on_press=self.back)
+
         grid.add_widget(homescreen_button)
         homescreen_button.bind(on_press=self.Homescreen)
         grid.add_widget(music_button)
@@ -830,7 +824,6 @@ you find yourself facing an overwhelming
 force. You put up a good fight but
 the numbers are not in your favour,and
 you soon perish
-
 """, color=(0, 0, 0, 1), size_hint=(1, None), pos=(self.width, 400))
         frame.add_widget(texta)
         scroll.add_widget(frame)
@@ -877,14 +870,11 @@ class Level_7_courtyard(character, BoxLayout):
         scroll = ScrollView(do_scroll_x=False, do_scroll_y=True, size_hint=(1, None),
                             size=(Window.width, Window.height * (1 / 3)))
         texta = Label(text=f"""You find yourself in an empty courtyard.
-
 ‘REVAN!SHOW YOURSELF’
-
 On the hill in front of you,
 a silhouette of a man appears,
 before being replaced by a man
 resembling a monster
-
 ‘So this is the bug that has 
 been bothering me all along. I’m 
 impressed you made it all the way 
@@ -893,7 +883,6 @@ in my side for far too long. Let’s
 get this over with, It’s almost 
 lunchtime. I think I’ll have 
 {h.race} today’
-
 He jumps down and faces you in the
 courtyard. Everything you have done
 has led to this moment…
@@ -946,7 +935,7 @@ class Level_7_attack_0(character, BoxLayout):
         music_button = Button(text="Music")
         back_button = Label(text=" ")
         grid.add_widget(back_button)
-        back_button.bind(on_press=self.back)
+
         grid.add_widget(homescreen_button)
         homescreen_button.bind(on_press=self.Homescreen)
         grid.add_widget(music_button)
@@ -1038,7 +1027,7 @@ class Level_7_attack_1(character, BoxLayout):
         music_button = Button(text="Music")
         back_button = Label(text=" ")
         grid.add_widget(back_button)
-        back_button.bind(on_press=self.back)
+
         grid.add_widget(homescreen_button)
         homescreen_button.bind(on_press=self.Homescreen)
         grid.add_widget(music_button)
@@ -1129,7 +1118,7 @@ class Level_7_defend_0(character, BoxLayout):
         music_button = Button(text="Music")
         back_button = Label(text=" ")
         grid.add_widget(back_button)
-        back_button.bind(on_press=self.back)
+
         grid.add_widget(homescreen_button)
         homescreen_button.bind(on_press=self.Homescreen)
         grid.add_widget(music_button)
@@ -1221,7 +1210,7 @@ class Level_7_defend_1(character, BoxLayout):
         music_button = Button(text="Music")
         back_button = Label(text=" ")
         grid.add_widget(back_button)
-        back_button.bind(on_press=self.back)
+
         grid.add_widget(homescreen_button)
         homescreen_button.bind(on_press=self.Homescreen)
         grid.add_widget(music_button)
@@ -1310,7 +1299,7 @@ class Level_7_death(character, BoxLayout):
         music_button = Button(text="Music")
         back_button = Label(text=" ")
         grid.add_widget(back_button)
-        back_button.bind(on_press=self.back)
+
         grid.add_widget(homescreen_button)
         homescreen_button.bind(on_press=self.Homescreen)
         grid.add_widget(music_button)
@@ -1363,7 +1352,7 @@ class Level_7_defend_2(character, BoxLayout):
         music_button = Button(text="Music")
         back_button = Label(text=" ")
         grid.add_widget(back_button)
-        back_button.bind(on_press=self.back)
+
         grid.add_widget(homescreen_button)
         homescreen_button.bind(on_press=self.Homescreen)
         grid.add_widget(music_button)
@@ -1457,7 +1446,7 @@ class Level_7_defend_3(character, BoxLayout):
         music_button = Button(text="Music")
         back_button = Label(text=" ")
         grid.add_widget(back_button)
-        back_button.bind(on_press=self.back)
+
         grid.add_widget(homescreen_button)
         homescreen_button.bind(on_press=self.Homescreen)
         grid.add_widget(music_button)
@@ -1571,17 +1560,14 @@ class Level_7_defend_4(character, BoxLayout):
 as he draws his sword. You can
 see him bleeding profusely,it’s 
 a miracle he is still standing.
-
 After getting into a rather shabby form,
 he attempts to strike you, but you knock
 the sword out of his hand and cut him
 down with ease.Revan has been defeated
-
 You fall on your knees, your foes defeated.
 All the pain,screams and nightmares can now 
 be put to rest knowing Revan’s evil will 
 never hurt anyone.
-
 Your journey ends here hero.The future is for you to decide.
 """, color=(0, 0, 0, 1), size_hint=(1, None), pos=(self.width, 400))
         frame.add_widget(texta)
@@ -1641,12 +1627,10 @@ in the camp all those days ago.
 It all makes sense, this is why Hera herself was guarding it.
 It must have some special enchantments,
 Which is why Hera asked you to take it to Revan.
-
 You fall on your knees, your foes defeated.
 All the pain,screams and nightmares can now
 be put to rest knowing Revan’s evil will never
 hurt anyone.
-
 Your journey ends here hero.The future is for you to decide.
 """, color=(0, 0, 0, 1), size_hint=(1, None), pos=(self.width, 400))
         frame.add_widget(texta)
@@ -1713,12 +1697,10 @@ even more. Suddenly a deafening thud
 comes from the door of the room. 
 They must be using a battering ram 
 to break down the room.
-
 You move aside and let them enter 
 and attack them mercilessly one by 
 one. You see a wizard and he casts a 
 spell towards you.
-
 """, color=(0, 0, 0, 1), size_hint=(1, None), pos=(self.width, 400))
         frame.add_widget(texta)
         scroll.add_widget(frame)
@@ -1769,7 +1751,7 @@ class Level_5_solo_human(character, BoxLayout):
     def music(self, instance):
         sound = SoundLoader.load(
             'extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav'
-            )
+        )
         sound.play()
 
     def Homescreen(self, instance):
@@ -1805,7 +1787,6 @@ and pillars. It's going to crumble soon.
 You need to get out of here. Looking at
 the damage you might have fifteen to 
 twenty minutes at least.
-
 """, color=(0, 0, 0, 1), size_hint=(1, None), pos=(self.width, 400))
         frame.add_widget(texta)
         scroll.add_widget(frame)
@@ -1856,7 +1837,7 @@ class Level_5_solo_not_human(character, BoxLayout):
     def music(self, instance):
         sound = SoundLoader.load(
             'extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav'
-            )
+        )
         sound.play()
 
     def Homescreen(self, instance):
@@ -1893,7 +1874,6 @@ and pillars. It's going to crumble soon.
 You need to get out of here. Looking at
 the damage you might have fifteen to 
 twenty minutes at least.
-
 """, color=(0, 0, 0, 1), size_hint=(1, None), pos=(self.width, 400))
         frame.add_widget(texta)
         scroll.add_widget(frame)
@@ -1945,7 +1925,7 @@ class Level_5_fort_escape(character, BoxLayout):
     def music(self, instance):
         sound = SoundLoader.load(
             'extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav'
-            )
+        )
         sound.play()
 
     def Homescreen(self, instance):
@@ -1980,14 +1960,11 @@ you. She looks badly damaged, it seems the
 shockwave impacted her as well. 
 "You! How dare you destroy my fort? 
 I am Hera commander-in-cheif of--"
-
 "Yeah I know all that, can you please skip 
 to the part where you tell me something 
 I don't know already?"
-
 "AARGHH, I'm gonna kill you. I challenge 
 you to a duel right here right now."
-
 """, color=(0, 0, 0, 1), size_hint=(1, None), pos=(self.width, 400))
         frame.add_widget(texta)
         scroll.add_widget(frame)
@@ -2039,7 +2016,7 @@ class Level_5_Duel_Decline(character, BoxLayout):
     def music(self, instance):
         sound = SoundLoader.load(
             'extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav'
-            )
+        )
         sound.play()
 
     def Homescreen(self, instance):
@@ -2191,7 +2168,7 @@ class Level_5_fort_escape_damage(character, BoxLayout):
     def music(self, instance):
         sound = SoundLoader.load(
             'extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav'
-            )
+        )
         sound.play()
 
     def Homescreen(self, instance):
@@ -2231,17 +2208,13 @@ As you start to walk toward there Hera
 comes up behind of you. She looks badly 
 damaged, it seems the shockwave impacted
 her as well. 
-
 "You! How dare you destroy my fort? 
 I am Hera commander-in-cheif of--"
-
 "Yeah I know all that, can you please skip 
 to the part where you tell me something 
 I don't know already?"
-
 "AARGHH, I'm gonna kill you. I challenge 
 you to a duel right here right now."
-
 """, color=(0, 0, 0, 1), size_hint=(1, None), pos=(self.width, 400))
         frame.add_widget(texta)
         scroll.add_widget(frame)
@@ -2294,7 +2267,7 @@ class Level_5_solo_Game_over(character, BoxLayout):
     def music(self, instance):
         sound = SoundLoader.load(
             'extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav'
-            )
+        )
         sound.play()
 
     def Homescreen(self, instance):
@@ -2361,7 +2334,7 @@ class Level_5_group_Game_over(character, BoxLayout):
     def music(self, instance):
         sound = SoundLoader.load(
             'extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav'
-            )
+        )
         sound.play()
 
     def Homescreen(self, instance):
@@ -2376,7 +2349,6 @@ class Level_5_group_Game_over(character, BoxLayout):
 "No, I think we can take them on,"
 you say. "After all we did win the
 war doing this tons of times."
-
 They agree, but decide to leave the
 secret passageway open nonetheless.
 When the soldiers arrive the entire 
@@ -2393,15 +2365,12 @@ are left fighting the mercenaries.
 "Get out of here Caldor," you tell him.
 "One of us needs to stay back to allow 
 the others to retreat safely." 
-
 "Yeah {h.name}, I'm staying back." 
-
 "No Caldor, I should stay back, because 
 the others need your skills. Go join 
 them I'll hold them off." With that you 
 leave Caldor a safe path to retreat as 
 you keep many mercenaries engaged. 
-
 "So long brother,"says Caldor as he 
 leaves and closes the cabinet behind him. 
 Now, there can only be one way for you to 
@@ -2473,15 +2442,11 @@ enough to close and barricade the door
 once again. 
 “Alright, so we need a plan. Deruvur 
 how many did you see?” 
-
 “About two on each stair all the way 
 till the entrance.” 
-
 “Is there another entrance/exit?” 
-
 “Not that we can use now. We must fight
 this out.” 
-
 “Alright Burk, I need you to take a bow 
 and give us cover. Ruz, you and {h.name} 
 are to protect Burk from incoming attackers. 
@@ -2496,28 +2461,21 @@ surround us. Then remember circle formation.
 {h.name}, Ruz and Deruvur in the front, Burk 
 and I will get long range targets from the 
 centre.”
-
 “Ruz open the door and throw a grenade to 
 disorient them. I’ll follow it by smoke 
 arrows. Burk and {h.name} start taking down 
 people.”
-
 “Everybody got it?” We nod. “Good, then let’s
 go.” 
-
 The plan goes pretty according to how you 
 discussed it. The enemies may be a lot but 
 between Burk’s marksmanship, and your close 
 range blows, the entire team was able to get 
 out, without a scratch.
-
 The entire town is on high alert,and the city
 gates are closed.
-
 ‘Well that was worth a short’
-
 The soldiers quickly surround you
-
 ‘Just like the old days guys,’ says Caldor
 """, color=(0, 0, 0, 1), size_hint=(1, None), pos=(self.width, 400))
         frame.add_widget(texta)
@@ -2561,7 +2519,7 @@ class Level_5_group_outside(character, BoxLayout):
         homescreen_button = Button(text="Home")
         music_button = Button(text="Music")
         back_button = Button(text="Back")
-        back_button.add_widget(on_press=self.back)
+        back_button.bind(on_press=self.back)
         grid.add_widget(back_button)
         grid.add_widget(homescreen_button)
         homescreen_button.bind(on_press=self.Homescreen)
@@ -2601,12 +2559,9 @@ him down, but the arrows do nothing
 to him. 
 “Then let me break formation and kill
  him myself.” 
-
 “No, {h.name} it is too risky.” 
-
 "Well, it’s riskier staying here. I’m 
 going on my own.” 
-
 With that you break off the circle and 
 head toward the warlock. Caldor and Burk 
 do give some backup initially to allow 
@@ -2696,18 +2651,14 @@ large army you were fighting was
 just a spell by the warlock. In 
 reality you might've fought only 
 a tenth of that.
-
 Your comrades are fine, as they 
 were far away and felt less of the
 shockwave, and are now finishing 
 off the now tiny army. Suddenly 
 everything starts to go dark so 
 you lay down for a while.
-
 ...
-
 ...
-
 When you wake up you see your 
 comrades beside you. You slept 
 for a day they say. Hera ran away, 
@@ -2721,7 +2672,6 @@ this cause, though they still want
 to go after Hera. You tell them you
 are leaving soon to go for 
 Mount Lynaru. 
-
 Revan needs to pay for what he did... 
 """, color=(0, 0, 0, 1), size_hint=(1, None), pos=(self.width, 400))
         frame.add_widget(texta)
@@ -2802,18 +2752,14 @@ and see that the large army you
 were fighting was just a spell by 
 the warlock. In reality you 
 might've fought only a tenth of that.
-
 Your comrades are fine, as they 
 were far away and felt less of the
 shockwave, and are now finishing 
 off the now tiny army. Suddenly 
 everything starts to go dark so 
 you lay down for a while.
-
 ...
-
 ...
-
 When you wake up you see your 
 comrades beside you. You slept 
 for a day they say. Hera ran away, 
@@ -2827,7 +2773,6 @@ this cause, though they still want
 to go after Hera. You tell them you
 are leaving soon to go for 
 Mount Lynaru. 
-
 Revan needs to pay for what he did... 
 """, color=(0, 0, 0, 1), size_hint=(1, None), pos=(self.width, 400))
         frame.add_widget(texta)
@@ -2974,35 +2919,26 @@ You enter a dark hallway and immediately
 draw out your {h.weapon}, but before you can
 turn around you’re knocked on the ground,with
 the men surrounding you.
-
 “Slow as ever {h.name},It’s a wonder you’re 
 still alive without us”
-
 You recognized his voice immediately
 ”Screw you Deruvur!” You shout.
-
 Your war buddies always knew how to make you
 look like a fool, you just didn't expect to see
 them here.
-
 “What are you guys doing here anyway?”
-
 “Well we heard about the inn at Dragontail Walk,
 traced it to Hera. We’ve been chasing her ever since
 the war ended. Why are you here?” 
-
 “I was in Dragontail Walk when the attack
 happened,hadnto find out who was behind it.
 Who is this Hera anyway?
-
 “She is Revan’s right hand man. She was 
 there the night our squad was sent to Dewvault.
 We’re positive she is the one who killed Haldi
 that night. We have to avenge him”
-
 “Woah, there’s no we here guys, this is my fight.
 I need to do this alone”
-
 The guys look at each other,”Are you 
 joking {h.name},you’d have to be crazy to
 think you can take them all out alone.
@@ -3060,7 +2996,7 @@ class Level_4_lone(character, BoxLayout):
     def music(self, instance):
         sound = SoundLoader.load(
             'extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav'
-            )
+        )
         sound.play()
 
     def Homescreen(self, instance):
@@ -3076,18 +3012,14 @@ class Level_4_lone(character, BoxLayout):
         scroll = ScrollView(do_scroll_x=False, do_scroll_y=True, size_hint=(1, None),
                             size=(Window.width, Window.height * (1 / 3)))
         texta = Label(text=f"""“I’m sorry guys, you’d just slow me down”
-
 “Okay you’ve officially lost it buddy. Do you
 have a plan? What do you think you’ll do even
 if you somehow manage to climb those massive 50
 feet walls undetected. Do you expect Hera will
 just surrender after seeing you amazing climbing
 skills?You don’t even have the gear to take them on”
-
 “....”
-
 “Yeah I thought so, now shut up and follow us”
-
 You begrudgingly tag along. 
 They were right though, it’s not like you could have 
 done anything alone.
@@ -3135,7 +3067,7 @@ class Level_4_help(character, BoxLayout):
     def music(self, instance):
         sound = SoundLoader.load(
             'extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav'
-            )
+        )
         sound.play()
 
     def Homescreen(self, instance):
@@ -3152,7 +3084,6 @@ class Level_4_help(character, BoxLayout):
                             size=(Window.width, Window.height * (1 / 3)))
         texta = Label(text=f"""“I guess you are right, just like
 the old days eh”
-
 “That’s my boy!Now quickly, follow us to
 our room, we have a plan you might be interested
 in hearing. Oh and drink this, for luck.
@@ -3200,7 +3131,7 @@ class Level_4_fort_attack(character, BoxLayout):
     def music(self, instance):
         sound = SoundLoader.load(
             'extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav'
-            )
+        )
         sound.play()
 
     def Homescreen(self, instance):
@@ -3221,23 +3152,18 @@ to be a rather neglected portion of the wall.
 After making sure the coast was clear, you
 climb the wall and get inside.
 It’s quiet, too quiet.
-
 You enter the first room to your left,there you
 find shipping manifests.It seems they packed everything
 the night before and left for Mount Lynaru.You grab whatever
 information you can and exit the room.As soon as you
 step into the main courtyard you hear a voice
-
 ‘What’s this, a rat in the darkness’
-
 You look up and see a commander staring at you
 from the walls.It’s Hera!
-
 ‘Darling, I’m afraid you’re trespassing,and those
 notes you found in there are confidential.Around 
 here that sort of an offence means execution.
 Get him boys!’
-
 You pull out your {h.weapon} as mercenaries start 
 rappelling down the walls.
 """, color=(0, 0, 0, 1), size_hint=(1, None), pos=(self.width, 400))
@@ -3305,42 +3231,30 @@ class Level_4_safehouse(character, BoxLayout):
         texta = Label(text=f"""They take you to an underground room.
 After fumbling around with the keys,Deruvur
 manages to open the door.
-
 ‘What is this place?’ You ask
-
 ‘This is our safehouse, make yourself comfortable’
-
 You walk around the room and find everyone’s gear
 stacked in a corner. They were still as unorganized
 as they were during the war.
-
 Caldor tapped your shoulder,’Mind joining us, we’ll
 show you the plan’
-
 ‘We suspect Revan and Hera are in town, 
 specifically in the fort. Lucky for us their 
 guards don’t have a very strong sense of loyalty. 
 We bribed one of them and he’ll be here soon with 
 the fort schematics and Revan’s location. I’d 
 suggest get some sleep till he arrives”
-
 A few hours later you hear a knock on the door.
-
 Caldor gets up and says ‘What is the music of life?’
-
 ‘Silence my friend’ says the man on the door
-
 Caldor opens the door,’Took you long enough,do you have 
 the information?’
-
 ‘Yes’ says Anor,the spy. ‘But you won’t like it.Revan has
 emptied the fort and is moving everyone to a base in Mt.Lynaru.
 He wants to lay low for a while there. Here are the orders
 he sent everyone. He left Hera in charge here’
-
 ‘Good job Anor,here’s your payment’,says Deruvur as he hands
 him a pouch of gold.
-
 Something feels off though.
 """, color=(0, 0, 0, 1), size_hint=(1, None), pos=(self.width, 400))
         frame.add_widget(texta)
@@ -3407,16 +3321,12 @@ class Level_4_No_Dwarf(character, BoxLayout):
         texta = Label(text=f"""Anor quickly leaves. A few minutes later
 you notice something stuck under the table.
 You gather everyone around.It looks like a bomb
-
 ‘Anor!Should have expected he’d betray us too.
 What do we do about this’
-
 Suddenly you hear footsteps approaching the 
 safehouse,and metal clanking.
-
 ‘Soldiers.He sold us out!Only way out is through
 the door and they know it’ says Caldor 
-
 ‘Then let's not keep them waiting’ you say as you 
 grab your {h.weapon}.You barge out the door together 
 and see yourself surrounded by the mercenaries.
@@ -3476,7 +3386,7 @@ class Level_4_disappear(character, BoxLayout):
     def music(self, instance):
         sound = SoundLoader.load(
             'extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav'
-            )
+        )
         sound.play()
 
     def Homescreen(self, instance):
@@ -3501,19 +3411,15 @@ You manage to get out,but the soldiers
 are chasing you. The entire town is on 
 high alert,and the city gates are 
 closed.
-
 ‘{h.name}, head for the sewers.Use them 
 to get out of the city, we’ll stay here 
 and cover keep them busy’
-
 ‘I’m not leaving you guys!’
-
 ‘No time to argue!This is our only shot at
 getting to Revan’,with that,Caldor pushes 
 you down the manhole. It’s a rough fall but
 you can hear the fighting above.There is 
 nothing you can do for them now.
-
 After a few hours in horrible stench you make
 it out of the sewers and emerge outside the
 city. In the distance you see Mt.Lynaru.
@@ -3562,7 +3468,7 @@ class Level_4_no_disappear(character, BoxLayout):
     def music(self, instance):
         sound = SoundLoader.load(
             'extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav'
-            )
+        )
         sound.play()
 
     def Homescreen(self, instance):
@@ -3586,11 +3492,8 @@ as you cut through them. You manage to get
 out,but the soldiers are chasing you.
 The entire town is on high alert,and the city
 gates are closed.
-
 ‘Well that was worth a short’
-
 The soldiers quickly surround you
-
 ‘Just like the old days guys’ says Caldor
 """, color=(0, 0, 0, 1), size_hint=(1, None), pos=(self.width, 400))
         frame.add_widget(texta)
@@ -3636,7 +3539,7 @@ class Level_4_Dwarf(character, BoxLayout):
     def music(self, instance):
         sound = SoundLoader.load(
             'extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav'
-            )
+        )
         sound.play()
 
     def Homescreen(self, instance):
@@ -3654,22 +3557,16 @@ class Level_4_Dwarf(character, BoxLayout):
 you notice something stuck under the table.
 You gather everyone around.It looks like a 
 bomb
-
 ‘Anor!Should have expected he’d betray us too.
 What do we do about this’
-
 Suddenly you hear footsteps approaching the 
 safehouse,and metal clanking.
-
 ‘Soldiers.He sold us out!Only way out is through
 the door and they know it’ says Caldor
-
 ‘Actually,no’ says Deruvur as he slides a cabinet.
 ‘This is a secret passageway that leads to the old
 underground tunnels.It’s small but we can easily fit.’
-
 ‘Why didn’t you tell us about this before?’
-
 ‘You never asked’
 \n""", color=(0, 0, 0, 1), size_hint=(1, None), pos=(self.width, 400))
         frame.add_widget(texta)
@@ -3727,7 +3624,7 @@ class Level_4_Dwarf_escape(character, BoxLayout):
     def music(self, instance):
         sound = SoundLoader.load(
             'extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav'
-            )
+        )
         sound.play()
 
     def Homescreen(self, instance):
@@ -3746,31 +3643,22 @@ Before long, the bomb goes off and
 the walls of the safehouse collapse,
 blocking the passageway entrance.
 Only way out is ahead.
-
 After a few hours in the dark passageway 
 and tunnels you emerge outside the city.
-
 ‘What do we do now’? You ask
-
 ‘We came here for Hera, i’m not leaving till
 she’s dead’
-
 ‘That’s your fight.I’m heading for the mountain,
 for Revan’
-
 ‘Don’t be foolish {h.name}’ shouts Caldor
-
 ‘You didn't see what he did to Dragontail Walk!
 I was there.All the screams,the lives lost,hell I
 should have died there too! Revan needs to answer.
 I don’t care if I die up there, I owe it to myself
 to try.’
-
 ‘In that case,good luck.Remember you can always return here.
 You know how to find us’
-
 ‘I do,I’ll see you guys soon’
-
 You set out alone,Lynaru in the distance.
 """, color=(0, 0, 0, 1), size_hint=(1, None), pos=(self.width, 400))
         frame.add_widget(texta)
@@ -3917,13 +3805,10 @@ You walk up to him, he immediately
 shouts “Th-There’s my drinking 
 buddy! What say you buy me another 
 round to old times eh pal”.
-
 He must be rather desperate if he
 made you, a complete stranger is 
 buddy.
-
 “Sure Feca, lets go get you a drink”.
-
 You get two pints of mead and slowly 
 watch him get drunk. For a rather tiny 
 man he sure could hold his drink. You 
@@ -3937,23 +3822,16 @@ with the weapons. It was a proper massacre
 I hear, all thanks to my weapons. Their 
 Ruthorham weapons looked like toys in 
 front of my creations I tell ya!’
-
 “So they were from Ruthorham?” you ask
-
 “Where else would they be from, it’s where 
 their dumb kind lurks all the time! Hey now, 
 it’s your turn.Tell me a secret!”
-
 “Ah-well that’s easy, I’m gay Feca”
-
 “You’re WHAT! Ge-Get out of my sight.You and 
 your kind are truly the scum of the Earth, 
 worse than them Ruthorham folks yeah!”
-
 “Oh well, as you say Feca,nice meeting you”
-
 “Don’t talk to me!”
-
 So the rumors of him being bigoted were true 
 too. Doesn't matter though, he told you exactly 
 where to go. After resting a little more you set 
@@ -4035,29 +3913,19 @@ You punch him in the stomach and draw
 your {h.weapon}
 “Do your worst! If I talk Hera will have 
 my head!”
-
 “If you don’t, Hera won’t get the chance to”
-
 “Go to hell!”
-
 This was taking too much time, you take out 
 your knife and stab him in the gut. He 
 screams and twitches.
-
 ” All right All right!! It was a group from 
 Ruthorham. They warned me not to talk, now 
 make this stop!!”
-
 “See, that was easy, now hold still”
-
 You bandage him up and release him.
-
 “This never happened Feca, are we clear?”
-
 “Y-Yes”
-
 “Good”
-
 With that out of the way, you now knew exactly where to go.
 After resting a little more you set out for Ruthorham the 
 next morning\n""", color=(0, 0, 0, 1), size_hint=(1, None), pos=(self.width, 400))
@@ -4142,7 +4010,6 @@ you messed up.After releasing him you rush to the
 village doctor and tell him Feca was stabbed in a
 bar fight.The doctor says he’s unconscious
 but may survive 
-
 You blew it, now he won’t tell you anything
 even if he survives. There must be some other
 way to find out more about the attack. You head
@@ -4227,10 +4094,8 @@ round to old times eh pal”.
 He must be rather desperate 
 if he made you, a complete 
 stranger is buddy.
-
 “Sure Feca, lets go get you a 
 drink."
-
 You get two pints of mead and 
 slowly watch him get drunk. For 
 a rather tiny man he sure could 
@@ -4238,18 +4103,14 @@ hold his drink. You were worried
 you’d run out of cash before you 
 got anything out of him. Desperate 
 for information, you ask him 
-
 “So,what do you know about the inn 
 that burned down a few days ago."
-
 He looked at you suspiciously.
-
 “No-Nothing! Why do you ask!Ya know 
 what, you’re not my buddy!A buddy 
 won’t ask incriminating questions
 like that.N-Now get out before I 
 call the guards!!”
-
 You blew it, now he won’t tell you 
 anything. There must be some other 
 way to find out more about the 
@@ -4264,14 +4125,12 @@ with a huge padlock on it. Using your
 full of gold from Ruthorham. That must 
 mean his “clients” must be from Ruthorham, 
 and that’s where you must go next.
-
 As you’re leaving you accidentally trip 
 the lamp,and it lands directly on his 
 mead collection. The fire spreads
 quickly and you manage to get out 
 of there. Guards and villagers alike 
 quickly surround the burning building.
-
 “Stop right there {h.race}! 
 Explain Yourself!""", color=(0, 0, 0, 1), size_hint=(1, None), pos=(self.width, 400))
         frame.add_widget(texta)
@@ -4335,24 +4194,17 @@ class Level_3_caught(character, BoxLayout):
 “Woah now, let’s all just calm down.
 That was nothing more than an accident,
 I’m sure we can find a compromise here."
-
 You throw a pouch of Ruthorham gold you 
 took from the trunk.
-
 “That pouch is more valuable than anything 
 either of you own, let me go and it’s all 
 yours."
-
 One of the guards slowly approaches the pouch
 and picks it up.
-
 “By the Gods, it’s Ruthorham gold!”
-
 The captain of the guards fires an arrow that
 whizzes past your ear.
-
 “Thanks for the treasure scum!”
-
 You need to think fast.
 """, color=(0, 0, 0, 1), size_hint=(1, None), pos=(self.width, 400))
         frame.add_widget(texta)
@@ -4435,7 +4287,6 @@ You cut through them with ease, until it’s
 just you and the captain.“You monster!” Shouts
 the captain as he swings his sword at you wildly.
 You duck and strike him down.
-
 As soon as the carnage is over, you head for
 Ruthorham without looking back. You know you
 can never return to Tiefling again.""", color=(0, 0, 0, 1), size_hint=(1, None), pos=(self.width, 400))
@@ -4569,7 +4420,6 @@ regroup and take the guards on later,
 but you’re hit on the head with a stone
 by a villager. Knocked out, the guards 
 easily capture you and execute you!
-
 Alas mighty hero! Your tale ends here....""", color=(0, 0, 0, 1), size_hint=(1, None), pos=(self.width, 400))
         frame.add_widget(texta)
         scroll.add_widget(frame)
@@ -4622,7 +4472,6 @@ class Level_3_attack_death(character, BoxLayout):
 at the guards, a brave gesture.But foolish.
 They fire arrow after arrow till you drop 
 dead in your tracks
-
 Alas mighty hero! Your tale ends here....""", color=(0, 0, 0, 1), size_hint=(1, None), pos=(self.width, 400))
         frame.add_widget(texta)
         scroll.add_widget(frame)
@@ -4748,7 +4597,6 @@ possible into the armory tent.
 You quickly position yourself at the exit 
 and prepare to lure as many possible 
 mercenaries in as possible. 
-
 The enemies are lured into your trap and 
 you leave just as the bomb explodes, 
 igniting greek fire and spraying it all
@@ -4762,7 +4610,6 @@ As you walk down your path you see the sun
 rise. A good omen, but a signal that a lot
 of time has passed. You continue down the
 path to meet Feca in Tiefling.
-
 There are some things he has to answer for...
 """, color=(0, 0, 0, 1), size_hint=(1, None), pos=(self.width, 400))
         frame.add_widget(texta)
@@ -4846,7 +4693,6 @@ are dead. There is confusion all around,
 similar to what happened at the inn. 
 You smile to yourself. 
 Tonight was good...
-
 As you walk down your path you see the 
 sun rise. A good omen, but a signal that 
 a lot of time has passed. You continue 
@@ -4918,9 +4764,7 @@ class Level_2_Sneak_2_SCES(character, BoxLayout):
 After you pick up the saphire you 
 leave the camp. You continue down 
 the path to meet Feca in Tiefling.
-
 There are some things he must answer for...
-
 """, color=(0, 0, 0, 1), size_hint=(1, None), pos=(self.width, 400))
         frame.add_widget(texta)
         scroll.add_widget(frame)
@@ -5006,9 +4850,7 @@ it isn't possible. And definitely not in this
 setting where you are pinned down by the 
 oncoming swarm. Wait! The armory is right 
 behind you.
-
 Maybe you can use something in there. 
-
 Inside you find a barrel of greek fire. 
 """, color=(0, 0, 0, 1), size_hint=(1, None), pos=(self.width, 400))
         frame.add_widget(texta)
@@ -5085,7 +4927,6 @@ class Level_2_Sneak_2_No(character, BoxLayout):
         texta = Label(text=f"""
 "No, I'm a new recruit from 
 Tiefling," you say.
-
 "Oh you stupid new recruits. Look
 for the blue commander's tent. 
 You can't miss it. And don't tell
@@ -5093,14 +4934,12 @@ the guards you're a new recruit.
 If Hera finds out I sent her a newbie, 
 she'll have my head for breakfast!" 
 He says running off.
-
 You wander around a little trying
 to find Hera's tent. You overhear 
 that she is the commander-in-charge 
 of the company and the right hand 
 of Revan nowadays. Again that name,
 Revan who is that? 
-
 You see that the camp is organised 
 quite intelligently. You found Hera's
 tent just facing opposite to the 
@@ -5109,16 +4948,12 @@ important in there. You wouldn't risk the
 commander's life putting her in front of 
 the armory. As you enter the tent, you 
 find Hera sipping wine. 
-
 "The troll sent me", you say remembering 
 your war years. You immediately stand at 
 attention.
-
 "At ease," says Hera. "Do you know why we 
 burnt down the inn?"
-
 You nod no.
-
 "We had to steal a very important saphire 
 from the bank in the town. The inn is owned 
 by the same person who owns the bank. When 
@@ -5127,9 +4962,7 @@ to salvage whatever they could from the inn.
 Quite useless, as greek fire burns through 
 everything. And while the bank was 
 unprotected we robbed it."
-
 You nod yes, this makes sense.
-
 "Your job now", she continued "is to 
 transport the artifact to Revan himself.
 The saphire was cursed by an ancient 
@@ -5142,7 +4975,6 @@ cursed stones into powder, and destroy them.
 You will be given 7000 gold pieces upon the 
 completion of this mission. 1350 now and the
 rest later. Pick it up from the armory."
-
 You go to the armory and pick up the saphire 
 and the gold.""", color=(0, 0, 0, 1), size_hint=(1, None), pos=(self.width, 400))
         frame.add_widget(texta)
@@ -5220,7 +5052,6 @@ that she is the commander-in-charge
 of the company and the right hand 
 of Revan nowadays. Again that name,
 Revan who is that? 
-
 You see that the camp is organised 
 quite intelligently. You found Hera's
 tent just facing opposite to the 
@@ -5229,16 +5060,12 @@ important in there. You wouldn't risk the
 commander's life putting her in front of 
 the armory. As you enter the tent, you 
 find Hera sipping wine. 
-
 "The troll sent me", you say remembering 
 your war years. You immediately stand at 
 attention.
-
 "At ease," says Hera. "Do you know why we 
 burnt down the inn?"
-
 You nod no.
-
 "We had to steal a very important saphire 
 from the bank in the town. The inn is owned 
 by the same person who owns the bank. When 
@@ -5247,9 +5074,7 @@ to salvage whatever they could from the inn.
 Quite useless, as greek fire burns through 
 everything. And while the bank was 
 unprotected we robbed it."
-
 You nod yes, this makes sense.
-
 "Your job now", she continued "is to 
 transport the artifact to Revan himself.
 The saphire was cursed by an ancient 
@@ -5262,7 +5087,6 @@ cursed stones into powder, and destroy them.
 You will be given 7000 gold pieces upon the
 completion of this mission. 1350 now and 
 the rest later. Pick it up from the armory."
-
 You go to the armory and pick up the saphire 
 and the gold.""", color=(0, 0, 0, 1), size_hint=(1, None), pos=(self.width, 400))
         frame.add_widget(texta)
@@ -5285,7 +5109,7 @@ pick up the saphire and the gold.""", color=(0, 0, 0, 1)))
             game.lvl2S2sces()
             game.screenmanager.current = "Level 2 Sneak 2 successful"
         else:
-            game.level_2_s2fail()
+            game.lvl2S2fail()
             game.screenmanager.current = "Level 2 Sneak 2 fail"
 
 
@@ -5339,7 +5163,6 @@ You quietly manage to steal his
 clothes and armor. You put your 
 visor down so no one will 
 recognise you.
-
 You hear a voice. 
 "Hey! You! give me back my armor." 
 You turn around and you quickly 
@@ -5353,7 +5176,6 @@ to a stone using a nearby vine.
 You pick up the body and throw it into 
 the lake. The stone keeps the body 
 from floating up.
-
 You enter the camp without suspicion.
 As you are walking through the camp 
 a troll rushes up to you and says,
@@ -5439,7 +5261,6 @@ You quietly manage to steal his
 clothes and armor. You put your 
 visor down so no one will 
 recognise you.
-
 You enter the camp without suspicion.
 As you are walking through the camp 
 a troll rushes up to you and says,
@@ -5519,10 +5340,7 @@ clay. You catch the camp by surprise
 and kill all the guards who are awake. 
 The rest still sleep. It is only you 
 who was awake.
-
-
 Or so you thought. 
-
 Men awoke in the commotion and are 
 charging at you for battle. You 
 fight and give one last stand but 
@@ -5534,7 +5352,6 @@ on cue you are cut in the stomach and
 the neck. You are then left for dead. 
 You never were able to take revenge 
 for what happened at the inn.
-
 You slowly give in to the Eternal Slumber, 
 the warrior spirit still fighting...
             GAME OVER
@@ -5603,10 +5420,7 @@ clay. You catch the camp by surprise
 and kill all the guards who are awake. 
 The rest still sleep. It is only you 
 who was awake.
-
-
 Or so you thought. 
-
 Men awoke in the commotion and are 
 charging at you for battle. You fight 
 and give one last stand. You fight 
@@ -5625,10 +5439,7 @@ there. It seems to call to you. You pick
 it up and decide to keep it. You leave the
 camp soon after. You continue down the 
 path to meet Feca in Tiefling. 
-
 There are some things he must answer for...
-
-
 """, color=(0, 0, 0, 1), size_hint=(1, None), pos=(self.width, 400))
         frame.add_widget(texta)
         scroll.add_widget(frame)
@@ -5701,10 +5512,7 @@ clay. You catch the camp by surprise
 and kill all the guards who are awake. 
 The rest still sleep. It is only you 
 who was awake.
-
-
 Or so you thought. 
-
 Men awoke in the commotion and are 
 charging at you for battle. You fight 
 and give one last stand. You fight 
@@ -5724,9 +5532,7 @@ sitting there. It seems to call to you.
 You pick it up and decide to keep it. 
 You then leave the camp. You continue 
 down the path to meet Feca in Tiefling. 
-
 There are some things he must answer for...
-
 """, color=(0, 0, 0, 1), size_hint=(1, None), pos=(self.width, 400))
         frame.add_widget(texta)
         scroll.add_widget(frame)
@@ -5797,17 +5603,14 @@ to get closer in the camp. As you
 sneak around in the camp you hear 
 someone speak. You crouch down 
 low lest you be found. 
-
 "I don't believe those little idiots 
 had a chance. No one could have survived 
 that burning Dragontal Walk. Revan will 
 be pleased when we bring him the bounty."
-
 "Piss on that... I just want the gold I
 was promised. But what sort of an oaf
 names an inn 'Dragontail Walk'. The place
 deserved to go down in ashes." 
-
 After saying this the men leave. You 
 breathe a little easy, but realize...
 These are the same men who attacked you!
@@ -5906,9 +5709,7 @@ people still trapped inside. There is
 nothing you can do for them now. You 
 catch your breath and continue down 
 the road. 
-
 This night is far from over…
-
 You’re walking along the dark road,
 thinking about what just happened. 
 You look at your {h.weapon} more closely, 
@@ -5922,14 +5723,12 @@ is more to this. The only person who
 can tell you more about this is Feca 
 himself. Looks like you’re going 
 to Tiefling village.
-
 On the way to Tiefling, you spot a small 
 camp of mercenaries. They’re wearing the
 same armor as the ones who attacked the 
 inn. It’s not a company you recognize, 
 could there be something more sinister 
 at play here? 
-
 """, color=(0, 0, 0, 1), size_hint=(1, None), pos=(self.width, 400))
         frame.add_widget(texta)
         scroll.add_widget(frame)
@@ -6015,9 +5814,7 @@ the people still trapped inside. There
 is nothing you can do for them now. 
 You catch your breath and continue 
 down the road.
-
 This night is far from over…
-
 You’re walking along the dark road,
 thinking about what just happened. 
 You look at your {h.weapon} more closely, 
@@ -6031,14 +5828,12 @@ is more to this. The only person who
 can tell you more about this is Feca 
 himself. Looks like you’re going 
 to Tiefling village.
-
 On the way to Tiefling, you spot a small 
 camp of mercenaries. They’re wearing the
 same armor as the ones who attacked the 
 inn. It’s not a company you recognize, 
 could there be something more sinister 
 at play here? 
-
 """, color=(0, 0, 0, 1), size_hint=(1, None), pos=(self.width, 400))
         frame.add_widget(texta)
         scroll.add_widget(frame)
@@ -6118,9 +5913,7 @@ listen to the cries of the people
 still trapped inside. There is nothing 
 you can do for them now. You catch your 
 breath and continue down the road.
-
 This night is far from over…
-
 You’re walking along the dark road,
 thinking about what just happened. 
 You look at your {h.weapon} more closely, 
@@ -6134,14 +5927,12 @@ is more to this. The only person who
 can tell you more about this is Feca 
 himself. Looks like you’re going 
 to Tiefling village.
-
 On the way to Tiefling, you spot a small 
 camp of mercenaries. They’re wearing the
 same armor as the ones who attacked the 
 inn. It’s not a company you recognize, 
 could there be something more sinister 
 at play here? 
-
 """, color=(0, 0, 0, 1), size_hint=(1, None), pos=(self.width, 400))
         frame.add_widget(texta)
         scroll.add_widget(frame)
@@ -6226,9 +6017,7 @@ cries of the people still trapped
 inside. There is nothing you can do 
 for them now. You catch your breath and
 continue down the road.
-
 This night is far from over…
-
 You’re walking along the dark road,
 thinking about what just happened. 
 You look at your {h.weapon} more closely, 
@@ -6242,14 +6031,12 @@ is more to this. The only person who
 can tell you more about this is Feca 
 himself. Looks like you’re going 
 to Tiefling village.
-
 On the way to Tiefling, you spot a small 
 camp of mercenaries. They’re wearing the
 same armor as the ones who attacked the 
 inn. It’s not a company you recognize, 
 could there be something more sinister 
 at play here? 
-
 """, color=(0, 0, 0, 1), size_hint=(1, None), pos=(self.width, 400))
         frame.add_widget(texta)
         scroll.add_widget(frame)
@@ -6326,9 +6113,7 @@ of the people still trapped inside.
 There is nothing you can do for them 
 now. You catch your breath and continue
 down the road.
-
 This night is far from over…
-
 You’re walking along the dark road,
 thinking about what just happened. 
 You look at your {h.weapon} more closely, 
@@ -6342,14 +6127,12 @@ is more to this. The only person who
 can tell you more about this is Feca 
 himself. Looks like you’re going 
 to Tiefling village.
-
 On the way to Tiefling, you spot a small 
 camp of mercenaries. They’re wearing the
 same armor as the ones who attacked the 
 inn. It’s not a company you recognize, 
 could there be something more sinister 
 at play here? 
-
 """, color=(0, 0, 0, 1), size_hint=(1, None), pos=(self.width, 400))
         frame.add_widget(texta)
         scroll.add_widget(frame)
@@ -6522,9 +6305,7 @@ inside. You pick up a {h.weapon}
 form one of the corpses outside, 
 catch your breath and continue 
 down the road.
-
 This night is far from over…
-
 You’re walking along the dark road,
 thinking about what just happened. 
 You look at your {h.weapon} more closely, 
@@ -6538,14 +6319,12 @@ is more to this. The only person who
 can tell you more about this is Feca 
 himself. Looks like you’re going 
 to Tiefling village.
-
 On the way to Tiefling, you spot a small 
 camp of mercenaries. They’re wearing the
 same armor as the ones who attacked the 
 inn. It’s not a company you recognize, 
 could there be something more sinister 
 at play here? 
-
 """, color=(0, 0, 0, 1), size_hint=(1, None), pos=(self.width, 400))
         frame.add_widget(texta)
         scroll.add_widget(frame)
@@ -6632,9 +6411,7 @@ back inside. You pick up a {h.weapon}
 form one of the corpses outside, 
 catch your breath and continue down
 the road.
-
 This night is far from over…
-
 You’re walking along the dark road,
 thinking about what just happened. 
 You look at your {h.weapon} more 
@@ -6739,9 +6516,7 @@ inside. You pick up a {h.weapon}
 form one of the corpses outside, 
 catch your breath and continue 
 down the road.
-
 This night is far from over…
-
 You’re walking along the dark 
 road, thinking about what just
 happened. You look at your 
@@ -6836,7 +6611,6 @@ class Level_1_intro_page(character, BoxLayout):
         texta = Label(text=f"""
 After returning from {h.home} you 
 thought the worst was behind you.
-
 The war was over,
 and here you were, sitting in an 
 inn enjoying a pretty good ale. 
@@ -7233,8 +7007,6 @@ you will be asked to give yourself a
 name and choose a weapon. There are
 different weapons available and you
 may choose according to your liking.
-
-
 We hope you enjoy the game!""", color=(0, 0, 0, 1), font_size=12)
         self.add_widget(display)
         self.grid()
@@ -7370,52 +7142,10 @@ class cyoaApp(App):
         screen.add_widget(self.user_input_page)
         self.screenmanager.add_widget(screen)
 
-        self.level_1_1_rjump = Level_1_1_rjump(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home, h.name,
-                                               h.weapon, h.artifact, h.defense)
-        screen = Screen(name="Level 1 JUMP Rito")
-        screen.add_widget(self.level_1_1_rjump)
-        self.screenmanager.add_widget(screen)
-
-        self.level_1_1_ejump = Level_1_1_ejump(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home, h.name,
-                                               h.weapon, h.artifact, h.defense)
-        screen = Screen(name="Level 1 JUMP Elf")
-        screen.add_widget(self.level_1_1_ejump)
-        self.screenmanager.add_widget(screen)
-
-        self.level_1_1_fight = Level_1_1_fight(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home, h.name,
-                                               h.weapon, h.artifact, h.defense)
-        screen = Screen(name="Level 1 FIGHT")
-        screen.add_widget(self.level_1_1_fight)
-        self.screenmanager.add_widget(screen)
-
-        self.level_1_innfs = Level_1_inn_fight_sces(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home, h.name,
-                                                    h.weapon, h.artifact, h.defense)
-        screen = Screen(name="Level 1 inn fight successful")
-        screen.add_widget(self.level_1_innfs)
-        self.screenmanager.add_widget(screen)
-
-        self.level_1_innss = Level_1_inn_sneak_sces(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home, h.name,
-                                                    h.weapon, h.artifact, h.defense)
-        screen = Screen(name="Level 1 inn sneak successful")
-        screen.add_widget(self.level_1_innss)
-        self.screenmanager.add_widget(screen)
-
         self.level_2_intro = Level_2_INTRO(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home, h.name,
                                            h.weapon, h.artifact, h.defense)
         screen = Screen(name="Level 2 intro")
         screen.add_widget(self.level_2_intro)
-        self.screenmanager.add_widget(screen)
-
-        self.level_2_s1sces = Level_2_Sneak_1_SCES(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home, h.name,
-                                                   h.weapon, h.artifact, h.defense)
-        screen = Screen(name="Level 2 Sneak 1 Successful")
-        screen.add_widget(self.level_2_s1sces)
-        self.screenmanager.add_widget(screen)
-
-        self.level_2_s1fail = Level_2_Sneak_1_FAIL(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home, h.name,
-                                                   h.weapon, h.artifact, h.defense)
-        screen = Screen(name="Level 2 Sneak 1 Fail")
-        screen.add_widget(self.level_2_s1fail)
         self.screenmanager.add_widget(screen)
 
         self.level_2_f1fail = Level_2_Fight_1_FAIL(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home, h.name,
@@ -7461,27 +7191,6 @@ class cyoaApp(App):
         screen.add_widget(self.level_3_friendly_charisma)
         self.screenmanager.add_widget(screen)
 
-        self.level_3_aggressive_yes = Level_3_aggressive_yes(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home,
-                                                             h.name,
-                                                             h.weapon, h.artifact, h.defense)
-        screen = Screen(name="Level 3 aggressive yes")
-        screen.add_widget(self.level_3_aggressive_yes)
-        self.screenmanager.add_widget(screen)
-
-        self.level_3_aggressive_no = Level_3_aggressive_no(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home,
-                                                           h.name,
-                                                           h.weapon, h.artifact, h.defense)
-        screen = Screen(name="Level 3 aggressive no")
-        screen.add_widget(self.level_3_aggressive_no)
-        self.screenmanager.add_widget(screen)
-
-        self.level_3_friendly_no_charisma = Level_3_friendly_no_charisma(h.race, h.hp, h.stealth, h.strength,
-                                                                         h.charisma, h.home, h.name,
-                                                                         h.weapon, h.artifact, h.defense)
-        screen = Screen(name="Level 3 friendly no charisma")
-        screen.add_widget(self.level_3_friendly_no_charisma)
-        self.screenmanager.add_widget(screen)
-
         self.level_3_caught = Level_3_caught(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home, h.name,
                                              h.weapon, h.artifact, h.defense)
         screen = Screen(name="Level 3 caught")
@@ -7492,13 +7201,6 @@ class cyoaApp(App):
                                                  h.weapon, h.artifact, h.defense)
         screen = Screen(name="Level 3 tactical")
         screen.add_widget(self.level_3_tactical)
-        self.screenmanager.add_widget(screen)
-
-        self.level_3_attack_death = Level_3_attack_death(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home,
-                                                         h.name,
-                                                         h.weapon, h.artifact, h.defense)
-        screen = Screen(name="Level 3 attack death")
-        screen.add_widget(self.level_3_attack_death)
         self.screenmanager.add_widget(screen)
 
         self.level_3_tactical_death = Level_3_tactical_death(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home,
@@ -7512,18 +7214,6 @@ class cyoaApp(App):
                                                      h.weapon, h.artifact, h.defense)
         screen = Screen(name="Level 4 Intro")
         screen.add_widget(self.level_4_intro_page)
-        self.screenmanager.add_widget(screen)
-
-        self.level_4_fort_attack = Level_4_fort_attack(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home, h.name,
-                                                       h.weapon, h.artifact, h.defense)
-        screen = Screen(name="Level 4 fort attack")
-        screen.add_widget(self.level_4_fort_attack)
-        self.screenmanager.add_widget(screen)
-
-        self.level_4_sane = Level_4_sane(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home, h.name,
-                                         h.weapon, h.artifact, h.defense)
-        screen = Screen(name="Level 4 sane")
-        screen.add_widget(self.level_4_sane)
         self.screenmanager.add_widget(screen)
 
         self.level_4_lone = Level_4_lone(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home, h.name,
@@ -7550,18 +7240,6 @@ class cyoaApp(App):
         screen.add_widget(self.level_4_Dwarf)
         self.screenmanager.add_widget(screen)
 
-        self.level_4_No_Dwarf = Level_4_No_Dwarf(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home, h.name,
-                                                 h.weapon, h.artifact, h.defense)
-        screen = Screen(name="Level 4 No Dwarf")
-        screen.add_widget(self.level_4_No_Dwarf)
-        self.screenmanager.add_widget(screen)
-
-        self.level_4_disappear = Level_4_disappear(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home, h.name,
-                                                   h.weapon, h.artifact, h.defense)
-        screen = Screen(name="Level 4 disappear")
-        screen.add_widget(self.level_4_disappear)
-        self.screenmanager.add_widget(screen)
-
         self.level_4_no_disappear = Level_4_no_disappear(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home,
                                                          h.name,
                                                          h.weapon, h.artifact, h.defense)
@@ -7569,35 +7247,10 @@ class cyoaApp(App):
         screen.add_widget(self.level_4_no_disappear)
         self.screenmanager.add_widget(screen)
 
-        self.level_4_Dwarf_escape = Level_4_Dwarf_escape(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home,
-                                                         h.name,
-                                                         h.weapon, h.artifact, h.defense)
-        screen = Screen(name="Level 4 Dwarf escape")
-        screen.add_widget(self.level_4_Dwarf_escape)
-        self.screenmanager.add_widget(screen)
-
         self.level_5_gw = Level_5_group_warlock(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home,
                                                 h.name, h.weapon, h.artifact, h.defense)
         screen = Screen(name="Level 5 group outside warlock")
         screen.add_widget(self.level_5_gw)
-        self.screenmanager.add_widget(screen)
-
-        self.level_5_gout = Level_5_group_outside(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home,
-                                                  h.name, h.weapon, h.artifact, h.defense)
-        screen = Screen(name="Level 5 group outside")
-        screen.add_widget(self.level_5_gout)
-        self.screenmanager.add_widget(screen)
-
-        self.level_5_gko = Level_5_group_Game_over(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home,
-                                                   h.name, h.weapon, h.artifact, h.defense)
-        screen = Screen(name="Level 5 group game over")
-        screen.add_widget(self.level_5_gko)
-        self.screenmanager.add_widget(screen)
-
-        self.level_5_solo = Level_5_solo(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home,
-                                         h.name, h.weapon, h.artifact, h.defense)
-        screen = Screen(name="Level 5 solo")
-        screen.add_widget(self.level_5_solo)
         self.screenmanager.add_widget(screen)
 
         self.level_5_soloh = Level_5_solo_human(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home,
@@ -7622,12 +7275,6 @@ class cyoaApp(App):
                                                h.name, h.weapon, h.artifact, h.defense)
         screen = Screen(name="level 5 duel decline")
         screen.add_widget(self.level_5_dd)
-        self.screenmanager.add_widget(screen)
-
-        self.level_5_da = Level_5_Duel_Accept(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home,
-                                              h.name, h.weapon, h.artifact, h.defense)
-        screen = Screen(name="level 5 duel accept")
-        screen.add_widget(self.level_5_da)
         self.screenmanager.add_widget(screen)
 
         self.level_6_intro_page = Level_6_intro_page(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home, h.name,
@@ -7672,12 +7319,6 @@ class cyoaApp(App):
         screen.add_widget(self.level_7_no_drink)
         self.screenmanager.add_widget(screen)
 
-        self.level_7_attack = Level_7_attack(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home, h.name, h.weapon,
-                                             h.artifact, h.defense)
-        screen = Screen(name="Level 7 attack")
-        screen.add_widget(self.level_7_attack)
-        self.screenmanager.add_widget(screen)
-
         self.level_7_attack_no = Level_7_attack_no(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home, h.name,
                                                    h.weapon, h.artifact, h.defense)
         screen = Screen(name="Level 7 no attack")
@@ -7694,12 +7335,6 @@ class cyoaApp(App):
                                                  h.weapon, h.artifact, h.defense)
         screen = Screen(name="Level 7 no sneak")
         screen.add_widget(self.level_7_sneak_no)
-        self.screenmanager.add_widget(screen)
-
-        self.level_7_courtyard = Level_7_courtyard(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home, h.name,
-                                                   h.weapon, h.artifact, h.defense)
-        screen = Screen(name="Level 7 courtyard")
-        screen.add_widget(self.level_7_courtyard)
         self.screenmanager.add_widget(screen)
 
         self.level_7_attack_0 = Level_7_attack_0(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home, h.name,
@@ -7738,25 +7373,14 @@ class cyoaApp(App):
         screen.add_widget(self.level_7_defend_3)
         self.screenmanager.add_widget(screen)
 
-        self.level_7_defend_4 = Level_7_defend_4(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home, h.name,
-                                                 h.weapon, h.artifact, h.defense)
-        screen = Screen(name="Level 7 defend 4")
-        screen.add_widget(self.level_7_defend_4)
-        self.screenmanager.add_widget(screen)
-
         self.level_7_death = Level_7_death(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home, h.name, h.weapon,
                                            h.artifact, h.defense)
         screen = Screen(name="Level 7 death")
         screen.add_widget(self.level_7_death)
         self.screenmanager.add_widget(screen)
 
-        self.level_7_artifact_attack = Level_7_artifact_attack(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home,
-                                                               h.name, h.weapon, h.artifact, h.defense)
-        screen = Screen(name="Level 7 artifact attack")
-        screen.add_widget(self.level_7_artifact_attack)
-        self.screenmanager.add_widget(screen)
-
         return self.screenmanager
+
 
     def l1_intro(self):
         self.level_1_intro = Level_1_intro_page(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home, h.name,
@@ -7765,12 +7389,14 @@ class cyoaApp(App):
         screen.add_widget(self.level_1_intro)
         self.screenmanager.add_widget(screen)
 
+
     def l1_jump_hurt(self):
         self.level_1_1_hjump = Level_1_1_hjump(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home, h.name,
                                                h.weapon, h.artifact, h.defense)
         screen = Screen(name="Level 1 JUMP Hurt")
         screen.add_widget(self.level_1_1_hjump)
         self.screenmanager.add_widget(screen)
+
 
     def l1_inn_fight_norm(self):
         self.level_1_innfn = Level_1_inn_fight_norm(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home, h.name,
@@ -7779,12 +7405,14 @@ class cyoaApp(App):
         screen.add_widget(self.level_1_innfn)
         self.screenmanager.add_widget(screen)
 
+
     def l1_inn_fight_fail(self):
         self.level_1_innff = Level_1_inn_fight_fail(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home, h.name,
                                                     h.weapon, h.artifact, h.defense)
         screen = Screen(name="Level 1 inn fight fail")
         screen.add_widget(self.level_1_innff)
         self.screenmanager.add_widget(screen)
+
 
     def l1_inn_sneak_fail(self):
         self.level_1_innsf = Level_1_inn_sneak_fail(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home, h.name,
@@ -7793,12 +7421,14 @@ class cyoaApp(App):
         screen.add_widget(self.level_1_innsf)
         self.screenmanager.add_widget(screen)
 
+
     def lvl2F1norm(self):
         self.level_2_f1norm = Level_2_Fight_1_NORM(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home, h.name,
                                                    h.weapon, h.artifact, h.defense)
         screen = Screen(name="Level 2 Fight 1 Normal")
         screen.add_widget(self.level_2_f1norm)
         self.screenmanager.add_widget(screen)
+
 
     def lvl2F1sces(self):
         self.level_2_f1sces = Level_2_Fight_1_SCES(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home, h.name,
@@ -7807,12 +7437,14 @@ class cyoaApp(App):
         screen.add_widget(self.level_2_f1sces)
         self.screenmanager.add_widget(screen)
 
+
     def lvl2S2fail(self):
         self.level_2_s2fail = Level_2_Sneak_2_FAIL(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home, h.name,
                                                    h.weapon, h.artifact, h.defense)
         screen = Screen(name="Level 2 Sneak 2 fail")
         screen.add_widget(self.level_2_s2fail)
         self.screenmanager.add_widget(screen)
+
 
     def lvl2S2sces(self):
         self.level_2_s2sces = Level_2_Sneak_2_SCES(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home, h.name,
@@ -7821,12 +7453,14 @@ class cyoaApp(App):
         screen.add_widget(self.level_2_s2sces)
         self.screenmanager.add_widget(screen)
 
+
     def lvl2S2finalyesnd(self):
         self.level_2_s2fynd = Level_2_final_yes(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home, h.name,
                                                 h.weapon, h.artifact, h.defense)
         screen = Screen(name="Level 2 final Yes")
         screen.add_widget(self.level_2_s2fynd)
         self.screenmanager.add_widget(screen)
+
 
     def lvl3attack(self):
         self.level_3_attack = Level_3_attack(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home, h.name,
@@ -7835,12 +7469,14 @@ class cyoaApp(App):
         screen.add_widget(self.level_3_attack)
         self.screenmanager.add_widget(screen)
 
+
     def lvl4Help(self):
         self.level_4_help = Level_4_help(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home, h.name,
                                          h.weapon, h.artifact, h.defense)
         screen = Screen(name="Level 4 help")
         screen.add_widget(self.level_4_help)
         self.screenmanager.add_widget(screen)
+
 
     def lvl5OWnoArtifact(self):
         self.level_5_gw = Level_5_group_warlock_na(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home,
@@ -7849,12 +7485,14 @@ class cyoaApp(App):
         screen.add_widget(self.level_5_gw)
         self.screenmanager.add_widget(screen)
 
+
     def lvl5groupinside(self):
         self.level_5_gi = Level_5_group_inside(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home,
                                                h.name, h.weapon, h.artifact, h.defense)
         screen = Screen(name="Level 5 group fight inside")
         screen.add_widget(self.level_5_gi)
         self.screenmanager.add_widget(screen)
+
 
     def lvl5soloNH(self):
         self.level_5_gi = Level_5_solo_not_human(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home,
@@ -7863,12 +7501,14 @@ class cyoaApp(App):
         screen.add_widget(self.level_5_gi)
         self.screenmanager.add_widget(screen)
 
+
     def lvl5fortescape(self):
         self.level_5_fed = Level_5_fort_escape_damage(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home,
                                                       h.name, h.weapon, h.artifact, h.defense)
         screen = Screen(name="Level 5 fort escape damaged")
         screen.add_widget(self.level_5_gi)
         self.screenmanager.add_widget(screen)
+
 
     def lvl6offering(self):
         self.level_6_yes = Level_6_yes(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home,
@@ -7878,6 +7518,205 @@ class cyoaApp(App):
         self.screenmanager.add_widget(screen)
 
 
+    ########################################################################################################################
+    def lvl7defend4(self):
+        self.level_7_defend_4 = Level_7_defend_4(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home, h.name,
+                                                 h.weapon, h.artifact, h.defense)
+        screen = Screen(name="Level 7 defend 4")
+        screen.add_widget(self.level_7_defend_4)
+        self.screenmanager.add_widget(screen)
+
+
+    def lvl7artifactattack(self):
+        self.level_7_artifact_attack = Level_7_artifact_attack(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home,
+                                                               h.name, h.weapon, h.artifact, h.defense)
+        screen = Screen(name="Level 7 artifact attack")
+        screen.add_widget(self.level_7_artifact_attack)
+        self.screenmanager.add_widget(screen)
+
+
+    def lvl7attack(self):
+        self.level_7_attack = Level_7_attack(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home, h.name, h.weapon,
+                                             h.artifact, h.defense)
+        screen = Screen(name="Level 7 attack")
+        screen.add_widget(self.level_7_attack)
+        self.screenmanager.add_widget(screen)
+
+
+    def lvl4nodwarf(self):
+        self.level_4_No_Dwarf = Level_4_No_Dwarf(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home, h.name,
+                                                 h.weapon, h.artifact, h.defense)
+        screen = Screen(name="Level 4 No Dwarf")
+        screen.add_widget(self.level_4_No_Dwarf)
+        self.screenmanager.add_widget(screen)
+
+
+    def lvl5groupgameover(self):
+        self.level_5_gko = Level_5_group_Game_over(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home,
+                                                   h.name, h.weapon, h.artifact, h.defense)
+        screen = Screen(name="Level 5 group game over")
+        screen.add_widget(self.level_5_gko)
+        self.screenmanager.add_widget(screen)
+
+
+    def lvl5groupoutside(self):
+        self.level_5_gout = Level_5_group_outside(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home,
+                                                  h.name, h.weapon, h.artifact, h.defense)
+        screen = Screen(name="Level 5 group outside")
+        screen.add_widget(self.level_5_gout)
+        self.screenmanager.add_widget(screen)
+
+
+    def lvl4sane(self):
+        self.level_4_sane = Level_4_sane(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home, h.name,
+                                         h.weapon, h.artifact, h.defense)
+        screen = Screen(name="Level 4 sane")
+        screen.add_widget(self.level_4_sane)
+        self.screenmanager.add_widget(screen)
+
+
+    def lvl4disappear(self):
+        self.level_4_disappear = Level_4_disappear(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home, h.name,
+                                                   h.weapon, h.artifact, h.defense)
+        screen = Screen(name="Level 4 disappear")
+        screen.add_widget(self.level_4_disappear)
+        self.screenmanager.add_widget(screen)
+
+
+    def lvl4dwarfescape(self):
+        self.level_4_Dwarf_escape = Level_4_Dwarf_escape(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home,
+                                                         h.name,
+                                                         h.weapon, h.artifact, h.defense)
+        screen = Screen(name="Level 4 dwarf escape")
+        screen.add_widget(self.level_4_Dwarf_escape)
+        self.screenmanager.add_widget(screen)
+
+
+    def lvl7courtyard(self):
+        self.level_7_courtyard = Level_7_courtyard(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home, h.name,
+                                                   h.weapon, h.artifact, h.defense)
+        screen = Screen(name="Level 7 courtyard")
+        screen.add_widget(self.level_7_courtyard)
+        self.screenmanager.add_widget(screen)
+
+
+    def lvl3aggressiveno(self):
+        self.level_3_aggressive_no = Level_3_aggressive_no(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home,
+                                                           h.name,
+                                                           h.weapon, h.artifact, h.defense)
+        screen = Screen(name="Level 3 aggressive no")
+        screen.add_widget(self.level_3_aggressive_no)
+        self.screenmanager.add_widget(screen)
+
+
+    def lvl3fnoc(self):
+        self.level_3_friendly_no_charisma = Level_3_friendly_no_charisma(h.race, h.hp, h.stealth, h.strength,
+                                                                         h.charisma, h.home, h.name,
+                                                                         h.weapon, h.artifact, h.defense)
+        screen = Screen(name="Level 3 friendly no charisma")
+        screen.add_widget(self.level_3_friendly_no_charisma)
+        self.screenmanager.add_widget(screen)
+
+
+    def lvl2s1secs(self):
+        self.level_2_s1sces = Level_2_Sneak_1_SCES(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home, h.name,
+                                                   h.weapon, h.artifact, h.defense)
+        screen = Screen(name="Level 2 Sneak 1 Successful")
+        screen.add_widget(self.level_2_s1sces)
+        self.screenmanager.add_widget(screen)
+
+
+    def lvl2s1f(self):
+        self.level_2_s1fail = Level_2_Sneak_1_FAIL(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home, h.name,
+                                                   h.weapon, h.artifact, h.defense)
+        screen = Screen(name="Level 2 Sneak 1 Fail")
+        screen.add_widget(self.level_2_s1fail)
+        self.screenmanager.add_widget(screen)
+
+
+    def lvl5solo(self):
+        self.level_5_solo = Level_5_solo(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home,
+                                         h.name, h.weapon, h.artifact, h.defense)
+        screen = Screen(name="Level 5 solo")
+        screen.add_widget(self.level_5_solo)
+        self.screenmanager.add_widget(screen)
+
+
+    def lvl5da(self):
+        self.level_5_da = Level_5_Duel_Accept(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home,
+                                              h.name, h.weapon, h.artifact, h.defense)
+        screen = Screen(name="level 5 duel accept")
+        screen.add_widget(self.level_5_da)
+        self.screenmanager.add_widget(screen)
+
+
+    def lvl4forta(self):
+        self.level_4_fort_attack = Level_4_fort_attack(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home, h.name,
+                                                       h.weapon, h.artifact, h.defense)
+        screen = Screen(name="Level 4 fort attack")
+        screen.add_widget(self.level_4_fort_attack)
+        self.screenmanager.add_widget(screen)
+
+
+    def lvl3aggressivey(self):
+        self.level_3_aggressive_yes = Level_3_aggressive_yes(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home,
+                                                             h.name,
+                                                             h.weapon, h.artifact, h.defense)
+        screen = Screen(name="Level 3 aggressive yes")
+        screen.add_widget(self.level_3_aggressive_yes)
+        self.screenmanager.add_widget(screen)
+
+
+    def lvl3attackd(self):
+        self.level_3_attack_death = Level_3_attack_death(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home,
+                                                         h.name,
+                                                         h.weapon, h.artifact, h.defense)
+        screen = Screen(name="Level 3 attack death")
+        screen.add_widget(self.level_3_attack_death)
+        self.screenmanager.add_widget(screen)
+
+
+    def lvl1ifs(self):
+        self.level_1_innfs = Level_1_inn_fight_sces(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home, h.name,
+                                                    h.weapon, h.artifact, h.defense)
+        screen = Screen(name="Level 1 inn fight successful")
+        screen.add_widget(self.level_1_innfs)
+        self.screenmanager.add_widget(screen)
+
+
+    def lvl1iss(self):
+        self.level_1_innss = Level_1_inn_sneak_sces(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home, h.name,
+                                                    h.weapon, h.artifact, h.defense)
+        screen = Screen(name="Level 1 inn sneak successful")
+        screen.add_widget(self.level_1_innss)
+        self.screenmanager.add_widget(screen)
+
+
+    def lvl1fight(self):
+        self.level_1_1_fight = Level_1_1_fight(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home, h.name,
+                                               h.weapon, h.artifact, h.defense)
+        screen = Screen(name="Level 1 FIGHT")
+        screen.add_widget(self.level_1_1_fight)
+        self.screenmanager.add_widget(screen)
+
+
+    def lvl1ejump(self):
+        self.level_1_1_ejump = Level_1_1_ejump(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home, h.name,
+                                               h.weapon, h.artifact, h.defense)
+        screen = Screen(name="Level 1 JUMP Elf")
+        screen.add_widget(self.level_1_1_ejump)
+        self.screenmanager.add_widget(screen)
+
+
+    def lvl1rjump(self):
+        self.level_1_1_rjump = Level_1_1_rjump(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home, h.name,
+                                               h.weapon, h.artifact, h.defense)
+        screen = Screen(name="Level 1 JUMP Rito")
+        screen.add_widget(self.level_1_1_rjump)
+        self.screenmanager.add_widget(screen)
+
+
 if __name__ == "__main__":
     game = cyoaApp()
     game.run()
+
