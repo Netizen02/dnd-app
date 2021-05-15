@@ -172,6 +172,7 @@ You feel better and your resolve is stronger.
         self.add_widget(choice)
 
     def proceed_1(self, instance):
+        game.lvl7courtyard()
         game.screenmanager.current = "Level 7 courtyard"
 
 
@@ -665,6 +666,7 @@ You head to his tent to investigate.
         self.add_widget(choice)
 
     def proceed_1(self, instance):
+        game.lvl7courtyard()
         game.screenmanager.current = "Level 7 courtyard"
 
 
@@ -3855,12 +3857,14 @@ find out what he knows…""", color=(0, 0, 0, 1)))
         if h.charisma == True:
             game.screenmanager.current = "Level 3 friendly charisma"
         else:
+            game.lvl3fnoc()
             game.screenmanager.current = "Level 3 friendly no charisma"
 
     def aggressive(self, instance):
         if h.strength >= 500:
             game.screenmanager.current = "Level 3 aggressive yes"
         else:
+            game.lvl3aggressiveno()
             game.screenmanager.current = "Level 3 aggressive no"
 
 
@@ -5824,8 +5828,10 @@ Do you attack?""", color=(0, 0, 0, 1)))
 
     def JUMP(self, instance):
         if h.stealth >= 550:
+            game.lvl2s1secs()
             game.screenmanager.current = "Level 2 Sneak 1 Successful"
         else:
+            game.lvl2s1f()
             game.screenmanager.current = "Level 2 Sneak 1 Fail"
 
     def FIGHT(self, instance):
