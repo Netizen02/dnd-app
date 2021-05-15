@@ -913,6 +913,7 @@ has led to this moment…
 
     def attack(self, instance):
         if h.artifact == True:
+            game.lvl7artifactattack()
             game.screenmanager.current = "Level 7 artifact attack"
         else:
             game.screenmanager.current = "Level 7 attack 0"
@@ -988,6 +989,7 @@ you and regroup.
 
     def attack(self, instance):
         if h.artifact == True:
+            game.lvl7artifactattack()
             game.screenmanager.current = "Level 7 artifact attack"
         else:
             if h.hp > 0:
@@ -1010,6 +1012,7 @@ you and regroup.
                 game.screenmanager.current = "Level 7 defend 3"
                 h.defense += 1
             elif h.defense == 4:
+                game.lvl7defend4()
                 game.screenmanager.current = "Level 7 defend 4"
                 h.defense += 1
         else:
@@ -1077,6 +1080,7 @@ the two of you and regroup.
 
     def attack(self, instance):
         if h.artifact == True:
+            game.lvl7artifactattack()
             game.screenmanager.current = "Level 7 artifact attack"
         else:
             if h.hp > 0:
@@ -1099,6 +1103,7 @@ the two of you and regroup.
                 game.screenmanager.current = "Level 7 defend 3"
                 h.defense += 1
             elif h.defense == 4:
+                game.lvl7defend4()
                 game.screenmanager.current = "Level 7 defend 4"
                 h.defense += 1
             else:
@@ -1164,6 +1169,7 @@ screams in pain
 
     def attack(self, instance):
         if h.artifact == True:
+            game.lvl7artifactattack()
             game.screenmanager.current = "Level 7 artifact attack"
             pass
         else:
@@ -1189,6 +1195,7 @@ screams in pain
                 game.screenmanager.current = "Level 7 defend 3"
                 h.defense += 1
             elif h.defense == 4:
+                game.lvl7defend4()
                 game.screenmanager.current = "Level 7 defend 4"
                 h.defense += 1
         else:
@@ -1254,6 +1261,7 @@ not expecting you to match his skill
 
     def attack(self, instance):
         if h.artifact == True:
+            game.lvl7artifactattack()
             game.screenmanager.current = "Level 7 artifact attack"
         else:
             if h.hp > 0:
@@ -1276,6 +1284,7 @@ not expecting you to match his skill
                 game.screenmanager.current = "Level 7 defend 3"
                 h.defense += 1
             elif h.defense == 4:
+                game.lvl7defend4()
                 game.screenmanager.current = "Level 7 defend 4"
                 h.defense += 1
         else:
@@ -1394,6 +1403,7 @@ and hit him from the side!
 
     def attack(self, instance):
         if h.artifact == True:
+            game.lvl7artifactattack()
             game.screenmanager.current = "Level 7 artifact attack"
         else:
             if h.hp > 0:
@@ -1420,6 +1430,7 @@ and hit him from the side!
                 h.defense += 1
 
             elif h.defense == 4:
+                game.lvl7defend4()
                 game.screenmanager.current = "Level 7 defend 4"
                 h.defense += 1
 
@@ -1487,6 +1498,7 @@ destroying his wolf form
 
     def attack(self, instance):
         if h.artifact == True:
+            game.lvl7artifactattack()
             game.screenmanager.current = "Level 7 artifact attack"
         else:
             if h.hp > 0:
@@ -1509,6 +1521,7 @@ destroying his wolf form
                 game.screenmanager.current = "Level 7 defend 3"
                 h.defense += 1
             elif h.defense == 4:
+                game.lvl7defend4()
                 game.screenmanager.current = "Level 7 defend 4"
                 h.defense += 1
         else:
@@ -2516,6 +2529,7 @@ The soldiers quickly surround you
         self.add_widget(choice)
 
     def FIGHT(self, instance):
+        game.lvl5groupoutside()
         game.screenmanager.current = "Level 5 group outside"
 
 
@@ -2555,6 +2569,7 @@ class Level_5_group_outside(character, BoxLayout):
         game.screenmanager.current = "Home"
 
     def back(self, instance):
+        game.lvl5groupoutside()
         game.screenmanager.current = "Level 5 group outside"
 
     def lvl5_groupOutside(self):
@@ -2645,6 +2660,7 @@ class Level_5_group_warlock_na(character, BoxLayout):
         game.screenmanager.current = "Home"
 
     def back(self, instance):
+        game.lvl5groupoutside()
         game.screenmanager.current = "Level 5 group outside"
 
     def lvl5_group(self):
@@ -2753,6 +2769,7 @@ class Level_5_group_warlock(character, BoxLayout):
         game.screenmanager.current = "Home"
 
     def back(self, instance):
+        game.lvl5groupoutside()
         game.screenmanager.current = "Level 5 group outside"
 
     def lvl5_groupw(self):
@@ -2887,6 +2904,7 @@ them all on at once.\n""", color=(0, 0, 0, 1), size_hint=(1, None), pos=(self.wi
         self.add_widget(choice)
 
     def rational(self, instance):
+        game.lvl4sane()
         game.screenmanager.current = "Level 4 sane"
 
     def aggressive(self, instance):
@@ -3038,6 +3056,7 @@ class Level_4_lone(character, BoxLayout):
         game.screenmanager.current = "Home"
 
     def back(self, instance):
+        game.lvl4sane()
         game.screenmanager.current = "Level 4 sane"
 
     def level_4_lone(self):
@@ -3112,6 +3131,7 @@ class Level_4_help(character, BoxLayout):
         game.screenmanager.current = "Home"
 
     def back(self, instance):
+        game.lvl4sane()
         game.screenmanager.current = "Level 4 sane"
 
     def level_4_help(self):
@@ -3262,6 +3282,7 @@ class Level_4_safehouse(character, BoxLayout):
         game.screenmanager.current = "Home"
 
     def back(self, instance):
+        game.lvl4sane()
         game.screenmanager.current = "Level 4 sane"
 
     def level_4_safehouse(self):
@@ -3326,6 +3347,7 @@ Something feels off though.
         if h.race == 'Dwarf':
             game.screenmanager.current = "Level 4 Dwarf"
         else:
+            game.lvl4nodwarf()
             game.screenmanager.current = "Level 4 No Dwarf"
 
 
@@ -3448,6 +3470,7 @@ class Level_4_disappear(character, BoxLayout):
         game.screenmanager.current = "Home"
 
     def back(self, instance):
+        game.lvl4nodwarf()
         game.screenmanager.current = "Level 4 No Dwarf"
 
     def level_4_disappear(self):
@@ -3533,6 +3556,7 @@ class Level_4_no_disappear(character, BoxLayout):
         game.screenmanager.current = "Home"
 
     def back(self, instance):
+        game.lvl4nodwarf()
         game.screenmanager.current = "Level 4 No Dwarf"
 
     def level_4_no_disappear(self):
@@ -3655,6 +3679,7 @@ underground tunnels.It’s small but we can easily fit.’
         if h.hp > 350.00:
             game.screenmanager.current = "Level 5 group fight inside"
         else:
+            game.lvl5groupgameover()
             game.screenmanager.current = "Level 5 group game over"
 
     def escape(self, instance):
