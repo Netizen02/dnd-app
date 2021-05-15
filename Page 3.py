@@ -2005,6 +2005,7 @@ you to a duel right here right now."
         self.add_widget(choice)
 
     def rational(self, instance):
+        game.lvl5da()
         game.screenmanager.current = "level 5 duel accept"
 
     def aggressive(self, instance):
@@ -2260,6 +2261,7 @@ you to a duel right here right now."
         self.add_widget(choice)
 
     def rational(self, instance):
+        game.lvl5da()
         game.screenmanager.current = "level 5 duel accept"
 
     def aggressive(self, instance):
@@ -2916,6 +2918,7 @@ them all on at once.\n""", color=(0, 0, 0, 1), size_hint=(1, None), pos=(self.wi
         game.screenmanager.current = "Level 4 sane"
 
     def aggressive(self, instance):
+        game.lvl4forta()
         game.screenmanager.current = "Level 4 fort attack"
 
 
@@ -3862,6 +3865,7 @@ find out what he knows…""", color=(0, 0, 0, 1)))
 
     def aggressive(self, instance):
         if h.strength >= 500:
+            game.lvl3aggressivey()
             game.screenmanager.current = "Level 3 aggressive yes"
         else:
             game.lvl3aggressiveno()
@@ -4372,6 +4376,7 @@ and take them out one by one? """, color=(0, 0, 0, 1)))
             game.lvl3attack()
             game.screenmanager.current = "Level 3 attack"
         else:
+            game.lvl3attackd()
             game.screenmanager.current = "Level 3 attack death"
 
     def tactical(self, instance):
@@ -6441,6 +6446,7 @@ contemplating your next move…""", color=(0, 0, 0, 1), size_hint=(1, None), pos
 
     def sneak(self, instance):
         if h.stealth >= 500:
+            game.lvl1iss()
             game.screenmanager.current = "Level 1 inn sneak successful"
         else:
             game.l1_inn_sneak_fail()
@@ -6448,6 +6454,7 @@ contemplating your next move…""", color=(0, 0, 0, 1), size_hint=(1, None), pos
 
     def FIGHT(self, instance):
         if h.strength >= 550:
+            game.lvl1ifs()
             game.screenmanager.current = "Level 1 inn fight successful"
         elif h.strength >= 500 and h.strength < 500:
             game.l1_inn_fight_norm()
