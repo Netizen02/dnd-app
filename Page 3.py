@@ -5884,6 +5884,7 @@ class Level_1_inn_fight_norm(character, BoxLayout):
         game.screenmanager.current = "Home"
 
     def back(self, instance):
+        game.lvl1fight()
         game.screenmanager.current = "Level 1 FIGHT"
 
     def lvl1_ifn(self):
@@ -5988,6 +5989,7 @@ class Level_1_inn_fight_fail(character, BoxLayout):
         game.screenmanager.current = "Home"
 
     def back(self, instance):
+        game.lvl1fight()
         game.screenmanager.current = "Level 1 FIGHT"
 
     def lvl1_iff(self):
@@ -6093,6 +6095,7 @@ class Level_1_inn_fight_sces(character, BoxLayout):
         sound.play()
 
     def back(self, instance):
+        game.lvl1fight()
         game.screenmanager.current = "Level 1 FIGHT"
 
     def Homescreen(self, instance):
@@ -6196,6 +6199,7 @@ class Level_1_inn_sneak_fail(character, BoxLayout):
         sound.play()
 
     def back(self, instance):
+        game.lvl1fight()
         game.screenmanager.current = "Level 1 FIGHT"
 
     def Homescreen(self, instance):
@@ -6302,6 +6306,7 @@ class Level_1_inn_sneak_sces(character, BoxLayout):
         sound.play()
 
     def back(self, instance):
+        game.lvl1fight()
         game.screenmanager.current = "Level 1 FIGHT"
 
     def Homescreen(self, instance):
@@ -6878,14 +6883,17 @@ fight your way out of this nightmare?""", color=(0, 0, 0, 1)))
 
     def JUMP(self, instance):
         if h.race == "Rito":
+            game.lvl1rjump()
             game.screenmanager.current = "Level 1 JUMP Rito"
         elif h.race == "Elf":
+            game.lvl1ejump()
             game.screenmanager.current = "Level 1 JUMP Elf"
         else:
             game.l1_jump_hurt()
             game.screenmanager.current = "Level 1 JUMP Hurt"
 
     def FIGHT(self, instance):
+        game.lvl1fight()
         game.screenmanager.current = "Level 1 FIGHT"
 
 
