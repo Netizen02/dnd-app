@@ -49,8 +49,9 @@ h = character("race",0.00,0.00,0.00,True,"home","player","sword", False, 0)
 class Level_6_intro_page(character, BoxLayout):
     _disabled_count = 0
 
-    def __init__(self, race, hp, stealth, strength, charisma, home, **kwargs):
-        character.__init__(self, race, hp, stealth, strength, charisma, home)
+    def __init__(self, race, hp, stealth, strength, charisma, home, name, weapon, artifact, defense, **kwargs):
+
+        character.__init__(self, race, hp, stealth, strength, charisma, home, name, weapon, artifact, defense)
         BoxLayout.__init__(self, **kwargs)
         self.orientation = "vertical"
 
@@ -58,28 +59,32 @@ class Level_6_intro_page(character, BoxLayout):
         self.bottom_bar()
 
     def bottom_bar(self):
-        grid = GridLayout(cols=3, rows=1, padding=5, spacing=10)
+        grid = GridLayout(cols=4, rows=1, padding=5, spacing=10)
         homescreen_button = Button(text="Home")
         music_button = Button(text="Music")
-        back_button = Button(text="Back")
+        stop_music_button = Button(text = "Stop Music")
+        back_button = Label(text=" ")
         grid.add_widget(back_button)
-        back_button.bind(on_press=self.back)
         grid.add_widget(homescreen_button)
         homescreen_button.bind(on_press=self.Homescreen)
         grid.add_widget(music_button)
         music_button.bind(on_press=self.music)
+        grid.add_widget(stop_music_button)
+        stop_music_button.bind(on_press= self.stop_music)
         self.add_widget(grid)
+
+    def stop_music(self, instance):
+        sound = SoundLoader.load(
+            'extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav')
+        sound.stop()
 
     def music(self,instance):
         sound = SoundLoader.load(
-            'extra files for mini project\Legend Of Zelda Theme (8 Bit Remix Cover Version) [Tribute to NES] - 8 Bit Universe.wav')
+            'extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav')
         sound.play()
 
     def Homescreen(self, instance):
         game.screenmanager.current = "Home"
-
-    def back(self,instance):
-        pass
 
     def level_6_intro_page(self):
         frame = GridLayout(cols=1, rows=1, size_hint_y=None)
@@ -114,8 +119,8 @@ are here.It’s time to get to Revan
 class Level_6_Rito(character, BoxLayout):
     _disabled_count = 0
     h.hp += 150
-    def __init__(self, race, hp, stealth, strength, charisma, home, **kwargs):
-        character.__init__(self, race, hp, stealth, strength, charisma, home)
+    def __init__(self, race, hp, stealth, strength, charisma, home, name, weapon, artifact, defense, **kwargs):
+        character.__init__(self, race, hp, stealth, strength, charisma, home, name, weapon, artifact, defense)
         BoxLayout.__init__(self, **kwargs)
         self.orientation = "vertical"
 
@@ -123,9 +128,10 @@ class Level_6_Rito(character, BoxLayout):
         self.bottom_bar()
 
     def bottom_bar(self):
-        grid = GridLayout(cols=3, rows=1, padding=5, spacing=10)
+        grid = GridLayout(cols=4, rows=1, padding=5, spacing=10)
         homescreen_button = Button(text="Home")
         music_button = Button(text="Music")
+        stop_music_button = Button(text="Stop Music")
         back_button = Button(text="Back")
         grid.add_widget(back_button)
         back_button.bind(on_press=self.back)
@@ -133,14 +139,21 @@ class Level_6_Rito(character, BoxLayout):
         homescreen_button.bind(on_press=self.Homescreen)
         grid.add_widget(music_button)
         music_button.bind(on_press=self.music)
+        grid.add_widget(stop_music_button)
+        stop_music_button.bind(on_press=self.stop_music)
         self.add_widget(grid)
 
-    def music(self,instance):
+    def stop_music(self, instance):
         sound = SoundLoader.load(
-            'extra files for mini project\Legend Of Zelda Theme (8 Bit Remix Cover Version) [Tribute to NES] - 8 Bit Universe.wav')
+            'extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav')
+        sound.stop()
+
+    def music(self, instance):
+        sound = SoundLoader.load(
+            'extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav')
         sound.play()
 
-    def Homescreen(self, instance):
+    def Homescreen(self,instance):
         game.screenmanager.current = "Home"
 
     def back(self,instance):
@@ -175,8 +188,8 @@ You feel better and your resolve is stronger.
 class Level_6_climb(character, BoxLayout):
     _disabled_count = 0
 
-    def __init__(self, race, hp, stealth, strength, charisma, home, **kwargs):
-        character.__init__(self, race, hp, stealth, strength, charisma, home)
+    def __init__(self, race, hp, stealth, strength, charisma, home, name, weapon, artifact, defense, **kwargs):
+        character.__init__(self, race, hp, stealth, strength, charisma, home, name, weapon, artifact, defense)
         BoxLayout.__init__(self, **kwargs)
         self.orientation = "vertical"
 
@@ -184,9 +197,10 @@ class Level_6_climb(character, BoxLayout):
         self.bottom_bar()
 
     def bottom_bar(self):
-        grid = GridLayout(cols=3, rows=1, padding=5, spacing=10)
+        grid = GridLayout(cols=4, rows=1, padding=5, spacing=10)
         homescreen_button = Button(text="Home")
         music_button = Button(text="Music")
+        stop_music_button = Button(text="Stop Music")
         back_button = Button(text="Back")
         grid.add_widget(back_button)
         back_button.bind(on_press=self.back)
@@ -194,14 +208,21 @@ class Level_6_climb(character, BoxLayout):
         homescreen_button.bind(on_press=self.Homescreen)
         grid.add_widget(music_button)
         music_button.bind(on_press=self.music)
+        grid.add_widget(stop_music_button)
+        stop_music_button.bind(on_press=self.stop_music)
         self.add_widget(grid)
 
-    def music(self,instance):
+    def stop_music(self, instance):
         sound = SoundLoader.load(
-            'extra files for mini project\Legend Of Zelda Theme (8 Bit Remix Cover Version) [Tribute to NES] - 8 Bit Universe.wav')
+            'extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav')
+        sound.stop()
+
+    def music(self, instance):
+        sound = SoundLoader.load(
+            'extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav')
         sound.play()
 
-    def Homescreen(self, instance):
+    def Homescreen(self,instance):
         game.screenmanager.current = "Home"
 
     def back(self,instance):
@@ -244,23 +265,55 @@ near it.\n""", color=(0, 0, 0, 1), size_hint=(1, None), pos=(self.width, 400))
         self.add_widget(choice)
 
     def yes(self, instance):
+        game.lvl6offering()
         game.screenmanager.current = "Level 6 offering"
-        pass
 
     def no(self, instance):
         game.screenmanager.current = "Level 6 no offering"
-        pas
 
 class Level_6_yes(character, BoxLayout):
     _disabled_count = 0
+    h.hp += 150
     h.strength += 50
-    h.hp +=150
-    def __init__(self, race, hp, stealth, strength, charisma, home, **kwargs):
-        character.__init__(self, race, hp, stealth, strength, charisma, home)
+    def __init__(self, race, hp, stealth, strength, charisma, home, name, weapon, artifact, defense, **kwargs):
+        character.__init__(self, race, hp, stealth, strength, charisma, home, name, weapon, artifact, defense)
         BoxLayout.__init__(self, **kwargs)
         self.orientation = "vertical"
 
         self.level_6_yes()
+        self.bottom_bar()
+
+    def bottom_bar(self):
+        grid = GridLayout(cols=4, rows=1, padding=5, spacing=10)
+        homescreen_button = Button(text="Home")
+        music_button = Button(text="Music")
+        stop_music_button = Button(text="Stop Music")
+        back_button = Button(text="Back")
+        grid.add_widget(back_button)
+        back_button.bind(on_press=self.back)
+        grid.add_widget(homescreen_button)
+        homescreen_button.bind(on_press=self.Homescreen)
+        grid.add_widget(music_button)
+        music_button.bind(on_press=self.music)
+        grid.add_widget(stop_music_button)
+        stop_music_button.bind(on_press=self.stop_music)
+        self.add_widget(grid)
+
+    def stop_music(self, instance):
+        sound = SoundLoader.load(
+            'extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav')
+        sound.stop()
+
+    def music(self, instance):
+        sound = SoundLoader.load(
+            'extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav')
+        sound.play()
+
+    def Homescreen(self,instance):
+        game.screenmanager.current = "Home"
+
+    def back(self,instance):
+        game.screenmanager.current = "Level 6 climb"
 
     def level_6_yes(self):
         frame = GridLayout(cols=1, rows=1, size_hint_y=None)
@@ -299,12 +352,45 @@ proceed up the mountain.
 class Level_6_no(character, BoxLayout):
     _disabled_count = 0
 
-    def __init__(self, race, hp, stealth, strength, charisma, home, **kwargs):
-        character.__init__(self, race, hp, stealth, strength, charisma, home)
+    def __init__(self, race, hp, stealth, strength, charisma, home, name, weapon, artifact, defense, **kwargs):
+        character.__init__(self, race, hp, stealth, strength, charisma, home, name, weapon, artifact, defense)
         BoxLayout.__init__(self, **kwargs)
         self.orientation = "vertical"
 
         self.level_6_no()
+        self.bottom_bar()
+
+    def bottom_bar(self):
+        grid = GridLayout(cols=4, rows=1, padding=5, spacing=10)
+        homescreen_button = Button(text="Home")
+        music_button = Button(text="Music")
+        stop_music_button = Button(text="Stop Music")
+        back_button = Button(text="Back")
+        grid.add_widget(back_button)
+        back_button.bind(on_press=self.back)
+        grid.add_widget(homescreen_button)
+        homescreen_button.bind(on_press=self.Homescreen)
+        grid.add_widget(music_button)
+        music_button.bind(on_press=self.music)
+        grid.add_widget(stop_music_button)
+        stop_music_button.bind(on_press=self.stop_music)
+        self.add_widget(grid)
+
+    def stop_music(self, instance):
+        sound = SoundLoader.load(
+            'extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav')
+        sound.stop()
+
+    def music(self, instance):
+        sound = SoundLoader.load(
+            'extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav')
+        sound.play()
+
+    def Homescreen(self,instance):
+        game.screenmanager.current = "Home"
+
+    def back(self,instance):
+        game.screenmanager.current = "Level 6 climb"
 
     def level_6_no(self):
         frame = GridLayout(cols=1, rows=1, size_hint_y=None)
@@ -336,8 +422,8 @@ you know your journey will end soon.
 class Level_7_intro_page(character, BoxLayout):
     _disabled_count = 0
 
-    def __init__(self, race, hp, stealth, strength, charisma, home, **kwargs):
-        character.__init__(self, race, hp, stealth, strength, charisma, home)
+    def __init__(self, race, hp, stealth, strength, charisma, home, name, weapon, artifact, defense, **kwargs):
+        character.__init__(self, race, hp, stealth, strength, charisma, home, name, weapon, artifact, defense)
         BoxLayout.__init__(self, **kwargs)
         self.orientation = "vertical"
 
@@ -381,10 +467,9 @@ something in it.
 
 class Level_7_yes_drink(character, BoxLayout):
     _disabled_count = 0
-    h.stealth +=50
-    def __init__(self, race, hp, stealth, strength, charisma, home, **kwargs):
-
-        character.__init__(self, race, hp, stealth, strength, charisma, home)
+    h.stealth += 50
+    def __init__(self, race, hp, stealth, strength, charisma, home, name, weapon, artifact, defense, **kwargs):
+        character.__init__(self, race, hp, stealth, strength, charisma, home, name, weapon, artifact, defense)
         BoxLayout.__init__(self, **kwargs)
         self.orientation = "vertical"
 
@@ -415,27 +500,22 @@ It’s not very effective but it still helps.
         self.add_widget(choice)
 
     def attack(self, instance):
-        if h.str >= 500:
+        if h.strength >= 500:
             game.screenmanager.current = "Level 7 attack"
-            pass
         else:
             game.screenmanager.current = "Level 7 no attack"
-            pass
 
     def sneak(self, instance):
         if h.stealth >= 600:
             game.screenmanager.current = "Level 7 sneak"
-            pass
         else:
             game.screenmanager.current = "Level 7 no sneak"
-            pass
 
 class Level_7_no_drink(character, BoxLayout):
     _disabled_count = 0
 
-    def __init__(self, race, hp, stealth, strength, charisma, home, **kwargs):
-
-        character.__init__(self, race, hp, stealth, strength, charisma, home)
+    def __init__(self, race, hp, stealth, strength, charisma, home, name, weapon, artifact, defense, **kwargs):
+        character.__init__(self, race, hp, stealth, strength, charisma, home, name, weapon, artifact, defense)
         BoxLayout.__init__(self, **kwargs)
         self.orientation = "vertical"
 
@@ -480,10 +560,10 @@ class Level_7_no_drink(character, BoxLayout):
 
 class Level_7_attack(character, BoxLayout):
     _disabled_count = 0
-    if h.strength<= 600:
+    if h.strength <= 600:
         h.hp -= 200
-    def __init__(self, race, hp, stealth, strength, charisma, home, **kwargs):
-        character.__init__(self, race, hp, stealth, strength, charisma, home)
+    def __init__(self, race, hp, stealth, strength, charisma, home, name, weapon, artifact, defense, **kwargs):
+        character.__init__(self, race, hp, stealth, strength, charisma, home, name, weapon, artifact, defense)
         BoxLayout.__init__(self, **kwargs)
         self.orientation = "vertical"
 
@@ -525,8 +605,8 @@ You head to his tent to investigate.
 class Level_7_attack_no(character, BoxLayout):
     _disabled_count = 0
 
-    def __init__(self, race, hp, stealth, strength, charisma, home, **kwargs):
-        character.__init__(self, race, hp, stealth, strength, charisma, home)
+    def __init__(self, race, hp, stealth, strength, charisma, home, name, weapon, artifact, defense, **kwargs):
+        character.__init__(self, race, hp, stealth, strength, charisma, home, name, weapon, artifact, defense)
         BoxLayout.__init__(self, **kwargs)
         self.orientation = "vertical"
 
@@ -555,8 +635,8 @@ perish
 class Level_7_sneak(character, BoxLayout):
     _disabled_count = 0
 
-    def __init__(self, race, hp, stealth, strength, charisma, home, **kwargs):
-        character.__init__(self, race, hp, stealth, strength, charisma, home)
+    def __init__(self, race, hp, stealth, strength, charisma, home, name, weapon, artifact, defense, **kwargs):
+        character.__init__(self, race, hp, stealth, strength, charisma, home, name, weapon, artifact, defense)
         BoxLayout.__init__(self, **kwargs)
         self.orientation = "vertical"
 
@@ -593,8 +673,8 @@ to be empty
 class Level_7_sneak_no(character, BoxLayout):
     _disabled_count = 0
 
-    def __init__(self, race, hp, stealth, strength, charisma, home, **kwargs):
-        character.__init__(self, race, hp, stealth, strength, charisma, home)
+    def __init__(self, race, hp, stealth, strength, charisma, home, name, weapon, artifact, defense, **kwargs):
+        character.__init__(self, race, hp, stealth, strength, charisma, home, name, weapon, artifact, defense)
         BoxLayout.__init__(self, **kwargs)
         self.orientation = "vertical"
 
@@ -625,9 +705,8 @@ you soon perish
 class Level_7_courtyard(character, BoxLayout):
     _disabled_count = 0
 
-    def __init__(self, race, hp, stealth, strength, charisma, home, d, **kwargs):
-
-        character.__init__(self, race, hp, stealth, strength, charisma, home, d)
+    def __init__(self, race, hp, stealth, strength, charisma, home, name, weapon, artifact, defense, **kwargs):
+        character.__init__(self, race, hp, stealth, strength, charisma, home, name, weapon, artifact, defense)
         BoxLayout.__init__(self, **kwargs)
         self.orientation = "vertical"
 
@@ -658,7 +737,7 @@ have {h.race} today’
 He jumps down and faces you in the
 courtyard. Everything you have done
 has led to this moment…
-\n""", color=(0, 0, 0, 1), size_hint=(1, None), pos=(self.width, 400))
+""", color=(0, 0, 0, 1), size_hint=(1, None), pos=(self.width, 400))
         frame.add_widget(texta)
         scroll.add_widget(frame)
         self.add_widget(scroll)
@@ -677,28 +756,23 @@ has led to this moment…
     def attack(self, instance):
         if h.artefact == True:
             game.screenmanager.current = "Level 7 artefact attack"
-            pass
         else:
             game.screenmanager.current = "Level 7 attack 0"
-        pass
 
-    def defend(self, instance):
-        if h.d == 0:
+    def defend(self, instance):h.defense
+        if  == 0:
             game.screenmanager.current = "Level 7 defend 0"
-            h.d += 1
-            pass
-        elif h.d == 1:
+            h.defense += 1
+        elif h.defense == 1:
             game.screenmanager.current = "Level 7 defend 1"
-            h.d += 1
-            pass
+            h.defense += 1
 
 class Level_7_attack_0(character, BoxLayout):
     _disabled_count = 0
     h.hp -= 70
 
-    def __init__(self, race, hp, stealth, strength, charisma, home, d, **kwargs):
-
-        character.__init__(self, race, hp, stealth, strength, charisma, home, d)
+    def __init__(self, race, hp, stealth, strength, charisma, home, name, weapon, artifact, defense, **kwargs):
+        character.__init__(self, race, hp, stealth, strength, charisma, home, name, weapon, artifact, defense)
         BoxLayout.__init__(self, **kwargs)
         self.orientation = "vertical"
 
@@ -735,48 +809,38 @@ you and regroup.
     def attack(self, instance):
         if h.artefact == True:
             game.screenmanager.current = "Level 7 artefact attack"
-            pass
         else:
             if h.hp > 0:
                 game.screenmanager.current = "Level 7 attack 1"
-                pass
             else:
                 game.screenmanager.current = "Level 7 death"
-                pass
 
     def defend(self, instance):
         if h.hp > 0:
-            if h.d == 0:
+            if h.defense == 0:
                 game.screenmanager.current = "Level 7 defend 0"
-                h.d += 1
-                pass
-            elif h.d == 1:
+                h.defense += 1
+            elif h.defense == 1:
                 game.screenmanager.current = "Level 7 defend 1"
-                h.d += 1
-                pass
-            elif h.d == 2:
+                h.defense += 1
+            elif h.defense == 2:
                 game.screenmanager.current = "Level 7 defend 2"
-                h.d += 1
-                pass
-            elif h.d == 3:
+                h.defense += 1
+            elif h.defense == 3:
                 game.screenmanager.current = "Level 7 defend 3"
-                h.d += 1
-                pass
-            elif h.d == 4:
+                h.defense += 1
+            elif h.defense == 4:
                 game.screenmanager.current = "Level 7 defend 4"
-                h.d += 1
-                pass
+                h.defense += 1
         else:
             game.screenmanager.current = "Level 7 death"
-            pass
 
 class Level_7_attack_1(character, BoxLayout):
     _disabled_count = 0
     h.hp -= 70
 
-    def __init__(self, race, hp, stealth, strength, charisma, home, d, **kwargs):
-
-        character.__init__(self, race, hp, stealth, strength, charisma, home, d)
+    def __init__(self, race, hp, stealth, strength, charisma, home, name, weapon, artifact, defense, **kwargs):
+        character.__init__(self, race, hp, stealth, strength, charisma, home, name, weapon, artifact, defense)
         BoxLayout.__init__(self, **kwargs)
         self.orientation = "vertical"
 
@@ -823,25 +887,24 @@ the two of you and regroup.
 
     def defend(self, instance):
         if h.hp > 0:
-            if h.d == 0:
+            if h.defense == 0:
                 game.screenmanager.current = "Level 7 defend 0"
-                h.d += 1
-                pass
-            elif h.d == 1:
+                h.defense += 1
+            elif h.defense == 1:
                 game.screenmanager.current = "Level 7 defend 1"
-                h.d += 1
+                h.defense += 1
                 pass
-            elif h.d == 2:
+            elif h.defense == 2:
                 game.screenmanager.current = "Level 7 defend 2"
-                h.d += 1
+                h.defense += 1
                 pass
-            elif h.d == 3:
+            elif h.defense == 3:
                 game.screenmanager.current = "Level 7 defend 3"
-                h.d += 1
+                h.defense += 1
                 pass
-            elif h.d == 4:
+            elif h.defense == 4:
                 game.screenmanager.current = "Level 7 defend 4"
-                h.d += 1
+                h.defense += 1
                 pass
             else:
                 game.screenmanager.current = "Level 7 death"
@@ -851,9 +914,8 @@ class Level_7_defend_0(character, BoxLayout):
     _disabled_count = 0
     h.hp -= 50
 
-    def __init__(self, race, hp, stealth, strength, charisma, home, d, **kwargs):
-
-        character.__init__(self, race, hp, stealth, strength, charisma, home, d)
+    def __init__(self, race, hp, stealth, strength, charisma, home, name, weapon, artifact, defense, **kwargs):
+        character.__init__(self, race, hp, stealth, strength, charisma, home, name, weapon, artifact, defense)
         BoxLayout.__init__(self, **kwargs)
         self.orientation = "vertical"
 
@@ -898,25 +960,25 @@ screams in pain
 
     def defend(self, instance):
         if h.hp > 0:
-            if h.d == 0:
+            if h.defense == 0:
                 game.screenmanager.current = "Level 7 defend 0"
-                h.d += 1
+                h.defense += 1
                 pass
-            elif h.d == 1:
+            elif h.defense == 1:
                 game.screenmanager.current = "Level 7 defend 1"
-                h.d += 1
+                h.defense += 1
                 pass
-            elif h.d == 2:
+            elif h.defense == 2:
                 game.screenmanager.current = "Level 7 defend 2"
-                h.d += 1
+                h.defense += 1
                 pass
-            elif h.d == 3:
+            elif h.defense == 3:
                 game.screenmanager.current = "Level 7 defend 3"
-                h.d += 1
+                h.defense += 1
                 pass
-            elif h.d == 4:
+            elif h.defense == 4:
                 game.screenmanager.current = "Level 7 defend 4"
-                h.d += 1
+                h.defense += 1
                 pass
         else:
             game.screenmanager.current = "Level 7 death"
@@ -926,9 +988,8 @@ class Level_7_defend_1(character, BoxLayout):
     _disabled_count = 0
     h.hp -= 50
 
-    def __init__(self, race, hp, stealth, strength, charisma, home, d, **kwargs):
-
-        character.__init__(self, race, hp, stealth, strength, charisma, home, d)
+    def __init__(self, race, hp, stealth, strength, charisma, home, name, weapon, artifact, defense, **kwargs):
+        character.__init__(self, race, hp, stealth, strength, charisma, home, name, weapon, artifact, defense)
         BoxLayout.__init__(self, **kwargs)
         self.orientation = "vertical"
 
@@ -973,25 +1034,25 @@ not expecting you to match his skill
 
     def defend(self, instance):
         if h.hp > 0:
-            if h.d == 0:
+            if h.defense == 0:
                 game.screenmanager.current = "Level 7 defend 0"
-                h.d += 1
+                h.defense += 1
                 pass
-            elif h.d == 1:
+            elif h.defense == 1:
                 game.screenmanager.current = "Level 7 defend 1"
-                h.d += 1
+                h.defense += 1
                 pass
-            elif h.d == 2:
+            elif h.defense == 2:
                 game.screenmanager.current = "Level 7 defend 2"
-                h.d += 1
+                h.defense += 1
                 pass
-            elif h.d == 3:
+            elif h.defense == 3:
                 game.screenmanager.current = "Level 7 defend 3"
-                h.d += 1
+                h.defense += 1
                 pass
-            elif h.d == 4:
+            elif h.defense == 4:
                 game.screenmanager.current = "Level 7 defend 4"
-                h.d += 1
+                h.defense += 1
                 pass
         else:
             game.screenmanager.current = "Level 7 death"
@@ -1000,8 +1061,8 @@ not expecting you to match his skill
 class Level_7_death(character, BoxLayout):
     _disabled_count = 0
 
-    def __init__(self, race, hp, stealth, strength, charisma, home, d, **kwargs):
-        character.__init__(self, race, hp, stealth, strength, charisma, home, d)
+    def __init__(self, race, hp, stealth, strength, charisma, home, name, weapon, artifact, defense, **kwargs):
+        character.__init__(self, race, hp, stealth, strength, charisma, home, name, weapon, artifact, defense)
         BoxLayout.__init__(self, **kwargs)
         self.orientation = "vertical"
 
@@ -1031,9 +1092,8 @@ class Level_7_defend_2(character, BoxLayout):
     _disabled_count = 0
     h.hp -= 50
 
-    def __init__(self, race, hp, stealth, strength, charisma, home, d, **kwargs):
-
-        character.__init__(self, race, hp, stealth, strength, charisma, home, d)
+    def __init__(self, race, hp, stealth, strength, charisma, home, name, weapon, artifact, defense, **kwargs):
+        character.__init__(self, race, hp, stealth, strength, charisma, home, name, weapon, artifact, defense)
         BoxLayout.__init__(self, **kwargs)
         self.orientation = "vertical"
 
@@ -1078,25 +1138,25 @@ and hit him from the side!
 
     def defend(self, instance):
         if h.hp > 0:
-            if h.d == 0:
+            if h.defense == 0:
                 game.screenmanager.current = "Level 7 defend 0"
-                h.d += 1
+                h.defense += 1
                 pass
-            elif h.d == 1:
+            elif h.defense == 1:
                 game.screenmanager.current = "Level 7 defend 1"
-                h.d += 1
+                h.defense += 1
                 pass
-            elif h.d == 2:
+            elif h.defense == 2:
                 game.screenmanager.current = "Level 7 defend 2"
-                h.d += 1
+                h.defense += 1
                 pass
-            elif h.d == 3:
+            elif h.defense == 3:
                 game.screenmanager.current = "Level 7 defend 3"
-                h.d += 1
+                h.defense += 1
                 pass
-            elif h.d == 4:
+            elif h.defense == 4:
                 game.screenmanager.current = "Level 7 defend 4"
-                h.d += 1
+                h.defense += 1
                 pass
         else:
             game.screenmanager.current = "Level 7 death"
@@ -1106,9 +1166,8 @@ class Level_7_defend_3(character, BoxLayout):
     _disabled_count = 0
     h.hp -= 50
 
-    def __init__(self, race, hp, stealth, strength, charisma, home, d, **kwargs):
-
-        character.__init__(self, race, hp, stealth, strength, charisma, home, d)
+    def __init__(self, race, hp, stealth, strength, charisma, home, name, weapon, artifact, defense, **kwargs):
+        character.__init__(self, race, hp, stealth, strength, charisma, home, name, weapon, artifact, defense)
         BoxLayout.__init__(self, **kwargs)
         self.orientation = "vertical"
 
@@ -1154,25 +1213,25 @@ destroying his wolf form
 
     def defend(self, instance):
         if h.hp > 0:
-            if h.d == 0:
+            if h.defense == 0:
                 game.screenmanager.current = "Level 7 defend 0"
-                h.d += 1
+                h.defense += 1
                 pass
-            elif h.d == 1:
+            elif h.defense == 1:
                 game.screenmanager.current = "Level 7 defend 1"
-                h.d += 1
+                h.defense += 1
                 pass
-            elif h.d == 2:
+            elif h.defense == 2:
                 game.screenmanager.current = "Level 7 defend 2"
-                h.d += 1
+                h.defense += 1
                 pass
-            elif h.d == 3:
+            elif h.defense == 3:
                 game.screenmanager.current = "Level 7 defend 3"
-                h.d += 1
+                h.defense += 1
                 pass
-            elif h.d == 4:
+            elif h.defense == 4:
                 game.screenmanager.current = "Level 7 defend 4"
-                h.d += 1
+                h.defense += 1
                 pass
         else:
             game.screenmanager.current = "Level 7 death"
@@ -1181,8 +1240,8 @@ destroying his wolf form
 class Level_7_defend_4(character, BoxLayout):
     _disabled_count = 0
 
-    def __init__(self, race, hp, stealth, strength, charisma, home, d, **kwargs):
-        character.__init__(self, race, hp, stealth, strength, charisma, home, d)
+    def __init__(self, race, hp, stealth, strength, charisma, home, name, weapon, artifact, defense, **kwargs):
+        character.__init__(self, race, hp, stealth, strength, charisma, home, name, weapon, artifact, defense)
         BoxLayout.__init__(self, **kwargs)
         self.orientation = "vertical"
 
@@ -1219,8 +1278,8 @@ Your journey ends here hero.The future is for you to decide.
 class Level_7_artefact_attack(character, BoxLayout):
     _disabled_count = 0
 
-    def __init__(self, race, hp, stealth, strength, charisma, home, d, **kwargs):
-        character.__init__(self, race, hp, stealth, strength, charisma, home, d)
+    def __init__(self, race, hp, stealth, strength, charisma, home, name, weapon, artifact, defense, **kwargs):
+        character.__init__(self, race, hp, stealth, strength, charisma, home, name, weapon, artifact, defense)
         BoxLayout.__init__(self, **kwargs)
         self.orientation = "vertical"
 
@@ -1337,7 +1396,7 @@ spell towards you.
 
     def FIGHT(self, instance):
         if h.race == "Human":
-            game.screenmanager.current = 'Level 5 solo Human'
+            game.screenmanager.current = "Level 5 solo Human"
         else:
             game.lvl5soloNH()
             game.screenmanager.current = "Level 5 solo Not Human"
@@ -2384,9 +2443,6 @@ Revan needs to pay for what he did...
         frame.add_widget(texta)
         scroll.add_widget(frame)
         self.add_widget(scroll)
-        h.hp *= 0.75
-        h.strength *= 0.75
-        h.stealth *= 0.75
         self.add_widget(Label(text=f""" """, color=(0, 0, 0, 1)))
 
         choice = GridLayout(cols=2, rows=1)
@@ -2404,31 +2460,40 @@ class Level_4_intro_page(character, BoxLayout):
     _disabled_count = 0
 
     def __init__(self, race, hp, stealth, strength, charisma, home,name, weapon, artifact, defense, **kwargs):
-        character.__init__(self, race, hp, stealth, strength, charisma, home,name, weapon, artifact, defense,)
+        character.__init__(self, race, hp, stealth, strength, charisma, home,name, weapon, artifact, defense)
         BoxLayout.__init__(self, **kwargs)
         self.orientation = "vertical"
 
         self.level_4_intro_page()
         self.bottom_bar()
 
-        def bottom_bar(self):
-            grid = GridLayout(cols=3, rows=1, padding=5, spacing=10)
-            homescreen_button = Button(text="Home")
-            music_button = Button(text="Music")
-            back_button = Label(text=" ")
-            grid.add_widget(back_button)
-            grid.add_widget(homescreen_button)
-            homescreen_button.bind(on_press=self.Homescreen)
-            grid.add_widget(music_button)
-            music_button.bind(on_press=self.music)
-            self.add_widget(grid)
+    def bottom_bar(self):
+        grid = GridLayout(cols=4, rows=1, padding=5, spacing=10)
+        homescreen_button = Button(text="Home")
+        music_button = Button(text="Music")
+        stop_music_button = Button(text="Stop Music")
+        back_button = Label(text=" ")
+        grid.add_widget(back_button)
+        grid.add_widget(homescreen_button)
+        homescreen_button.bind(on_press=self.Homescreen)
+        grid.add_widget(music_button)
+        music_button.bind(on_press=self.music)
+        grid.add_widget(stop_music_button)
+        stop_music_button.bind(on_press=self.stop_music)
+        self.add_widget(grid)
 
-        def music(self, instance):
-            sound = SoundLoader.load('extra files for mini project\Legend Of Zelda Theme (8 Bit Remix Cover Version) [Tribute to NES] - 8 Bit Universe.wav')
-            sound.play()
+    def stop_music(self, instance):
+        sound = SoundLoader.load(
+            'extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav')
+        sound.stop()
 
-        def Homescreen(self, instance):
-            game.screenmanager.current = "Home"
+    def music(self, instance):
+        sound = SoundLoader.load(
+            'extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav')
+        sound.play()
+
+    def Homescreen(self,instance):
+        game.screenmanager.current = "Home"
 
     def level_4_intro_page(self):
         frame = GridLayout(cols=1, rows=1, size_hint_y=None)
@@ -2653,7 +2718,7 @@ done anything alone.
 
 class Level_4_help(character, BoxLayout):
     _disabled_count = 0
-    h.stealth +=50
+    h.stealth += 50
 
     def __init__(self, race, hp, stealth, strength, charisma, home,name, weapon, artifact, defense, **kwargs):
         character.__init__(self, race, hp, stealth, strength, charisma, home,name, weapon, artifact, defense)
@@ -2701,7 +2766,6 @@ in hearing. Oh and drink this, for luck.
         frame.add_widget(texta)
         scroll.add_widget(frame)
         self.add_widget(scroll)
-        h.stealth += 50
         self.add_widget(Label(text=f""""""))
 
         choice = GridLayout(cols=1, rows=1)
@@ -5295,9 +5359,10 @@ class Level_1_inn_fight_sces(character,BoxLayout):
         self.bottom_bar()
 
     def bottom_bar(self):
-        grid = GridLayout(cols=3, rows=1, padding=5, spacing=10)
+        grid = GridLayout(cols=4, rows=1, padding=5, spacing=10)
         homescreen_button = Button(text="Home")
         music_button = Button(text="Music")
+        stop_music_button = Button(text="Stop Music")
         back_button = Button(text="Back")
         grid.add_widget(back_button)
         back_button.bind(on_press=self.back)
@@ -5305,19 +5370,25 @@ class Level_1_inn_fight_sces(character,BoxLayout):
         homescreen_button.bind(on_press=self.Homescreen)
         grid.add_widget(music_button)
         music_button.bind(on_press=self.music)
+        grid.add_widget(stop_music_button)
+        stop_music_button.bind(on_press=self.stop_music)
         self.add_widget(grid)
 
-    def music(self,instance):
-        '''sound = SoundLoader.load('extra files for mini project\Legend Of Zelda Theme (8 Bit Remix Cover Version) [Tribute to NES] - 8 Bit Universe.wav')
-        sound.play()'''
-        pass
+    def stop_music(self, instance):
+        sound = SoundLoader.load(
+            'extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav')
+        sound.stop()
 
-
-    def Homescreen(self, instance):
-        game.screenmanager.current = "Home"
+    def music(self, instance):
+        sound = SoundLoader.load(
+            'extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav')
+        sound.play()
 
     def back(self, instance):
         game.screenmanager.current = "Level 1 FIGHT"
+
+    def Homescreen(self,instance):
+        game.screenmanager.current = "Home"
 
 
     def lvl1_ifs(self):
@@ -5399,9 +5470,10 @@ class Level_1_inn_sneak_fail(character,BoxLayout):
         self.bottom_bar()
 
     def bottom_bar(self):
-        grid = GridLayout(cols=3, rows=1, padding=5, spacing=10)
+        grid = GridLayout(cols=4, rows=1, padding=5, spacing=10)
         homescreen_button = Button(text="Home")
         music_button = Button(text="Music")
+        stop_music_button = Button(text="Stop Music")
         back_button = Button(text="Back")
         grid.add_widget(back_button)
         back_button.bind(on_press=self.back)
@@ -5409,19 +5481,25 @@ class Level_1_inn_sneak_fail(character,BoxLayout):
         homescreen_button.bind(on_press=self.Homescreen)
         grid.add_widget(music_button)
         music_button.bind(on_press=self.music)
+        grid.add_widget(stop_music_button)
+        stop_music_button.bind(on_press=self.stop_music)
         self.add_widget(grid)
 
-    def music(self,instance):
-        '''sound = SoundLoader.load('extra files for mini project\Legend Of Zelda Theme (8 Bit Remix Cover Version) [Tribute to NES] - 8 Bit Universe.wav')
-        sound.play()'''
-        pass
+    def stop_music(self, instance):
+        sound = SoundLoader.load(
+            'extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav')
+        sound.stop()
 
-
-    def Homescreen(self, instance):
-        game.screenmanager.current = "Home"
+    def music(self, instance):
+        sound = SoundLoader.load(
+            'extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav')
+        sound.play()
 
     def back(self, instance):
         game.screenmanager.current = "Level 1 FIGHT"
+
+    def Homescreen(self,instance):
+        game.screenmanager.current = "Home"
 
 
     def lvl1_iss(self):
@@ -5507,9 +5585,10 @@ class Level_1_inn_sneak_sces(character,BoxLayout):
         self.bottom_bar()
 
     def bottom_bar(self):
-        grid = GridLayout(cols=3, rows=1, padding=5, spacing=10)
+        grid = GridLayout(cols=4, rows=1, padding=5, spacing=10)
         homescreen_button = Button(text="Home")
         music_button = Button(text="Music")
+        stop_music_button = Button(text="Stop Music")
         back_button = Button(text="Back")
         grid.add_widget(back_button)
         back_button.bind(on_press=self.back)
@@ -5517,19 +5596,25 @@ class Level_1_inn_sneak_sces(character,BoxLayout):
         homescreen_button.bind(on_press=self.Homescreen)
         grid.add_widget(music_button)
         music_button.bind(on_press=self.music)
+        grid.add_widget(stop_music_button)
+        stop_music_button.bind(on_press=self.stop_music)
         self.add_widget(grid)
 
-    def music(self,instance):
-        '''sound = SoundLoader.load('extra files for mini project\Legend Of Zelda Theme (8 Bit Remix Cover Version) [Tribute to NES] - 8 Bit Universe.wav')
-        sound.play()'''
-        pass
+    def stop_music(self, instance):
+        sound = SoundLoader.load(
+            'extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav')
+        sound.stop()
 
-
-    def Homescreen(self, instance):
-        game.screenmanager.current = "Home"
+    def music(self, instance):
+        sound = SoundLoader.load(
+            'extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav')
+        sound.play()
 
     def back(self, instance):
         game.screenmanager.current = "Level 1 FIGHT"
+
+    def Homescreen(self,instance):
+        game.screenmanager.current = "Home"
 
 
     def lvl1_iss(self):
@@ -5608,9 +5693,10 @@ class Level_1_1_fight(character,BoxLayout):
         self.bottom_bar()
 
     def bottom_bar(self):
-        grid = GridLayout(cols=3, rows=1, padding=5, spacing=10)
+        grid = GridLayout(cols=4, rows=1, padding=5, spacing=10)
         homescreen_button = Button(text="Home")
         music_button = Button(text="Music")
+        stop_music_button = Button(text="Stop Music")
         back_button = Button(text="Back")
         grid.add_widget(back_button)
         back_button.bind(on_press=self.back)
@@ -5618,19 +5704,25 @@ class Level_1_1_fight(character,BoxLayout):
         homescreen_button.bind(on_press=self.Homescreen)
         grid.add_widget(music_button)
         music_button.bind(on_press=self.music)
+        grid.add_widget(stop_music_button)
+        stop_music_button.bind(on_press=self.stop_music)
         self.add_widget(grid)
 
-    def music(self,instance):
-        '''sound = SoundLoader.load('extra files for mini project\Legend Of Zelda Theme (8 Bit Remix Cover Version) [Tribute to NES] - 8 Bit Universe.wav')
-        sound.play()'''
-        pass
+    def stop_music(self, instance):
+        sound = SoundLoader.load(
+            'extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav')
+        sound.stop()
 
-
-    def Homescreen(self, instance):
-        game.screenmanager.current = "Home"
+    def music(self, instance):
+        sound = SoundLoader.load(
+            'extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav')
+        sound.play()
 
     def back(self, instance):
         game.screenmanager.current = "Level 1 Intro Page"
+
+    def Homescreen(self,instance):
+        game.screenmanager.current = "Home"
 
 
     def lvl1_1_Fight(self):
@@ -5702,9 +5794,10 @@ class Level_1_1_rjump(character,BoxLayout):
         self.bottom_bar()
 
     def bottom_bar(self):
-        grid = GridLayout(cols=3, rows=1, padding=5, spacing=10)
+        grid = GridLayout(cols=4, rows=1, padding=5, spacing=10)
         homescreen_button = Button(text="Home")
         music_button = Button(text="Music")
+        stop_music_button = Button(text="Stop Music")
         back_button = Button(text="Back")
         grid.add_widget(back_button)
         back_button.bind(on_press=self.back)
@@ -5712,19 +5805,25 @@ class Level_1_1_rjump(character,BoxLayout):
         homescreen_button.bind(on_press=self.Homescreen)
         grid.add_widget(music_button)
         music_button.bind(on_press=self.music)
+        grid.add_widget(stop_music_button)
+        stop_music_button.bind(on_press=self.stop_music)
         self.add_widget(grid)
 
-    def music(self,instance):
-        '''sound = SoundLoader.load('extra files for mini project\Legend Of Zelda Theme (8 Bit Remix Cover Version) [Tribute to NES] - 8 Bit Universe.wav')
-        sound.play()'''
-        pass
+    def stop_music(self, instance):
+        sound = SoundLoader.load(
+            'extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav')
+        sound.stop()
 
-
-    def Homescreen(self, instance):
-        game.screenmanager.current = "Home"
+    def music(self, instance):
+        sound = SoundLoader.load(
+            'extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav')
+        sound.play()
 
     def back(self, instance):
         game.screenmanager.current = "Level 1 Intro Page"
+
+    def Homescreen(self,instance):
+        game.screenmanager.current = "Home"
 
 
     def lvl1_1_rjump(self):
@@ -5806,9 +5905,10 @@ class Level_1_1_ejump(character,BoxLayout):
         self.bottom_bar()
 
     def bottom_bar(self):
-        grid = GridLayout(cols=3, rows=1, padding=5, spacing=10)
+        grid = GridLayout(cols=4, rows=1, padding=5, spacing=10)
         homescreen_button = Button(text="Home")
         music_button = Button(text="Music")
+        stop_music_button = Button(text="Stop Music")
         back_button = Button(text="Back")
         grid.add_widget(back_button)
         back_button.bind(on_press=self.back)
@@ -5816,19 +5916,25 @@ class Level_1_1_ejump(character,BoxLayout):
         homescreen_button.bind(on_press=self.Homescreen)
         grid.add_widget(music_button)
         music_button.bind(on_press=self.music)
+        grid.add_widget(stop_music_button)
+        stop_music_button.bind(on_press=self.stop_music)
         self.add_widget(grid)
 
-    def music(self,instance):
-        '''sound = SoundLoader.load('extra files for mini project\Legend Of Zelda Theme (8 Bit Remix Cover Version) [Tribute to NES] - 8 Bit Universe.wav')
-        sound.play()'''
-        pass
+    def stop_music(self, instance):
+        sound = SoundLoader.load(
+            'extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav')
+        sound.stop()
 
-
-    def Homescreen(self, instance):
-        game.screenmanager.current = "Home"
+    def music(self, instance):
+        sound = SoundLoader.load(
+            'extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav')
+        sound.play()
 
     def back(self, instance):
         game.screenmanager.current = "Level 1 Intro Page"
+
+    def Homescreen(self,instance):
+        game.screenmanager.current = "Home"
 
 
     def lvl1_1_ejump(self):
@@ -5910,9 +6016,10 @@ class Level_1_1_hjump(character,BoxLayout):
         self.bottom_bar()
 
     def bottom_bar(self):
-        grid = GridLayout(cols=3, rows=1, padding=5, spacing=10)
+        grid = GridLayout(cols=4, rows=1, padding=5, spacing=10)
         homescreen_button = Button(text="Home")
         music_button = Button(text="Music")
+        stop_music_button = Button(text="Stop Music")
         back_button = Button(text="Back")
         grid.add_widget(back_button)
         back_button.bind(on_press=self.back)
@@ -5920,19 +6027,25 @@ class Level_1_1_hjump(character,BoxLayout):
         homescreen_button.bind(on_press=self.Homescreen)
         grid.add_widget(music_button)
         music_button.bind(on_press=self.music)
+        grid.add_widget(stop_music_button)
+        stop_music_button.bind(on_press=self.stop_music)
         self.add_widget(grid)
 
-    def music(self,instance):
-        '''sound = SoundLoader.load('extra files for mini project\Legend Of Zelda Theme (8 Bit Remix Cover Version) [Tribute to NES] - 8 Bit Universe.wav')
-        sound.play()'''
-        pass
+    def stop_music(self, instance):
+        sound = SoundLoader.load(
+            'extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav')
+        sound.stop()
 
-
-    def Homescreen(self, instance):
-        game.screenmanager.current = "Home"
+    def music(self, instance):
+        sound = SoundLoader.load(
+            'extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav')
+        sound.play()
 
     def back(self, instance):
         game.screenmanager.current = "Level 1 Intro Page"
+
+    def Homescreen(self,instance):
+        game.screenmanager.current = "Home"
 
 
     def lvl1_1_hjump(self):
@@ -6021,9 +6134,10 @@ class Level_1_intro_page(character,BoxLayout):
         self.bottom_bar()
 
     def bottom_bar(self):
-        grid = GridLayout(cols=3, rows=1, padding=5, spacing=10)
+        grid = GridLayout(cols=4, rows=1, padding=5, spacing=10)
         homescreen_button = Button(text="Home")
         music_button = Button(text="Music")
+        stop_music_button = Button(text="Stop Music")
         back_button = Button(text="Back")
         grid.add_widget(back_button)
         back_button.bind(on_press=self.back)
@@ -6031,18 +6145,25 @@ class Level_1_intro_page(character,BoxLayout):
         homescreen_button.bind(on_press=self.Homescreen)
         grid.add_widget(music_button)
         music_button.bind(on_press=self.music)
+        grid.add_widget(stop_music_button)
+        stop_music_button.bind(on_press=self.stop_music)
         self.add_widget(grid)
 
-    def music(self,instance):
-        sound = SoundLoader.load('extra files for mini project\Legend Of Zelda Theme (8 Bit Remix Cover Version) [Tribute to NES] - 8 Bit Universe.wav')
+    def stop_music(self, instance):
+        sound = SoundLoader.load(
+            'extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav')
+        sound.stop()
+
+    def music(self, instance):
+        sound = SoundLoader.load(
+            'extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav')
         sound.play()
-
-
-    def Homescreen(self, instance):
-        game.screenmanager.current = "Home"
 
     def back(self, instance):
         game.screenmanager.current = "User Input"
+
+    def Homescreen(self,instance):
+        game.screenmanager.current = "Home"
 
 
     def lvl1_1_start(self):
@@ -6129,7 +6250,7 @@ class User_input_page(character, BoxLayout):
         self.add_widget(self.nameinput)
         self.add_widget(Label(text=f"""Choose a race for your character from below""", color=(0, 0, 0, 1)))
         self.Race_Input()
-        self.add_widget(Label(text=f"""It's dangerous to go alone!Choose a weapon to take with you""", color=(0, 0, 0, 1)))
+        self.add_widget(Label(text=f"""Choose a weapon for your character from below""", color=(0, 0, 0, 1)))
         self.Weapon_Input()
         story_button = Button(text="Go to story")
         story_button.bind(on_press=self.story)
@@ -6422,7 +6543,7 @@ class Help(BoxLayout):
 
     def homescreen(self):
         display = Label(text=f"""
-Welcome to the DragonTail Quest. 
+Welcome to the Dragontale Quest. 
 This is a choose your own adventure,
 which means that you are in command
 of your character's adventure. Upon 
@@ -6492,7 +6613,7 @@ class Home_page(BoxLayout):
         self.homescreen()
 
     def homescreen(self):
-        titledisplay = Label(text= f"""DragonTail Quest""", color = (0, 0, 0, 1), font_size = 32)
+        titledisplay = Label(text= f"""Dragon Tale Quest""", color = (0, 0, 0, 1), font_size = 32)
         self.add_widget(titledisplay)
         subtitledisplay = Label(text = f"""A Choose your Own adventure Story""", color = (0,0,0, 1), font_size = 20)
         self.add_widget(subtitledisplay)
@@ -6765,124 +6886,166 @@ class cyoaApp(App):
         screen.add_widget(self.level_4_Dwarf_escape)
         self.screenmanager.add_widget(screen)
 
-        self.level_5 = Level_4_Dwarf_escape(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home,
-                                                         h.name,
-                                                         h.weapon, h.artifact, h.defense)
-        screen = Screen(name="Level 4 Dwarf escape")
-        screen.add_widget(self.level_4_Dwarf_escape)
+        self.level_5_gw = Level_5_group_warlock(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home,
+                                                         h.name, h.weapon, h.artifact, h.defense)
+        screen = Screen(name="Level 5 group outside warlock")
+        screen.add_widget(self.level_5_gw)
         self.screenmanager.add_widget(screen)
 
-        self.level_6_intro_page = Level_6_intro_page(h.race, h.hp, h.stealth, h.str, h.charisma, h.home)
+        self.level_5_gout = Level_5_group_outside(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home,
+                                                h.name, h.weapon, h.artifact, h.defense)
+        screen = Screen(name="Level 5 group outside")
+        screen.add_widget(self.level_5_gout)
+        self.screenmanager.add_widget(screen)
+
+        self.level_5_gko = Level_5_group_Game_over(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home,
+                                                  h.name, h.weapon, h.artifact, h.defense)
+        screen = Screen(name="Level 5 group game over")
+        screen.add_widget(self.level_5_gko)
+        self.screenmanager.add_widget(screen)
+
+        self.level_5_solo = Level_5_solo(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home,
+                                                   h.name, h.weapon, h.artifact, h.defense)
+        screen = Screen(name="Level 5 solo")
+        screen.add_widget(self.level_5_solo)
+        self.screenmanager.add_widget(screen)
+
+        self.level_5_soloh = Level_5_solo_human(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home,
+                                         h.name, h.weapon, h.artifact, h.defense)
+        screen = Screen(name="Level 5 solo Human")
+        screen.add_widget(self.level_5_soloh)
+        self.screenmanager.add_widget(screen)
+
+        self.level_5_sko = Level_5_solo_Game_over(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home,
+                                                h.name, h.weapon, h.artifact, h.defense)
+        screen = Screen(name="Level 5 solo Game Over")
+        screen.add_widget(self.level_5_sko)
+        self.screenmanager.add_widget(screen)
+
+        self.level_5_fe = Level_5_fort_escape(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home,
+                                                  h.name, h.weapon, h.artifact, h.defense)
+        screen = Screen(name="Level 5 fort escape safe")
+        screen.add_widget(self.level_5_fe)
+        self.screenmanager.add_widget(screen)
+
+        self.level_5_dd = Level_5_Duel_Decline(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home,
+                                                  h.name, h.weapon, h.artifact, h.defense)
+        screen = Screen(name="level 5 duel decline")
+        screen.add_widget(self.level_5_dd)
+        self.screenmanager.add_widget(screen)
+
+        self.level_5_da = Level_5_Duel_Accept(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home,
+                                                  h.name, h.weapon, h.artifact, h.defense)
+        screen = Screen(name="level 5 duel accept")
+        screen.add_widget(self.level_5_da)
+        self.screenmanager.add_widget(screen)
+
+        self.level_6_intro_page = Level_6_intro_page(h.race,h.hp,h.stealth,h.strength,h.charisma,h.home,h.name,h.weapon,h.artifact,h.defense)
         screen = Screen(name="Level 6 Intro")
         screen.add_widget(self.level_6_intro_page)
         self.screenmanager.add_widget(screen)
 
-        self.level_6_Rito = Level_6_Rito(h.race, h.hp, h.stealth, h.str, h.charisma, h.home)
+        self.level_6_Rito = Level_6_Rito(h.race,h.hp,h.stealth,h.strength,h.charisma,h.home,h.name,h.weapon,h.artifact,h.defense)
         screen = Screen(name="Level 6 Rito")
         screen.add_widget(self.level_6_Rito)
         self.screenmanager.add_widget(screen)
 
-        self.level_6_climb = Level_6_climb(h.race, h.hp, h.stealth, h.str, h.charisma, h.home)
+        self.level_6_climb = Level_6_climb(h.race,h.hp,h.stealth,h.strength,h.charisma,h.home,h.name,h.weapon,h.artifact,h.defense)
         screen = Screen(name="Level 6 climb")
         screen.add_widget(self.level_6_climb)
         self.screenmanager.add_widget(screen)
 
-        self.level_6_yes = Level_6_yes(h.race, h.hp, h.stealth, h.str, h.charisma, h.home)
-        screen = Screen(name="Level 6 offering")
-        screen.add_widget(self.level_6_yes)
-        self.screenmanager.add_widget(screen)
-
-        self.level_6_no = Level_6_no(h.race, h.hp, h.stealth, h.str, h.charisma, h.home)
+        self.level_6_no = Level_6_no(h.race,h.hp,h.stealth,h.strength,h.charisma,h.home,h.name,h.weapon,h.artifact,h.defense)
         screen = Screen(name="Level 6 no offering")
         screen.add_widget(self.level_6_no)
         self.screenmanager.add_widget(screen)
 
-        self.level_7_intro = Level_7_intro_page(h.race, h.hp, h.stealth, h.str, h.charisma, h.home)
+        self.level_7_intro = Level_7_intro_page(h.race,h.hp,h.stealth,h.strength,h.charisma,h.home,h.name,h.weapon,h.artifact,h.defense)
         screen = Screen(name="Level 7 Intro")
         screen.add_widget(self.level_7_intro)
         self.screenmanager.add_widget(screen)
 
-        self.level_7_yes_drink = Level_7_yes_drink(h.race, h.hp, h.stealth, h.str, h.charisma, h.home)
+        self.level_7_yes_drink = Level_7_yes_drink(h.race,h.hp,h.stealth,h.strength,h.charisma,h.home,h.name,h.weapon,h.artifact,h.defense)
         screen = Screen(name="Level 7 yes drink")
         screen.add_widget(self.level_7_yes_drink)
         self.screenmanager.add_widget(screen)
 
-        self.level_7_no_drink = Level_7_no_drink(h.race, h.hp, h.stealth, h.str, h.charisma, h.home)
+        self.level_7_no_drink = Level_7_no_drink(h.race,h.hp,h.stealth,h.strength,h.charisma,h.home,h.name,h.weapon,h.artifact,h.defense)
         screen = Screen(name="Level 7 no drink")
         screen.add_widget(self.level_7_no_drink)
         self.screenmanager.add_widget(screen)
 
-        self.level_7_attack = Level_7_attack(h.race, h.hp, h.stealth, h.str, h.charisma, h.home)
+        self.level_7_attack = Level_7_attack(h.race,h.hp,h.stealth,h.strength,h.charisma,h.home,h.name,h.weapon,h.artifact,h.defense)
         screen = Screen(name="Level 7 attack")
         screen.add_widget(self.level_7_attack)
         self.screenmanager.add_widget(screen)
 
-        self.level_7_attack_no = Level_7_attack_no(h.race, h.hp, h.stealth, h.str, h.charisma, h.home)
+        self.level_7_attack_no = Level_7_attack_no(h.race,h.hp,h.stealth,h.strength,h.charisma,h.home,h.name,h.weapon,h.artifact,h.defense)
         screen = Screen(name="Level 7 no attack")
         screen.add_widget(self.level_7_attack_no)
         self.screenmanager.add_widget(screen)
 
-        self.level_7_sneak = Level_7_sneak(h.race, h.hp, h.stealth, h.str, h.charisma, h.home)
+        self.level_7_sneak = Level_7_sneak(h.race,h.hp,h.stealth,h.strength,h.charisma,h.home,h.name,h.weapon,h.artifact,h.defense)
         screen = Screen(name="Level 7 sneak")
         screen.add_widget(self.level_7_sneak)
         self.screenmanager.add_widget(screen)
 
-        self.level_7_sneak_no = Level_7_sneak_no(h.race, h.hp, h.stealth, h.str, h.charisma, h.home)
+        self.level_7_sneak_no = Level_7_sneak_no(h.race,h.hp,h.stealth,h.strength,h.charisma,h.home,h.name,h.weapon,h.artifact,h.defense)
         screen = Screen(name="Level 7 no sneak")
         screen.add_widget(self.level_7_sneak_no)
         self.screenmanager.add_widget(screen)
 
-        self.level_7_courtyard = Level_7_courtyard(h.race, h.hp, h.stealth, h.str, h.charisma, h.home, h.d)
+        self.level_7_courtyard = Level_7_courtyard(h.race,h.hp,h.stealth,h.strength,h.charisma,h.home,h.name,h.weapon,h.artifact,h.defense)
         screen = Screen(name="Level 7 courtyard")
         screen.add_widget(self.level_7_courtyard)
         self.screenmanager.add_widget(screen)
 
-        self.level_7_attack_0 = Level_7_attack_0(h.race, h.hp, h.stealth, h.str, h.charisma, h.home, h.d)
+        self.level_7_attack_0 = Level_7_attack_0(h.race,h.hp,h.stealth,h.strength,h.charisma,h.home,h.name,h.weapon,h.artifact,h.defense)
         screen = Screen(name="Level 7 attack 0")
         screen.add_widget(self.level_7_attack_0)
         self.screenmanager.add_widget(screen)
 
-        self.level_7_attack_1 = Level_7_attack_1(h.race, h.hp, h.stealth, h.str, h.charisma, h.home, h.d)
+        self.level_7_attack_1 = Level_7_attack_1(h.race,h.hp,h.stealth,h.strength,h.charisma,h.home,h.name,h.weapon,h.artifact,h.defense)
         screen = Screen(name="Level 7 attack 1")
         screen.add_widget(self.level_7_attack_1)
         self.screenmanager.add_widget(screen)
 
-        self.level_7_defend_0 = Level_7_defend_0(h.race, h.hp, h.stealth, h.str, h.charisma, h.home, h.d)
+        self.level_7_defend_0 = Level_7_defend_0(h.race,h.hp,h.stealth,h.strength,h.charisma,h.home,h.name,h.weapon,h.artifact,h.defense)
         screen = Screen(name="Level 7 defend 0")
         screen.add_widget(self.level_7_defend_0)
         self.screenmanager.add_widget(screen)
 
-        self.level_7_defend_1 = Level_7_defend_1(h.race, h.hp, h.stealth, h.str, h.charisma, h.home, h.d)
+        self.level_7_defend_1 = Level_7_defend_1(h.race,h.hp,h.stealth,h.strength,h.charisma,h.home,h.name,h.weapon,h.artifact,h.defense)
         screen = Screen(name="Level 7 defend 1")
         screen.add_widget(self.level_7_defend_1)
         self.screenmanager.add_widget(screen)
 
-        self.level_7_defend_2 = Level_7_defend_2(h.race, h.hp, h.stealth, h.str, h.charisma, h.home, h.d)
+        self.level_7_defend_2 = Level_7_defend_2(h.race,h.hp,h.stealth,h.strength,h.charisma,h.home,h.name,h.weapon,h.artifact,h.defense)
         screen = Screen(name="Level 7 defend 2")
         screen.add_widget(self.level_7_defend_2)
         self.screenmanager.add_widget(screen)
 
-        self.level_7_defend_3 = Level_7_defend_3(h.race, h.hp, h.stealth, h.str, h.charisma, h.home, h.d)
+        self.level_7_defend_3 = Level_7_defend_3(h.race,h.hp,h.stealth,h.strength,h.charisma,h.home,h.name,h.weapon,h.artifact,h.defense)
         screen = Screen(name="Level 7 defend 3")
         screen.add_widget(self.level_7_defend_3)
         self.screenmanager.add_widget(screen)
 
-        self.level_7_defend_4 = Level_7_defend_4(h.race, h.hp, h.stealth, h.str, h.charisma, h.home, h.d)
+        self.level_7_defend_4 = Level_7_defend_4(h.race,h.hp,h.stealth,h.strength,h.charisma,h.home,h.name,h.weapon,h.artifact,h.defense)
         screen = Screen(name="Level 7 defend 4")
         screen.add_widget(self.level_7_defend_4)
         self.screenmanager.add_widget(screen)
 
-        self.level_7_death = Level_7_death(h.race, h.hp, h.stealth, h.str, h.charisma, h.home, h.d)
+        self.level_7_death = Level_7_death(h.race,h.hp,h.stealth,h.strength,h.charisma,h.home,h.name,h.weapon,h.artifact,h.defense)
         screen = Screen(name="Level 7 death")
         screen.add_widget(self.level_7_death)
         self.screenmanager.add_widget(screen)
 
-        self.level_7_artefact_attack = Level_7_artefact_attack(h.race, h.hp, h.stealth, h.str, h.charisma, h.home, h.d)
+        self.level_7_artefact_attack = Level_7_artefact_attack(h.race,h.hp,h.stealth,h.strength,h.charisma,h.home,h.name,h.weapon,h.artifact,h.defense)
         screen = Screen(name="Level 7 artefact attack")
         screen.add_widget(self.level_7_artefact_attack)
         self.screenmanager.add_widget(screen)
 
-    return self.screenmanager
+        return self.screenmanager
 
 
 
@@ -6972,12 +7135,46 @@ class cyoaApp(App):
         self.screenmanager.add_widget(screen)
 
     def lvl4Help(self):
-        self.level_4_help = Level_4_help(h.race, h.hp, h.stealth, h.str, h.charisma, h.home)
+        self.level_4_help = Level_4_help(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home, h.name,
+                                             h.weapon, h.artifact, h.defense)
         screen = Screen(name="Level 4 help")
         screen.add_widget(self.level_4_help)
         self.screenmanager.add_widget(screen)
 
+    def lvl5OWnoArtifact(self):
+        self.level_5_gw = Level_5_group_warlock_na(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home,
+                                                   h.name, h.weapon, h.artifact, h.defense)
+        screen = Screen(name="Level 5 group outside no artifact")
+        screen.add_widget(self.level_5_gw)
+        self.screenmanager.add_widget(screen)
 
+    def lvl5groupinside(self):
+        self.level_5_gi = Level_5_group_inside(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home,
+                                                   h.name, h.weapon, h.artifact, h.defense)
+        screen = Screen(name="Level 5 group fight inside")
+        screen.add_widget(self.level_5_gi)
+        self.screenmanager.add_widget(screen)
+
+    def lvl5soloNH(self):
+        self.level_5_gi = Level_5_solo_not_human(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home,
+                                                   h.name, h.weapon, h.artifact, h.defense)
+        screen = Screen(name="Level 5 solo Not Human")
+        screen.add_widget(self.level_5_gi)
+        self.screenmanager.add_widget(screen)
+
+    def lvl5fortescape(self):
+        self.level_5_fed = Level_5_fort_escape_damage(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home,
+                                                   h.name, h.weapon, h.artifact, h.defense)
+        screen = Screen(name="Level 5 fort escape damaged")
+        screen.add_widget(self.level_5_gi)
+        self.screenmanager.add_widget(screen)
+
+    def lvl6offering(self):
+        self.level_6_yes = Level_6_yes(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home,
+                                                   h.name, h.weapon, h.artifact, h.defense)
+        screen = Screen(name="Level 6 offering")
+        screen.add_widget(self.level_6_yes)
+        self.screenmanager.add_widget(screen)
 
 if __name__ == "__main__":
     game = cyoaApp()
