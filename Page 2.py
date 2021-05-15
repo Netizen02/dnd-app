@@ -615,7 +615,7 @@ Revan, and nothing is going to stop you.
 An unmatched fury takes over you as you take 
 out the entire camp in combat.Seeing your rage
 and strength terrorizes your enemies, moments
-before they fall to your {weapon}. When the 
+before they fall to your {h.weapon}. When the 
 dust settles, you stand victorious on a pile
 of mercenary corpses. But there’s no sign of Revan.
 You head to his tent to investigate.
@@ -3369,7 +3369,7 @@ she’s dead’
 ‘That’s your fight.I’m heading for the mountain,
 for Revan’
 
-‘Don’t be foolish {h.name}’ shouts Caldor
+‘Don’t be foolish {h.name} shouts Caldor
 
 ‘You didn't see what he did to Dragontail Walk!
 I was there.All the screams,the lives lost,hell I
