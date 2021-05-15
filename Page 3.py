@@ -86,7 +86,7 @@ class Level_6_intro_page(character, BoxLayout):
         frame = GridLayout(cols=1, rows=1, size_hint_y=None)
         frame.bind(minimum_height=frame.setter('height'))
         scroll = ScrollView(do_scroll_x=False, do_scroll_y=True, size_hint=(1, None),
-                            size=(Window.width, Window.height * (1 / 3)))
+                            size=(Window.width, Window.height * (1 / 3)), scroll_distance = 100)
         texta = Label(text=f"""Mt.Lynaru, one of the tallest mountains in
 the realm. You had never been this
 close to it before. After taking a
@@ -152,7 +152,7 @@ class Level_6_Rito(character, BoxLayout):
         frame = GridLayout(cols=1, rows=1, size_hint_y=None)
         frame.bind(minimum_height=frame.setter('height'))
         scroll = ScrollView(do_scroll_x=False, do_scroll_y=True, size_hint=(1, None),
-                            size=(Window.width, Window.height * (1 / 3)))
+                            size=(Window.width, Window.height * (1 / 3)), scroll_distance = 100)
         texta = Label(text=f"""You immediately fly to the top of
 the mountain.The feeling of wind on
 your wings brings back memories of 
@@ -295,7 +295,7 @@ class Level_6_yes(character, BoxLayout):
         frame = GridLayout(cols=1, rows=1, size_hint_y=None)
         frame.bind(minimum_height=frame.setter('height'))
         scroll = ScrollView(do_scroll_x=False, do_scroll_y=True, size_hint=(1, None),
-                            size=(Window.width, Window.height * (1 / 3)))
+                            size=(Window.width, Window.height * (1 / 3)), scroll_distance = 100)
         texta = Label(text=f"""Nothing happens at first.You aren’t
 surprised and begin to leave,when you
 notice the shrine begins to glow.
@@ -364,7 +364,7 @@ class Level_6_no(character, BoxLayout):
         frame = GridLayout(cols=1, rows=1, size_hint_y=None)
         frame.bind(minimum_height=frame.setter('height'))
         scroll = ScrollView(do_scroll_x=False, do_scroll_y=True, size_hint=(1, None),
-                            size=(Window.width, Window.height * (1 / 3)))
+                            size=(Window.width, Window.height * (1 / 3)), scroll_distance = 100)
         texta = Label(text=f"""‘But nothing more than a rock sculpture’
 You turn back and rest in the cave.
 After a while, you continue up the
@@ -423,7 +423,7 @@ class Level_7_intro_page(character, BoxLayout):
         frame = GridLayout(cols=1, rows=1, size_hint_y=None)
         frame.bind(minimum_height=frame.setter('height'))
         scroll = ScrollView(do_scroll_x=False, do_scroll_y=True, size_hint=(1, None),
-                            size=(Window.width, Window.height * (1 / 3)))
+                            size=(Window.width, Window.height * (1 / 3)), scroll_distance = 100)
         texta = Label(text=f""" 
 You arrive at Revan’s camp. It’s pretty 
 impressive he was able to set it
@@ -494,7 +494,7 @@ class Level_7_yes_drink(character, BoxLayout):
         frame = GridLayout(cols=1, rows=1, size_hint_y=None)
         frame.bind(minimum_height=frame.setter('height'))
         scroll = ScrollView(do_scroll_x=False, do_scroll_y=True, size_hint=(1, None),
-                            size=(Window.width, Window.height * (1 / 3)))
+                            size=(Window.width, Window.height * (1 / 3)), scroll_distance = 100)
         texta = Label(text=f"""It tastes like one of the skill
 enhancement potions handed out during the war.
 It’s not very effective but it still helps.
@@ -568,7 +568,7 @@ class Level_7_no_drink(character, BoxLayout):
         frame = GridLayout(cols=1, rows=1, size_hint_y=None)
         frame.bind(minimum_height=frame.setter('height'))
         scroll = ScrollView(do_scroll_x=False, do_scroll_y=True, size_hint=(1, None),
-                            size=(Window.width, Window.height * (1 / 3)))
+                            size=(Window.width, Window.height * (1 / 3)), scroll_distance = 100)
         texta = Label(text=f"""\n""", color=(0, 0, 0, 1), size_hint=(1, None), pos=(self.width, 400))
         frame.add_widget(texta)
         scroll.add_widget(frame)
@@ -635,7 +635,7 @@ class Level_7_attack(character, BoxLayout):
         frame = GridLayout(cols=1, rows=1, size_hint_y=None)
         frame.bind(minimum_height=frame.setter('height'))
         scroll = ScrollView(do_scroll_x=False, do_scroll_y=True, size_hint=(1, None),
-                            size=(Window.width, Window.height * (1 / 3)))
+                            size=(Window.width, Window.height * (1 / 3)), scroll_distance = 100)
         texta = Label(text=f"""You drop down on a guard below, neutralizing him.
 This attracts the attention of the entire 
 camp, but you don’t care. You’re here for 
@@ -702,7 +702,7 @@ class Level_7_attack_no(character, BoxLayout):
         frame = GridLayout(cols=1, rows=1, size_hint_y=None)
         frame.bind(minimum_height=frame.setter('height'))
         scroll = ScrollView(do_scroll_x=False, do_scroll_y=True, size_hint=(1, None),
-                            size=(Window.width, Window.height * (1 / 3)))
+                            size=(Window.width, Window.height * (1 / 3)), scroll_distance = 100)
         texta = Label(text=f"""You drop down on a guard below,
 neutralizing him.This attracts the attention of
 the entire camp,and soon you find yourself facing
@@ -753,7 +753,7 @@ class Level_7_sneak(character, BoxLayout):
         frame = GridLayout(cols=1, rows=1, size_hint_y=None)
         frame.bind(minimum_height=frame.setter('height'))
         scroll = ScrollView(do_scroll_x=False, do_scroll_y=True, size_hint=(1, None),
-                            size=(Window.width, Window.height * (1 / 3)))
+                            size=(Window.width, Window.height * (1 / 3)), scroll_distance = 100)
         texta = Label(text=f"""You drop down into the camp, hiding
 in bushes and under carts as you 
 make your way through the camp.
@@ -814,7 +814,7 @@ class Level_7_sneak_no(character, BoxLayout):
         frame = GridLayout(cols=1, rows=1, size_hint_y=None)
         frame.bind(minimum_height=frame.setter('height'))
         scroll = ScrollView(do_scroll_x=False, do_scroll_y=True, size_hint=(1, None),
-                            size=(Window.width, Window.height * (1 / 3)))
+                            size=(Window.width, Window.height * (1 / 3)), scroll_distance = 100)
         texta = Label(text=f"""You drop down into the camp, hiding
 in bushes and under carts as you
 make your way through the camp.
@@ -849,7 +849,7 @@ class Level_7_courtyard(character, BoxLayout):
         music_button = Button(text="Music")
         back_button = Label(text=" ")
         grid.add_widget(back_button)
-
+        back_button.bind(on_press=self.back)
         grid.add_widget(homescreen_button)
         homescreen_button.bind(on_press=self.Homescreen)
         grid.add_widget(music_button)
@@ -868,7 +868,7 @@ class Level_7_courtyard(character, BoxLayout):
         frame = GridLayout(cols=1, rows=1, size_hint_y=None)
         frame.bind(minimum_height=frame.setter('height'))
         scroll = ScrollView(do_scroll_x=False, do_scroll_y=True, size_hint=(1, None),
-                            size=(Window.width, Window.height * (1 / 3)))
+                            size=(Window.width, Window.height * (1 / 3)), scroll_distance = 100)
         texta = Label(text=f"""You find yourself in an empty courtyard.
 ‘REVAN!SHOW YOURSELF’
 On the hill in front of you,
@@ -908,16 +908,13 @@ has led to this moment…
             game.screenmanager.current = "Level 7 artifact attack"
         else:
             game.screenmanager.current = "Level 7 attack 0"
-            h.hp -= 70
 
     def defend(self, instance):
         if h.defense == 0:
             game.screenmanager.current = "Level 7 defend 0"
-            h.hp -= 50
             h.defense += 1
         elif h.defense == 1:
             game.screenmanager.current = "Level 7 defend 1"
-            h.hp -= 50
             h.defense += 1
 
 
@@ -957,7 +954,7 @@ class Level_7_attack_0(character, BoxLayout):
         frame = GridLayout(cols=1, rows=1, size_hint_y=None)
         frame.bind(minimum_height=frame.setter('height'))
         scroll = ScrollView(do_scroll_x=False, do_scroll_y=True, size_hint=(1, None),
-                            size=(Window.width, Window.height * (1 / 3)))
+                            size=(Window.width, Window.height * (1 / 3)), scroll_distance = 100)
         texta = Label(text=f"""You charge at Revan, but as soon
 as you get near him,something unknown
 knocks you off your feet and Revan deals
@@ -971,8 +968,7 @@ you and regroup.
 
         self.add_widget(Label(text=f"""Do you attack? Or Hold your ground
 """, color=(0, 0, 0, 1)))
-
-        print(h.hp)
+        h.hp -= 70
         choice = GridLayout(cols=2, rows=1)
         attackbutton = Button(text="Attack")
         defendbutton = Button(text="Defend")
@@ -989,7 +985,6 @@ you and regroup.
         else:
             if h.hp > 0:
                 game.screenmanager.current = "Level 7 attack 1"
-                h.hp -= 70
             else:
                 game.screenmanager.current = "Level 7 death"
 
@@ -997,24 +992,19 @@ you and regroup.
         if h.hp > 0:
             if h.defense == 0:
                 game.screenmanager.current = "Level 7 defend 0"
-                h.hp -= 50
                 h.defense += 1
             elif h.defense == 1:
                 game.screenmanager.current = "Level 7 defend 1"
-                h.hp -= 50
                 h.defense += 1
             elif h.defense == 2:
                 game.screenmanager.current = "Level 7 defend 2"
-                h.hp -= 50
                 h.defense += 1
             elif h.defense == 3:
                 game.screenmanager.current = "Level 7 defend 3"
-                h.hp -= 50
                 h.defense += 1
             elif h.defense == 4:
                 game.lvl7defend4()
                 game.screenmanager.current = "Level 7 defend 4"
-                h.hp -= 50
                 h.defense += 1
         else:
             game.screenmanager.current = "Level 7 death"
@@ -1056,7 +1046,7 @@ class Level_7_attack_1(character, BoxLayout):
         frame = GridLayout(cols=1, rows=1, size_hint_y=None)
         frame.bind(minimum_height=frame.setter('height'))
         scroll = ScrollView(do_scroll_x=False, do_scroll_y=True, size_hint=(1, None),
-                            size=(Window.width, Window.height * (1 / 3)))
+                            size=(Window.width, Window.height * (1 / 3)), scroll_distance = 100)
         texta = Label(text=f"""You try to shoot an arrow at 
 Revan, but he uses a windblast to
 knock it out of the air, and proceeds
@@ -1068,7 +1058,6 @@ the two of you and regroup.
         scroll.add_widget(frame)
         self.add_widget(scroll)
         h.hp -= 70
-        print(h.hp)
         self.add_widget(Label(text=f"""Do you attack? Or Hold your ground""", color=(0, 0, 0, 1)))
 
         choice = GridLayout(cols=2, rows=1)
@@ -1087,7 +1076,6 @@ the two of you and regroup.
         else:
             if h.hp > 0:
                 game.screenmanager.current = "Level 7 attack 0"
-                h.hp -= 70
             else:
                 game.screenmanager.current = "Level 7 death"
 
@@ -1095,24 +1083,19 @@ the two of you and regroup.
         if h.hp > 0:
             if h.defense == 0:
                 game.screenmanager.current = "Level 7 defend 0"
-                h.hp -= 50
                 h.defense += 1
             elif h.defense == 1:
                 game.screenmanager.current = "Level 7 defend 1"
-                h.hp -= 50
                 h.defense += 1
             elif h.defense == 2:
                 game.screenmanager.current = "Level 7 defend 2"
-                h.hp -= 50
                 h.defense += 1
             elif h.defense == 3:
                 game.screenmanager.current = "Level 7 defend 3"
-                h.hp -= 50
                 h.defense += 1
             elif h.defense == 4:
                 game.lvl7defend4()
                 game.screenmanager.current = "Level 7 defend 4"
-                h.hp -= 50
                 h.defense += 1
             else:
                 game.screenmanager.current = "Level 7 death"
@@ -1154,7 +1137,7 @@ class Level_7_defend_0(character, BoxLayout):
         frame = GridLayout(cols=1, rows=1, size_hint_y=None)
         frame.bind(minimum_height=frame.setter('height'))
         scroll = ScrollView(do_scroll_x=False, do_scroll_y=True, size_hint=(1, None),
-                            size=(Window.width, Window.height * (1 / 3)))
+                            size=(Window.width, Window.height * (1 / 3)), scroll_distance = 100)
         texta = Label(text=f"""Revan shoots a bolt of lightning at
 you, but your quick reflexes allow you
 to deflect it right back at him, and he
@@ -1183,7 +1166,6 @@ screams in pain
         else:
             if h.hp > 0:
                 game.screenmanager.current = "Level 7 attack 0"
-                h.hp -= 70
                 pass
             else:
                 game.screenmanager.current = "Level 7 death"
@@ -1193,24 +1175,19 @@ screams in pain
         if h.hp > 0:
             if h.defense == 0:
                 game.screenmanager.current = "Level 7 defend 0"
-                h.hp -= 50
                 h.defense += 1
             elif h.defense == 1:
                 game.screenmanager.current = "Level 7 defend 1"
-                h.hp -= 50
                 h.defense += 1
             elif h.defense == 2:
                 game.screenmanager.current = "Level 7 defend 2"
-                h.hp -= 50
                 h.defense += 1
             elif h.defense == 3:
                 game.screenmanager.current = "Level 7 defend 3"
-                h.hp -= 50
                 h.defense += 1
             elif h.defense == 4:
                 game.lvl7defend4()
                 game.screenmanager.current = "Level 7 defend 4"
-                h.hp -= 50
                 h.defense += 1
         else:
             game.screenmanager.current = "Level 7 death"
@@ -1252,7 +1229,7 @@ class Level_7_defend_1(character, BoxLayout):
         frame = GridLayout(cols=1, rows=1, size_hint_y=None)
         frame.bind(minimum_height=frame.setter('height'))
         scroll = ScrollView(do_scroll_x=False, do_scroll_y=True, size_hint=(1, None),
-                            size=(Window.width, Window.height * (1 / 3)))
+                            size=(Window.width, Window.height * (1 / 3)), scroll_distance = 100)
         texta = Label(text=f"""Revan, now in pain, fires a fireball.
 Luckily your parrying skills are unmatched,so 
 you are able to shoot it back at him.Revan was
@@ -1280,7 +1257,6 @@ not expecting you to match his skill
         else:
             if h.hp > 0:
                 game.screenmanager.current = "Level 7 attack 0"
-                h.hp -= 70
             else:
                 game.screenmanager.current = "Level 7 death"
 
@@ -1288,24 +1264,19 @@ not expecting you to match his skill
         if h.hp > 0:
             if h.defense == 0:
                 game.screenmanager.current = "Level 7 defend 0"
-                h.hp -= 50
                 h.defense += 1
             elif h.defense == 1:
                 game.screenmanager.current = "Level 7 defend 1"
-                h.hp -= 50
                 h.defense += 1
             elif h.defense == 2:
                 game.screenmanager.current = "Level 7 defend 2"
-                h.hp -= 50
                 h.defense += 1
             elif h.defense == 3:
                 game.screenmanager.current = "Level 7 defend 3"
-                h.hp -= 50
                 h.defense += 1
             elif h.defense == 4:
                 game.lvl7defend4()
                 game.screenmanager.current = "Level 7 defend 4"
-                h.hp -= 50
                 h.defense += 1
         else:
             game.screenmanager.current = "Level 7 death"
@@ -1347,7 +1318,7 @@ class Level_7_death(character, BoxLayout):
         frame = GridLayout(cols=1, rows=1, size_hint_y=None)
         frame.bind(minimum_height=frame.setter('height'))
         scroll = ScrollView(do_scroll_x=False, do_scroll_y=True, size_hint=(1, None),
-                            size=(Window.width, Window.height * (1 / 3)))
+                            size=(Window.width, Window.height * (1 / 3)), scroll_distance = 100)
         texta = Label(text=f"""As you ready yourself and look for
 an opportunity to strike, Revan blinds you.
 In a state of disorientation, he uses a wind
@@ -1400,7 +1371,7 @@ class Level_7_defend_2(character, BoxLayout):
         frame = GridLayout(cols=1, rows=1, size_hint_y=None)
         frame.bind(minimum_height=frame.setter('height'))
         scroll = ScrollView(do_scroll_x=False, do_scroll_y=True, size_hint=(1, None),
-                            size=(Window.width, Window.height * (1 / 3)))
+                            size=(Window.width, Window.height * (1 / 3)), scroll_distance = 100)
         texta = Label(text=f"""You are stronger than Revan anticipated.
 He throws a volley of knives at
 you, but you manage to sidestep
@@ -1428,7 +1399,6 @@ and hit him from the side!
         else:
             if h.hp > 0:
                 game.screenmanager.current = "Level 7 attack 0"
-                h.hp -= 70
             else:
                 game.screenmanager.current = "Level 7 death"
 
@@ -1436,28 +1406,23 @@ and hit him from the side!
         if h.hp > 0:
             if h.defense == 0:
                 game.screenmanager.current = "Level 7 defend 0"
-                h.hp -= 50
                 h.defense += 1
 
             elif h.defense == 1:
                 game.screenmanager.current = "Level 7 defend 1"
-                h.hp -= 50
                 h.defense += 1
 
             elif h.defense == 2:
                 game.screenmanager.current = "Level 7 defend 2"
-                h.hp -= 50
                 h.defense += 1
 
             elif h.defense == 3:
                 game.screenmanager.current = "Level 7 defend 3"
-                h.hp -= 50
                 h.defense += 1
 
             elif h.defense == 4:
                 game.lvl7defend4()
                 game.screenmanager.current = "Level 7 defend 4"
-                h.hp -= 50
                 h.defense += 1
 
         else:
@@ -1500,7 +1465,7 @@ class Level_7_defend_3(character, BoxLayout):
         frame = GridLayout(cols=1, rows=1, size_hint_y=None)
         frame.bind(minimum_height=frame.setter('height'))
         scroll = ScrollView(do_scroll_x=False, do_scroll_y=True, size_hint=(1, None),
-                            size=(Window.width, Window.height * (1 / 3)))
+                            size=(Window.width, Window.height * (1 / 3)), scroll_distance = 100)
         texta = Label(text=f"""Your furious opponent shouts in a language
 long forgotten, transforming into a wolf to
 attack you.After he lunges on you, you manage
@@ -1529,7 +1494,6 @@ destroying his wolf form
         else:
             if h.hp > 0:
                 game.screenmanager.current = "Level 7 attack 0"
-                h.hp -= 70
             else:
                 game.screenmanager.current = "Level 7 death"
 
@@ -1537,24 +1501,19 @@ destroying his wolf form
         if h.hp > 0:
             if h.defense == 0:
                 game.screenmanager.current = "Level 7 defend 0"
-                h.hp -= 50
                 h.defense += 1
             elif h.defense == 1:
                 game.screenmanager.current = "Level 7 defend 1"
-                h.hp -= 50
                 h.defense += 1
             elif h.defense == 2:
                 game.screenmanager.current = "Level 7 defend 2"
-                h.hp -= 50
                 h.defense += 1
             elif h.defense == 3:
                 game.screenmanager.current = "Level 7 defend 3"
-                h.hp -= 50
                 h.defense += 1
             elif h.defense == 4:
                 game.lvl7defend4()
                 game.screenmanager.current = "Level 7 defend 4"
-                h.hp -= 50
                 h.defense += 1
         else:
             game.screenmanager.current = "Level 7 death"
@@ -1577,7 +1536,7 @@ class Level_7_defend_4(character, BoxLayout):
         music_button = Button(text="Music")
         back_button = Label(text=" ")
         grid.add_widget(back_button)
-
+        back_button.bind(on_press=self.back)
         grid.add_widget(homescreen_button)
         homescreen_button.bind(on_press=self.Homescreen)
         grid.add_widget(music_button)
@@ -1596,7 +1555,7 @@ class Level_7_defend_4(character, BoxLayout):
         frame = GridLayout(cols=1, rows=1, size_hint_y=None)
         frame.bind(minimum_height=frame.setter('height'))
         scroll = ScrollView(do_scroll_x=False, do_scroll_y=True, size_hint=(1, None),
-                            size=(Window.width, Window.height * (1 / 3)))
+                            size=(Window.width, Window.height * (1 / 3)), scroll_distance = 100)
         texta = Label(text=f"""‘Ho-How are you still alive!!!’Shouts Revan 
 as he draws his sword. You can
 see him bleeding profusely,it’s 
@@ -1654,7 +1613,7 @@ class Level_7_artifact_attack(character, BoxLayout):
         frame = GridLayout(cols=1, rows=1, size_hint_y=None)
         frame.bind(minimum_height=frame.setter('height'))
         scroll = ScrollView(do_scroll_x=False, do_scroll_y=True, size_hint=(1, None),
-                            size=(Window.width, Window.height * (1 / 3)))
+                            size=(Window.width, Window.height * (1 / 3)), scroll_distance = 100)
         texta = Label(text=f"""You charge at Revan with your {h.weapon},
 but before you can strike a blinding
 flash knocks out both of you. 
@@ -1719,7 +1678,7 @@ class Level_5_solo(character, BoxLayout):
         frame = GridLayout(cols=1, rows=1, size_hint_y=None)
         frame.bind(minimum_height=frame.setter('height'))
         scroll = ScrollView(do_scroll_x=False, do_scroll_y=True, size_hint=(1, None), scroll_y=(1),
-                            size=(Window.width, Window.height * (1 / 3)))
+                            size=(Window.width, Window.height * (1 / 3)), scroll_distance = 100)
         texta = Label(text=f"""
 You leap through a window, and start
 to scale down the wall. You move 
@@ -1806,7 +1765,7 @@ class Level_5_solo_human(character, BoxLayout):
         frame = GridLayout(cols=1, rows=1, size_hint_y=None)
         frame.bind(minimum_height=frame.setter('height'))
         scroll = ScrollView(do_scroll_x=False, do_scroll_y=True, size_hint=(1, None),
-                            size=(Window.width, Window.height * (1 / 3)))
+                            size=(Window.width, Window.height * (1 / 3)), scroll_distance = 100)
         texta = Label(text=f"""
 The wizard tries but he misses
 Once you spot him you make your
@@ -1892,7 +1851,7 @@ class Level_5_solo_not_human(character, BoxLayout):
         frame = GridLayout(cols=1, rows=1, size_hint_y=None)
         frame.bind(minimum_height=frame.setter('height'))
         scroll = ScrollView(do_scroll_x=False, do_scroll_y=True, size_hint=(1, None),
-                            size=(Window.width, Window.height * (1 / 3)))
+                            size=(Window.width, Window.height * (1 / 3)), scroll_distance = 100)
         texta = Label(text=f"""
 The wizard hits you and slows you 
 down for a minute. This is not 
@@ -1980,7 +1939,7 @@ class Level_5_fort_escape(character, BoxLayout):
         frame = GridLayout(cols=1, rows=1, size_hint_y=None)
         frame.bind(minimum_height=frame.setter('height'))
         scroll = ScrollView(do_scroll_x=False, do_scroll_y=True, size_hint=(1, None),
-                            size=(Window.width, Window.height * (1 / 3)))
+                            size=(Window.width, Window.height * (1 / 3)), scroll_distance = 100)
         texta = Label(text=f"""
 You rush through room after room
 looking for a way out. In one room,
@@ -2071,7 +2030,7 @@ class Level_5_Duel_Decline(character, BoxLayout):
         frame = GridLayout(cols=1, rows=1, size_hint_y=None)
         frame.bind(minimum_height=frame.setter('height'))
         scroll = ScrollView(do_scroll_x=False, do_scroll_y=True, size_hint=(1, None),
-                            size=(Window.width, Window.height * (1 / 3)))
+                            size=(Window.width, Window.height * (1 / 3)), scroll_distance = 100)
         texta = Label(text=f"""
 "Yeah, I'm gonna pass." You say 
 and move on to the courtyard. 
@@ -2084,6 +2043,7 @@ can shoot arrows at pretty far distances,
 quite accurately. Her throw finds its 
 aim and hits you on the back of the 
 head, killing you instantly. 
+            GAME OVER
 """, color=(0, 0, 0, 1), size_hint=(1, None), pos=(self.width, 400))
         frame.add_widget(texta)
         scroll.add_widget(frame)
@@ -2140,7 +2100,7 @@ class Level_5_Duel_Accept(character, BoxLayout):
         frame = GridLayout(cols=1, rows=1, size_hint_y=None)
         frame.bind(minimum_height=frame.setter('height'))
         scroll = ScrollView(do_scroll_x=False, do_scroll_y=True, size_hint=(1, None),
-                            size=(Window.width, Window.height * (1 / 3)))
+                            size=(Window.width, Window.height * (1 / 3)), scroll_distance = 100)
         texta = Label(text=f"""
 "Alright, let's finish this," you say
 as you draw your {h.weapon}. Hera draws 
@@ -2167,7 +2127,7 @@ You are on your way now to Mount Lynaru.
         scroll.add_widget(frame)
         self.add_widget(scroll)
 
-        self.add_widget(Label(text=f"""  """, color=(0, 0, 0, 1)))
+        self.add_widget(Label(text=f""" GAME OVER """, color=(0, 0, 0, 1)))
 
         choice = GridLayout(cols=2, rows=1)
         rationalbutton = Label(text=" ")
@@ -2222,7 +2182,7 @@ class Level_5_fort_escape_damage(character, BoxLayout):
         frame = GridLayout(cols=1, rows=1, size_hint_y=None)
         frame.bind(minimum_height=frame.setter('height'))
         scroll = ScrollView(do_scroll_x=False, do_scroll_y=True, size_hint=(1, None),
-                            size=(Window.width, Window.height * (1 / 3)))
+                            size=(Window.width, Window.height * (1 / 3)), scroll_distance = 100)
         texta = Label(text=f"""
 You try to move a little bit, but
 find that you've broken some of 
@@ -2317,7 +2277,7 @@ class Level_5_solo_Game_over(character, BoxLayout):
         frame = GridLayout(cols=1, rows=1, size_hint_y=None)
         frame.bind(minimum_height=frame.setter('height'))
         scroll = ScrollView(do_scroll_x=False, do_scroll_y=True, size_hint=(1, None),
-                            size=(Window.width, Window.height * (1 / 3)))
+                            size=(Window.width, Window.height * (1 / 3)), scroll_distance = 100)
         texta = Label(text=f"""
 You try and fight all of them, but 
 ALAS it is of no use. The enemies are 
@@ -2332,7 +2292,7 @@ Now you fall to the ground ready for death,
 but not ready to die. You eventually fall 
 into the eternal sleep, with oyur warrior
 spirit still fighting. 
-        
+        GAME OVER  
 """, color=(0, 0, 0, 1), size_hint=(1, None), pos=(self.width, 400))
         frame.add_widget(texta)
         scroll.add_widget(frame)
@@ -2384,7 +2344,7 @@ class Level_5_group_Game_over(character, BoxLayout):
         frame = GridLayout(cols=1, rows=1, size_hint_y=None)
         frame.bind(minimum_height=frame.setter('height'))
         scroll = ScrollView(do_scroll_x=False, do_scroll_y=True, size_hint=(1, None),
-                            size=(Window.width, Window.height * (1 / 3)))
+                            size=(Window.width, Window.height * (1 / 3)), scroll_distance = 100)
         texta = Label(text=f"""
 "No, I think we can take them on,"
 you say. "After all we did win the
@@ -2419,7 +2379,7 @@ Alas, you cannot. As soon as Caldor leaves
 a mercenary throws a grenade into the room. 
 It explodes killing you and everyone in 
 the room, instantaneously.
-       
+        GAME OVER  
 """, color=(0, 0, 0, 1), size_hint=(1, None), pos=(self.width, 400))
         frame.add_widget(texta)
         scroll.add_widget(frame)
@@ -2473,7 +2433,7 @@ class Level_5_group_inside(character, BoxLayout):
         frame = GridLayout(cols=1, rows=1, size_hint_y=None)
         frame.bind(minimum_height=frame.setter('height'))
         scroll = ScrollView(do_scroll_x=False, do_scroll_y=True, size_hint=(1, None), scroll_y=(1),
-                            size=(Window.width, Window.height * (1 / 3)))
+                            size=(Window.width, Window.height * (1 / 3)), scroll_distance = 100)
         texta = Label(text=f"""
 You grab a bow and fire an incendiary 
 arrow at the oncoming horde. You are 
@@ -2584,7 +2544,7 @@ class Level_5_group_outside(character, BoxLayout):
         frame = GridLayout(cols=1, rows=1, size_hint_y=None)
         frame.bind(minimum_height=frame.setter('height'))
         scroll = ScrollView(do_scroll_x=False, do_scroll_y=True, size_hint=(1, None), scroll_y=(1),
-                            size=(Window.width, Window.height * (1 / 3)))
+                            size=(Window.width, Window.height * (1 / 3)), scroll_distance = 100)
         texta = Label(text=f"""
 The circle formation works for a 
 long time. It seems your military 
@@ -2639,7 +2599,7 @@ class Level_5_group_warlock_na(character, BoxLayout):
 
         self.orientation = "vertical"
 
-        self.lvl5_group()
+        self.lvl5_groupOutside()
         self.bottom_bar()
 
     def bottom_bar(self):
@@ -2672,7 +2632,7 @@ class Level_5_group_warlock_na(character, BoxLayout):
         frame = GridLayout(cols=1, rows=1, size_hint_y=None)
         frame.bind(minimum_height=frame.setter('height'))
         scroll = ScrollView(do_scroll_x=False, do_scroll_y=True, size_hint=(1, None), scroll_y=(1),
-                            size=(Window.width, Window.height * (1 / 3)))
+                            size=(Window.width, Window.height * (1 / 3)), scroll_distance = 100)
         texta = Label(text=f"""
 And you snap the warlock's staff
 into two pieces. Immediately the
@@ -2776,7 +2736,7 @@ class Level_5_group_warlock(character, BoxLayout):
         frame = GridLayout(cols=1, rows=1, size_hint_y=None)
         frame.bind(minimum_height=frame.setter('height'))
         scroll = ScrollView(do_scroll_x=False, do_scroll_y=True, size_hint=(1, None), scroll_y=(1),
-                            size=(Window.width, Window.height * (1 / 3)))
+                            size=(Window.width, Window.height * (1 / 3)), scroll_distance = 100)
         texta = Label(text=f"""
 And you snap the warlock's staff
 into two pieces. Immediately the
@@ -2867,7 +2827,7 @@ class Level_4_intro_page(character, BoxLayout):
         frame = GridLayout(cols=1, rows=1, size_hint_y=None)
         frame.bind(minimum_height=frame.setter('height'))
         scroll = ScrollView(do_scroll_x=False, do_scroll_y=True, size_hint=(1, None),
-                            size=(Window.width, Window.height * (1 / 3)))
+                            size=(Window.width, Window.height * (1 / 3)), scroll_distance = 100)
         texta = Label(text=f"""The road has been long.On the
 way you learnt more about Revan, 
 the man leading the mercenaries.Before
@@ -3050,7 +3010,7 @@ class Level_4_lone(character, BoxLayout):
         frame = GridLayout(cols=1, rows=1, size_hint_y=None)
         frame.bind(minimum_height=frame.setter('height'))
         scroll = ScrollView(do_scroll_x=False, do_scroll_y=True, size_hint=(1, None),
-                            size=(Window.width, Window.height * (1 / 3)))
+                            size=(Window.width, Window.height * (1 / 3)), scroll_distance = 100)
         texta = Label(text=f"""“I’m sorry guys, you’d just slow me down”
 “Okay you’ve officially lost it buddy. Do you
 have a plan? What do you think you’ll do even
@@ -3121,7 +3081,7 @@ class Level_4_help(character, BoxLayout):
         frame = GridLayout(cols=1, rows=1, size_hint_y=None)
         frame.bind(minimum_height=frame.setter('height'))
         scroll = ScrollView(do_scroll_x=False, do_scroll_y=True, size_hint=(1, None),
-                            size=(Window.width, Window.height * (1 / 3)))
+                            size=(Window.width, Window.height * (1 / 3)), scroll_distance = 100)
         texta = Label(text=f"""“I guess you are right, just like
 the old days eh”
 “That’s my boy!Now quickly, follow us to
@@ -4566,7 +4526,7 @@ You never found out why they were out
 to kill you. You slowly give in to the 
 Eternal Slumber, 
 the warrior spirit still fighting...
-           
+            GAME OVER
 """, color=(0, 0, 0, 1), size_hint=(1, None), pos=(self.width, 400))
         frame.add_widget(texta)
         scroll.add_widget(frame)
@@ -5394,7 +5354,7 @@ You never were able to take revenge
 for what happened at the inn.
 You slowly give in to the Eternal Slumber, 
 the warrior spirit still fighting...
-           
+            GAME OVER
 """, color=(0, 0, 0, 1), size_hint=(1, None), pos=(self.width, 400))
         frame.add_widget(texta)
         scroll.add_widget(frame)
