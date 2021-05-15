@@ -474,6 +474,39 @@ class Level_7_yes_drink(character, BoxLayout):
         self.orientation = "vertical"
 
         self.level_7_yes_drink()
+        self.bottom_bar()
+
+    def bottom_bar(self):
+        grid = GridLayout(cols=4, rows=1, padding=5, spacing=10)
+        homescreen_button = Button(text="Home")
+        music_button = Button(text="Music")
+        stop_music_button = Button(text="Stop Music")
+        back_button = Button(text="Back")
+        grid.add_widget(back_button)
+        back_button.bind(on_press=self.back)
+        grid.add_widget(homescreen_button)
+        homescreen_button.bind(on_press=self.Homescreen)
+        grid.add_widget(music_button)
+        music_button.bind(on_press=self.music)
+        grid.add_widget(stop_music_button)
+        stop_music_button.bind(on_press=self.stop_music)
+        self.add_widget(grid)
+
+    def stop_music(self, instance):
+        sound = SoundLoader.load(
+            'extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav')
+        sound.stop()
+
+    def music(self, instance):
+        sound = SoundLoader.load(
+            'extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav')
+        sound.play()
+
+    def Homescreen(self,instance):
+        game.screenmanager.current = "Home"
+
+    def back(self,instance):
+        game.screenmanager.current = "Level 7 Intro"
 
     def level_7_yes_drink(self):
         frame = GridLayout(cols=1, rows=1, size_hint_y=None)
