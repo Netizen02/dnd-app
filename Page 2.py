@@ -397,13 +397,36 @@ class Level_7_intro_page(character, BoxLayout):
         self.orientation = "vertical"
 
         self.level_7_intro_page()
+        self.bottom_bar()
+
+    def bottom_bar(self):
+        grid = GridLayout(cols=4, rows=1, padding=5, spacing=10)
+        homescreen_button = Button(text="Home")
+        music_button = Button(text="Music")
+        back_button = Label(text=" ")
+        grid.add_widget(back_button)
+        back_button.bind(on_press=self.back)
+        grid.add_widget(homescreen_button)
+        homescreen_button.bind(on_press=self.Homescreen)
+        grid.add_widget(music_button)
+        music_button.bind(on_press=self.music)
+        self.add_widget(grid)
+
+    def music(self, instance):
+        sound = SoundLoader.load(
+            'extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav')
+        sound.play()
+
+    def Homescreen(self,instance):
+        game.screenmanager.current = "Home"
 
     def level_7_intro_page(self):
         frame = GridLayout(cols=1, rows=1, size_hint_y=None)
         frame.bind(minimum_height=frame.setter('height'))
         scroll = ScrollView(do_scroll_x=False, do_scroll_y=True, size_hint=(1, None),
                             size=(Window.width, Window.height * (1 / 3)))
-        texta = Label(text=f""" You arrive at Revan’s camp. It’s pretty 
+        texta = Label(text=f""" 
+You arrive at Revan’s camp. It’s pretty 
 impressive he was able to set it
 all up in just a few days. After
 scouting from a rock above the camp
@@ -428,15 +451,13 @@ something in it.
 
     def yes(self, instance):
         game.screenmanager.current = "Level 7 yes drink"
-        pass
 
     def no(self, instance):
         game.screenmanager.current = "Level 7 no drink"
-        pass
 
 class Level_7_yes_drink(character, BoxLayout):
     _disabled_count = 0
-    h.stealth += 50
+
     def __init__(self, race, hp, stealth, strength, charisma, home, name, weapon, artifact, defense, **kwargs):
         character.__init__(self, race, hp, stealth, strength, charisma, home, name, weapon, artifact, defense)
         BoxLayout.__init__(self, **kwargs)
@@ -446,10 +467,9 @@ class Level_7_yes_drink(character, BoxLayout):
         self.bottom_bar()
 
     def bottom_bar(self):
-        grid = GridLayout(cols=4, rows=1, padding=5, spacing=10)
+        grid = GridLayout(cols=3, rows=1, padding=5, spacing=10)
         homescreen_button = Button(text="Home")
         music_button = Button(text="Music")
-        stop_music_button = Button(text="Stop Music")
         back_button = Button(text="Back")
         grid.add_widget(back_button)
         back_button.bind(on_press=self.back)
@@ -457,14 +477,7 @@ class Level_7_yes_drink(character, BoxLayout):
         homescreen_button.bind(on_press=self.Homescreen)
         grid.add_widget(music_button)
         music_button.bind(on_press=self.music)
-        grid.add_widget(stop_music_button)
-        stop_music_button.bind(on_press=self.stop_music)
         self.add_widget(grid)
-
-    def stop_music(self, instance):
-        sound = SoundLoader.load(
-            'extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav')
-        sound.stop()
 
     def music(self, instance):
         sound = SoundLoader.load(
@@ -489,7 +502,8 @@ It’s not very effective but it still helps.
         frame.add_widget(texta)
         scroll.add_widget(frame)
         self.add_widget(scroll)
-
+        h.stealth += 50
+        print(h.stealth)
         self.add_widget(Label(text=f"""Do you want to attack the camp?Or sneak in?""", color=(0, 0, 0, 1)))
 
         choice = GridLayout(cols=2, rows=1)
@@ -522,6 +536,31 @@ class Level_7_no_drink(character, BoxLayout):
         self.orientation = "vertical"
 
         self.level_7_no_drink()
+        self.bottom_bar()
+
+    def bottom_bar(self):
+        grid = GridLayout(cols=3, rows=1, padding=5, spacing=10)
+        homescreen_button = Button(text="Home")
+        music_button = Button(text="Music")
+        back_button = Button(text="Back")
+        grid.add_widget(back_button)
+        back_button.bind(on_press=self.back)
+        grid.add_widget(homescreen_button)
+        homescreen_button.bind(on_press=self.Homescreen)
+        grid.add_widget(music_button)
+        music_button.bind(on_press=self.music)
+        self.add_widget(grid)
+
+    def music(self, instance):
+        sound = SoundLoader.load(
+            'extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav')
+        sound.play()
+
+    def Homescreen(self,instance):
+        game.screenmanager.current = "Home"
+
+    def back(self,instance):
+        game.screenmanager.current = "Level 7 Intro"
 
     def level_7_no_drink(self):
         frame = GridLayout(cols=1, rows=1, size_hint_y=None)
@@ -547,29 +586,46 @@ class Level_7_no_drink(character, BoxLayout):
     def attack(self, instance):
         if h.strength >= 500:
             game.screenmanager.current = "Level 7 attack"
-            pass
         else:
             game.screenmanager.current = "Level 7 no attack"
-            pass
 
     def sneak(self, instance):
         if h.stealth >= 600:
             game.screenmanager.current = "Level 7 sneak"
-            pass
         else:
             game.screenmanager.current = "Level 7 no sneak"
-            pass
 
 class Level_7_attack(character, BoxLayout):
     _disabled_count = 0
-    if h.strength <= 600:
-        h.hp -= 200
+
     def __init__(self, race, hp, stealth, strength, charisma, home, name, weapon, artifact, defense, **kwargs):
         character.__init__(self, race, hp, stealth, strength, charisma, home, name, weapon, artifact, defense)
         BoxLayout.__init__(self, **kwargs)
         self.orientation = "vertical"
 
         self.level_7_attack()
+        self.bottom_bar()
+
+    def bottom_bar(self):
+        grid = GridLayout(cols=3, rows=1, padding=5, spacing=10)
+        homescreen_button = Button(text="Home")
+        music_button = Button(text="Music")
+        back_button = Label(text=" ")
+        grid.add_widget(back_button)
+        back_button.bind(on_press=self.back)
+        grid.add_widget(homescreen_button)
+        homescreen_button.bind(on_press=self.Homescreen)
+        grid.add_widget(music_button)
+        music_button.bind(on_press=self.music)
+        self.add_widget(grid)
+
+    def music(self,instance):
+        sound = SoundLoader.load('extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav')
+        sound.play()
+
+
+    def Homescreen(self, instance):
+        game.screenmanager.current = "Home"
 
     def level_7_attack(self):
         frame = GridLayout(cols=1, rows=1, size_hint_y=None)
@@ -592,7 +648,8 @@ You head to his tent to investigate.
         frame.add_widget(texta)
         scroll.add_widget(frame)
         self.add_widget(scroll)
-
+        if h.strength <= 600:
+            h.hp -= 200
         self.add_widget(Label(text=f"""""", color=(0, 0, 0, 1)))
 
         choice = GridLayout(cols=1, rows=1)
@@ -613,6 +670,28 @@ class Level_7_attack_no(character, BoxLayout):
         self.orientation = "vertical"
 
         self.level_7_attack_no()
+        self.bottom_bar()
+
+    def bottom_bar(self):
+        grid = GridLayout(cols=3, rows=1, padding=5, spacing=10)
+        homescreen_button = Button(text="Home")
+        music_button = Button(text="Music")
+        back_button = Label(text=" ")
+        grid.add_widget(back_button)
+        back_button.bind(on_press=self.back)
+        grid.add_widget(homescreen_button)
+        homescreen_button.bind(on_press=self.Homescreen)
+        grid.add_widget(music_button)
+        music_button.bind(on_press=self.music)
+        self.add_widget(grid)
+
+    def music(self,instance):
+        sound = SoundLoader.load('extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav')
+        sound.play()
+
+
+    def Homescreen(self, instance):
+        game.screenmanager.current = "Home"
 
     def level_7_attack_no(self):
         frame = GridLayout(cols=1, rows=1, size_hint_y=None)
@@ -643,6 +722,28 @@ class Level_7_sneak(character, BoxLayout):
         self.orientation = "vertical"
 
         self.level_7_sneak()
+        self.bottom_bar()
+
+    def bottom_bar(self):
+        grid = GridLayout(cols=3, rows=1, padding=5, spacing=10)
+        homescreen_button = Button(text="Home")
+        music_button = Button(text="Music")
+        back_button = Label(text=" ")
+        grid.add_widget(back_button)
+        back_button.bind(on_press=self.back)
+        grid.add_widget(homescreen_button)
+        homescreen_button.bind(on_press=self.Homescreen)
+        grid.add_widget(music_button)
+        music_button.bind(on_press=self.music)
+        self.add_widget(grid)
+
+    def music(self,instance):
+        sound = SoundLoader.load('extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav')
+        sound.play()
+
+
+    def Homescreen(self, instance):
+        game.screenmanager.current = "Home"
 
     def level_7_sneak(self):
         frame = GridLayout(cols=1, rows=1, size_hint_y=None)
@@ -681,6 +782,28 @@ class Level_7_sneak_no(character, BoxLayout):
         self.orientation = "vertical"
 
         self.level_7_sneak_no()
+        self.bottom_bar()
+
+    def bottom_bar(self):
+        grid = GridLayout(cols=3, rows=1, padding=5, spacing=10)
+        homescreen_button = Button(text="Home")
+        music_button = Button(text="Music")
+        back_button = Label(text=" ")
+        grid.add_widget(back_button)
+        back_button.bind(on_press=self.back)
+        grid.add_widget(homescreen_button)
+        homescreen_button.bind(on_press=self.Homescreen)
+        grid.add_widget(music_button)
+        music_button.bind(on_press=self.music)
+        self.add_widget(grid)
+
+    def music(self,instance):
+        sound = SoundLoader.load('extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav')
+        sound.play()
+
+
+    def Homescreen(self, instance):
+        game.screenmanager.current = "Home"
 
     def level_7_sneak_no(self):
         frame = GridLayout(cols=1, rows=1, size_hint_y=None)
@@ -713,6 +836,28 @@ class Level_7_courtyard(character, BoxLayout):
         self.orientation = "vertical"
 
         self.level_7_courtyard()
+        self.bottom_bar()
+
+    def bottom_bar(self):
+        grid = GridLayout(cols=3, rows=1, padding=5, spacing=10)
+        homescreen_button = Button(text="Home")
+        music_button = Button(text="Music")
+        back_button = Label(text=" ")
+        grid.add_widget(back_button)
+        back_button.bind(on_press=self.back)
+        grid.add_widget(homescreen_button)
+        homescreen_button.bind(on_press=self.Homescreen)
+        grid.add_widget(music_button)
+        music_button.bind(on_press=self.music)
+        self.add_widget(grid)
+
+    def music(self,instance):
+        sound = SoundLoader.load('extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav')
+        sound.play()
+
+
+    def Homescreen(self, instance):
+        game.screenmanager.current = "Home"
 
     def level_7_courtyard(self):
         frame = GridLayout(cols=1, rows=1, size_hint_y=None)
@@ -728,13 +873,14 @@ a silhouette of a man appears,
 before being replaced by a man
 resembling a monster
 
-‘So this is the bug that has been
-bothering me all along.I’m impressed
-you made it all the way here bug, but
-you have been a thorn in my side for
-far too long.Let’s get this over with,
-It’s almost lunchtime. I think i’ll
-have {h.race} today’
+‘So this is the bug that has 
+been bothering me all along. I’m 
+impressed you made it all the way 
+here bug, but you have been a thorn 
+in my side for far too long. Let’s 
+get this over with, It’s almost 
+lunchtime. I think I’ll have 
+{h.race} today’
 
 He jumps down and faces you in the
 courtyard. Everything you have done
@@ -756,8 +902,8 @@ has led to this moment…
         self.add_widget(choice)
 
     def attack(self, instance):
-        if h.artefact == True:
-            game.screenmanager.current = "Level 7 artefact attack"
+        if h.artifact == True:
+            game.screenmanager.current = "Level 7 artifact attack"
         else:
             game.screenmanager.current = "Level 7 attack 0"
 
@@ -771,7 +917,7 @@ has led to this moment…
 
 class Level_7_attack_0(character, BoxLayout):
     _disabled_count = 0
-    h.hp -= 70
+
 
     def __init__(self, race, hp, stealth, strength, charisma, home, name, weapon, artifact, defense, **kwargs):
         character.__init__(self, race, hp, stealth, strength, charisma, home, name, weapon, artifact, defense)
@@ -779,6 +925,28 @@ class Level_7_attack_0(character, BoxLayout):
         self.orientation = "vertical"
 
         self.level_7_attack_0()
+        self.bottom_bar()
+
+    def bottom_bar(self):
+        grid = GridLayout(cols=3, rows=1, padding=5, spacing=10)
+        homescreen_button = Button(text="Home")
+        music_button = Button(text="Music")
+        back_button = Label(text=" ")
+        grid.add_widget(back_button)
+        back_button.bind(on_press=self.back)
+        grid.add_widget(homescreen_button)
+        homescreen_button.bind(on_press=self.Homescreen)
+        grid.add_widget(music_button)
+        music_button.bind(on_press=self.music)
+        self.add_widget(grid)
+
+    def music(self,instance):
+        sound = SoundLoader.load('extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav')
+        sound.play()
+
+
+    def Homescreen(self, instance):
+        game.screenmanager.current = "Home"
 
     def level_7_attack_0(self):
         frame = GridLayout(cols=1, rows=1, size_hint_y=None)
@@ -798,7 +966,7 @@ you and regroup.
 
         self.add_widget(Label(text=f"""Do you attack? Or Hold your ground
 """, color=(0, 0, 0, 1)))
-
+        h.hp -= 70
         choice = GridLayout(cols=2, rows=1)
         attackbutton = Button(text="Attack")
         defendbutton = Button(text="Defend")
@@ -809,8 +977,8 @@ you and regroup.
         self.add_widget(choice)
 
     def attack(self, instance):
-        if h.artefact == True:
-            game.screenmanager.current = "Level 7 artefact attack"
+        if h.artifact == True:
+            game.screenmanager.current = "Level 7 artifact attack"
         else:
             if h.hp > 0:
                 game.screenmanager.current = "Level 7 attack 1"
@@ -839,7 +1007,6 @@ you and regroup.
 
 class Level_7_attack_1(character, BoxLayout):
     _disabled_count = 0
-    h.hp -= 70
 
     def __init__(self, race, hp, stealth, strength, charisma, home, name, weapon, artifact, defense, **kwargs):
         character.__init__(self, race, hp, stealth, strength, charisma, home, name, weapon, artifact, defense)
@@ -847,6 +1014,27 @@ class Level_7_attack_1(character, BoxLayout):
         self.orientation = "vertical"
 
         self.level_7_attack_1()
+        self.bottom_bar()
+
+    def bottom_bar(self):
+        grid = GridLayout(cols=3, rows=1, padding=5, spacing=10)
+        homescreen_button = Button(text="Home")
+        music_button = Button(text="Music")
+        back_button = Label(text=" ")
+        grid.add_widget(back_button)
+        back_button.bind(on_press=self.back)
+        grid.add_widget(homescreen_button)
+        homescreen_button.bind(on_press=self.Homescreen)
+        grid.add_widget(music_button)
+        music_button.bind(on_press=self.music)
+        self.add_widget(grid)
+
+    def music(self,instance):
+        sound = SoundLoader.load('extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav')
+        sound.play()
+
+    def Homescreen(self, instance):
+        game.screenmanager.current = "Home"
 
     def level_7_attack_1(self):
         frame = GridLayout(cols=1, rows=1, size_hint_y=None)
@@ -863,7 +1051,7 @@ the two of you and regroup.
         frame.add_widget(texta)
         scroll.add_widget(frame)
         self.add_widget(scroll)
-
+        h.hp -= 70
         self.add_widget(Label(text=f"""Do you attack? Or Hold your ground""", color=(0, 0, 0, 1)))
 
         choice = GridLayout(cols=2, rows=1)
@@ -876,16 +1064,13 @@ the two of you and regroup.
         self.add_widget(choice)
 
     def attack(self, instance):
-        if h.artefact == True:
-            game.screenmanager.current = "Level 7 artefact attack"
-            pass
+        if h.artifact == True:
+            game.screenmanager.current = "Level 7 artifact attack"
         else:
             if h.hp > 0:
                 game.screenmanager.current = "Level 7 attack 0"
-                pass
             else:
                 game.screenmanager.current = "Level 7 death"
-                pass
 
     def defend(self, instance):
         if h.hp > 0:
@@ -895,26 +1080,21 @@ the two of you and regroup.
             elif h.defense == 1:
                 game.screenmanager.current = "Level 7 defend 1"
                 h.defense += 1
-                pass
             elif h.defense == 2:
                 game.screenmanager.current = "Level 7 defend 2"
                 h.defense += 1
-                pass
             elif h.defense == 3:
                 game.screenmanager.current = "Level 7 defend 3"
                 h.defense += 1
-                pass
             elif h.defense == 4:
                 game.screenmanager.current = "Level 7 defend 4"
                 h.defense += 1
-                pass
             else:
                 game.screenmanager.current = "Level 7 death"
-                pass
 
 class Level_7_defend_0(character, BoxLayout):
     _disabled_count = 0
-    h.hp -= 50
+
 
     def __init__(self, race, hp, stealth, strength, charisma, home, name, weapon, artifact, defense, **kwargs):
         character.__init__(self, race, hp, stealth, strength, charisma, home, name, weapon, artifact, defense)
@@ -922,6 +1102,27 @@ class Level_7_defend_0(character, BoxLayout):
         self.orientation = "vertical"
 
         self.level_7_defend_0()
+        self.bottom_bar()
+
+    def bottom_bar(self):
+        grid = GridLayout(cols=3, rows=1, padding=5, spacing=10)
+        homescreen_button = Button(text="Home")
+        music_button = Button(text="Music")
+        back_button = Label(text=" ")
+        grid.add_widget(back_button)
+        back_button.bind(on_press=self.back)
+        grid.add_widget(homescreen_button)
+        homescreen_button.bind(on_press=self.Homescreen)
+        grid.add_widget(music_button)
+        music_button.bind(on_press=self.music)
+        self.add_widget(grid)
+
+    def music(self,instance):
+        sound = SoundLoader.load('extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav')
+        sound.play()
+
+    def Homescreen(self, instance):
+        game.screenmanager.current = "Home"
 
     def level_7_defend_0(self):
         frame = GridLayout(cols=1, rows=1, size_hint_y=None)
@@ -936,7 +1137,7 @@ screams in pain
         frame.add_widget(texta)
         scroll.add_widget(frame)
         self.add_widget(scroll)
-
+        h.hp -= 50
         self.add_widget(Label(text=f"""Maybe this is how you defeat him?""", color=(0, 0, 0, 1)))
 
         choice = GridLayout(cols=2, rows=1)
@@ -949,8 +1150,8 @@ screams in pain
         self.add_widget(choice)
 
     def attack(self, instance):
-        if h.artefact == True:
-            game.screenmanager.current = "Level 7 artefact attack"
+        if h.artifact == True:
+            game.screenmanager.current = "Level 7 artifact attack"
             pass
         else:
             if h.hp > 0:
@@ -965,30 +1166,24 @@ screams in pain
             if h.defense == 0:
                 game.screenmanager.current = "Level 7 defend 0"
                 h.defense += 1
-                pass
             elif h.defense == 1:
                 game.screenmanager.current = "Level 7 defend 1"
                 h.defense += 1
-                pass
             elif h.defense == 2:
                 game.screenmanager.current = "Level 7 defend 2"
                 h.defense += 1
-                pass
             elif h.defense == 3:
                 game.screenmanager.current = "Level 7 defend 3"
                 h.defense += 1
-                pass
             elif h.defense == 4:
                 game.screenmanager.current = "Level 7 defend 4"
                 h.defense += 1
-                pass
         else:
             game.screenmanager.current = "Level 7 death"
-            pass
 
 class Level_7_defend_1(character, BoxLayout):
     _disabled_count = 0
-    h.hp -= 50
+
 
     def __init__(self, race, hp, stealth, strength, charisma, home, name, weapon, artifact, defense, **kwargs):
         character.__init__(self, race, hp, stealth, strength, charisma, home, name, weapon, artifact, defense)
@@ -996,6 +1191,28 @@ class Level_7_defend_1(character, BoxLayout):
         self.orientation = "vertical"
 
         self.level_7_defend_1()
+        self.bottom_bar()
+
+    def bottom_bar(self):
+        grid = GridLayout(cols=3, rows=1, padding=5, spacing=10)
+        homescreen_button = Button(text="Home")
+        music_button = Button(text="Music")
+        back_button = Label(text=" ")
+        grid.add_widget(back_button)
+        back_button.bind(on_press=self.back)
+        grid.add_widget(homescreen_button)
+        homescreen_button.bind(on_press=self.Homescreen)
+        grid.add_widget(music_button)
+        music_button.bind(on_press=self.music)
+        self.add_widget(grid)
+
+    def music(self,instance):
+        sound = SoundLoader.load('extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav')
+        sound.play()
+
+
+    def Homescreen(self, instance):
+        game.screenmanager.current = "Home"
 
     def level_7_defend_1(self):
         frame = GridLayout(cols=1, rows=1, size_hint_y=None)
@@ -1010,7 +1227,7 @@ not expecting you to match his skill
         frame.add_widget(texta)
         scroll.add_widget(frame)
         self.add_widget(scroll)
-
+        h.hp -= 50
         self.add_widget(Label(text=f"""Keep it up!""", color=(0, 0, 0, 1)))
 
         choice = GridLayout(cols=2, rows=1)
@@ -1023,42 +1240,33 @@ not expecting you to match his skill
         self.add_widget(choice)
 
     def attack(self, instance):
-        if h.artefact == True:
-            game.screenmanager.current = "Level 7 artefact attack"
-            pass
+        if h.artifact == True:
+            game.screenmanager.current = "Level 7 artifact attack"
         else:
             if h.hp > 0:
                 game.screenmanager.current = "Level 7 attack 0"
-                pass
             else:
                 game.screenmanager.current = "Level 7 death"
-                pass
 
     def defend(self, instance):
         if h.hp > 0:
             if h.defense == 0:
                 game.screenmanager.current = "Level 7 defend 0"
                 h.defense += 1
-                pass
             elif h.defense == 1:
                 game.screenmanager.current = "Level 7 defend 1"
                 h.defense += 1
-                pass
             elif h.defense == 2:
                 game.screenmanager.current = "Level 7 defend 2"
                 h.defense += 1
-                pass
             elif h.defense == 3:
                 game.screenmanager.current = "Level 7 defend 3"
                 h.defense += 1
-                pass
             elif h.defense == 4:
                 game.screenmanager.current = "Level 7 defend 4"
                 h.defense += 1
-                pass
         else:
             game.screenmanager.current = "Level 7 death"
-            pass
 
 class Level_7_death(character, BoxLayout):
     _disabled_count = 0
@@ -1069,6 +1277,28 @@ class Level_7_death(character, BoxLayout):
         self.orientation = "vertical"
 
         self.level_7_death()
+        self.bottom_bar()
+
+    def bottom_bar(self):
+        grid = GridLayout(cols=3, rows=1, padding=5, spacing=10)
+        homescreen_button = Button(text="Home")
+        music_button = Button(text="Music")
+        back_button = Label(text=" ")
+        grid.add_widget(back_button)
+        back_button.bind(on_press=self.back)
+        grid.add_widget(homescreen_button)
+        homescreen_button.bind(on_press=self.Homescreen)
+        grid.add_widget(music_button)
+        music_button.bind(on_press=self.music)
+        self.add_widget(grid)
+
+    def music(self,instance):
+        sound = SoundLoader.load('extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav')
+        sound.play()
+
+
+    def Homescreen(self, instance):
+        game.screenmanager.current = "Home"
 
     def level_7_death(self):
         frame = GridLayout(cols=1, rows=1, size_hint_y=None)
@@ -1092,7 +1322,7 @@ Rest now and be at peace.
 
 class Level_7_defend_2(character, BoxLayout):
     _disabled_count = 0
-    h.hp -= 50
+
 
     def __init__(self, race, hp, stealth, strength, charisma, home, name, weapon, artifact, defense, **kwargs):
         character.__init__(self, race, hp, stealth, strength, charisma, home, name, weapon, artifact, defense)
@@ -1100,6 +1330,28 @@ class Level_7_defend_2(character, BoxLayout):
         self.orientation = "vertical"
 
         self.level_7_defend_2()
+        self.bottom_bar()
+
+    def bottom_bar(self):
+        grid = GridLayout(cols=3, rows=1, padding=5, spacing=10)
+        homescreen_button = Button(text="Home")
+        music_button = Button(text="Music")
+        back_button = Label(text=" ")
+        grid.add_widget(back_button)
+        back_button.bind(on_press=self.back)
+        grid.add_widget(homescreen_button)
+        homescreen_button.bind(on_press=self.Homescreen)
+        grid.add_widget(music_button)
+        music_button.bind(on_press=self.music)
+        self.add_widget(grid)
+
+    def music(self,instance):
+        sound = SoundLoader.load('extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav')
+        sound.play()
+
+
+    def Homescreen(self, instance):
+        game.screenmanager.current = "Home"
 
     def level_7_defend_2(self):
         frame = GridLayout(cols=1, rows=1, size_hint_y=None)
@@ -1114,7 +1366,7 @@ and hit him from the side!
         frame.add_widget(texta)
         scroll.add_widget(frame)
         self.add_widget(scroll)
-
+        h.hp -= 50
         self.add_widget(Label(text=f"""Keep it up!""", color=(0, 0, 0, 1)))
 
         choice = GridLayout(cols=2, rows=1)
@@ -1127,46 +1379,41 @@ and hit him from the side!
         self.add_widget(choice)
 
     def attack(self, instance):
-        if h.artefact == True:
-            game.screenmanager.current = "Level 7 artefact attack"
-            pass
+        if h.artifact == True:
+            game.screenmanager.current = "Level 7 artifact attack"
         else:
             if h.hp > 0:
                 game.screenmanager.current = "Level 7 attack 0"
-                pass
             else:
                 game.screenmanager.current = "Level 7 death"
-                pass
 
     def defend(self, instance):
         if h.hp > 0:
             if h.defense == 0:
                 game.screenmanager.current = "Level 7 defend 0"
                 h.defense += 1
-                pass
+
             elif h.defense == 1:
                 game.screenmanager.current = "Level 7 defend 1"
                 h.defense += 1
-                pass
+
             elif h.defense == 2:
                 game.screenmanager.current = "Level 7 defend 2"
                 h.defense += 1
-                pass
+
             elif h.defense == 3:
                 game.screenmanager.current = "Level 7 defend 3"
                 h.defense += 1
-                pass
+
             elif h.defense == 4:
                 game.screenmanager.current = "Level 7 defend 4"
                 h.defense += 1
-                pass
+
         else:
             game.screenmanager.current = "Level 7 death"
-            pass
 
 class Level_7_defend_3(character, BoxLayout):
     _disabled_count = 0
-    h.hp -= 50
 
     def __init__(self, race, hp, stealth, strength, charisma, home, name, weapon, artifact, defense, **kwargs):
         character.__init__(self, race, hp, stealth, strength, charisma, home, name, weapon, artifact, defense)
@@ -1174,6 +1421,28 @@ class Level_7_defend_3(character, BoxLayout):
         self.orientation = "vertical"
 
         self.level_7_defend_3()
+        self.bottom_bar()
+
+    def bottom_bar(self):
+        grid = GridLayout(cols=3, rows=1, padding=5, spacing=10)
+        homescreen_button = Button(text="Home")
+        music_button = Button(text="Music")
+        back_button = Label(text=" ")
+        grid.add_widget(back_button)
+        back_button.bind(on_press=self.back)
+        grid.add_widget(homescreen_button)
+        homescreen_button.bind(on_press=self.Homescreen)
+        grid.add_widget(music_button)
+        music_button.bind(on_press=self.music)
+        self.add_widget(grid)
+
+    def music(self,instance):
+        sound = SoundLoader.load('extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav')
+        sound.play()
+
+
+    def Homescreen(self, instance):
+        game.screenmanager.current = "Home"
 
     def level_7_defend_3(self):
         frame = GridLayout(cols=1, rows=1, size_hint_y=None)
@@ -1189,7 +1458,7 @@ destroying his wolf form
         frame.add_widget(texta)
         scroll.add_widget(frame)
         self.add_widget(scroll)
-
+        h.hp -= 50
         self.add_widget(Label(text=f"""You’re almost done!""", color=(0, 0, 0, 1)))
 
         choice = GridLayout(cols=2, rows=1)
@@ -1202,42 +1471,33 @@ destroying his wolf form
         self.add_widget(choice)
 
     def attack(self, instance):
-        if h.artefact == True:
-            game.screenmanager.current = "Level 7 artefact attack"
-            pass
+        if h.artifact == True:
+            game.screenmanager.current = "Level 7 artifact attack"
         else:
             if h.hp > 0:
                 game.screenmanager.current = "Level 7 attack 0"
-                pass
             else:
                 game.screenmanager.current = "Level 7 death"
-                pass
 
     def defend(self, instance):
         if h.hp > 0:
             if h.defense == 0:
                 game.screenmanager.current = "Level 7 defend 0"
                 h.defense += 1
-                pass
             elif h.defense == 1:
                 game.screenmanager.current = "Level 7 defend 1"
                 h.defense += 1
-                pass
             elif h.defense == 2:
                 game.screenmanager.current = "Level 7 defend 2"
                 h.defense += 1
-                pass
             elif h.defense == 3:
                 game.screenmanager.current = "Level 7 defend 3"
                 h.defense += 1
-                pass
             elif h.defense == 4:
                 game.screenmanager.current = "Level 7 defend 4"
                 h.defense += 1
-                pass
         else:
             game.screenmanager.current = "Level 7 death"
-            pass
 
 class Level_7_defend_4(character, BoxLayout):
     _disabled_count = 0
@@ -1248,6 +1508,28 @@ class Level_7_defend_4(character, BoxLayout):
         self.orientation = "vertical"
 
         self.level_7_defend_4()
+        self.bottom_bar()
+
+    def bottom_bar(self):
+        grid = GridLayout(cols=3, rows=1, padding=5, spacing=10)
+        homescreen_button = Button(text="Home")
+        music_button = Button(text="Music")
+        back_button = Label(text=" ")
+        grid.add_widget(back_button)
+        back_button.bind(on_press=self.back)
+        grid.add_widget(homescreen_button)
+        homescreen_button.bind(on_press=self.Homescreen)
+        grid.add_widget(music_button)
+        music_button.bind(on_press=self.music)
+        self.add_widget(grid)
+
+    def music(self,instance):
+        sound = SoundLoader.load('extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav')
+        sound.play()
+
+
+    def Homescreen(self, instance):
+        game.screenmanager.current = "Home"
 
     def level_7_defend_4(self):
         frame = GridLayout(cols=1, rows=1, size_hint_y=None)
@@ -1277,7 +1559,7 @@ Your journey ends here hero.The future is for you to decide.
 
         self.add_widget(Label(text=f"""Thank you {h.name} of {h.home}.""", color=(0, 0, 0, 1)))
 
-class Level_7_artefact_attack(character, BoxLayout):
+class Level_7_artifact_attack(character, BoxLayout):
     _disabled_count = 0
 
     def __init__(self, race, hp, stealth, strength, charisma, home, name, weapon, artifact, defense, **kwargs):
@@ -1285,9 +1567,31 @@ class Level_7_artefact_attack(character, BoxLayout):
         BoxLayout.__init__(self, **kwargs)
         self.orientation = "vertical"
 
-        self.level_7_artefact_attack()
+        self.level_7_artifact_attack()
+        self.bottom_bar()
 
-    def level_7_artefact_attack(self):
+    def bottom_bar(self):
+        grid = GridLayout(cols=3, rows=1, padding=5, spacing=10)
+        homescreen_button = Button(text="Home")
+        music_button = Button(text="Music")
+        back_button = Label(text=" ")
+        grid.add_widget(back_button)
+        back_button.bind(on_press=self.back)
+        grid.add_widget(homescreen_button)
+        homescreen_button.bind(on_press=self.Homescreen)
+        grid.add_widget(music_button)
+        music_button.bind(on_press=self.music)
+        self.add_widget(grid)
+
+    def music(self,instance):
+        sound = SoundLoader.load('extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav')
+        sound.play()
+
+
+    def Homescreen(self, instance):
+        game.screenmanager.current = "Home"
+
+    def level_7_artifact_attack(self):
         frame = GridLayout(cols=1, rows=1, size_hint_y=None)
         frame.bind(minimum_height=frame.setter('height'))
         scroll = ScrollView(do_scroll_x=False, do_scroll_y=True, size_hint=(1, None),
@@ -1346,7 +1650,8 @@ class Level_5_solo(character,BoxLayout):
 
     def music(self,instance):
         sound = SoundLoader.load(
-            'extra files for mini project\Legend Of Zelda Theme (8 Bit Remix Cover Version) [Tribute to NES] - 8 Bit Universe.wav')
+            'extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav'
+    )
         sound.play()
 
     def Homescreen(self, instance):
@@ -1428,7 +1733,8 @@ class Level_5_solo_human(character, BoxLayout):
         self.add_widget(grid)
 
     def music(self, instance):
-        sound = SoundLoader.load('extra files for mini project\Legend Of Zelda Theme (8 Bit Remix Cover Version) [Tribute to NES] - 8 Bit Universe.wav')
+        sound = SoundLoader.load('extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav'
+                            )
         sound.play()
 
     def Homescreen(self, instance):
@@ -1511,7 +1817,8 @@ class Level_5_solo_not_human(character, BoxLayout):
         self.add_widget(grid)
 
     def music(self, instance):
-        sound = SoundLoader.load('extra files for mini project\Legend Of Zelda Theme (8 Bit Remix Cover Version) [Tribute to NES] - 8 Bit Universe.wav')
+        sound = SoundLoader.load('extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav'
+                            )
         sound.play()
 
     def Homescreen(self, instance):
@@ -1596,7 +1903,8 @@ class Level_5_fort_escape(character, BoxLayout):
         self.add_widget(grid)
 
     def music(self, instance):
-        sound = SoundLoader.load('extra files for mini project\Legend Of Zelda Theme (8 Bit Remix Cover Version) [Tribute to NES] - 8 Bit Universe.wav')
+        sound = SoundLoader.load('extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav'
+                            )
         sound.play()
 
     def Homescreen(self, instance):
@@ -1685,7 +1993,8 @@ class Level_5_Duel_Decline(character, BoxLayout):
         self.add_widget(grid)
 
     def music(self, instance):
-        sound = SoundLoader.load('extra files for mini project\Legend Of Zelda Theme (8 Bit Remix Cover Version) [Tribute to NES] - 8 Bit Universe.wav')
+        sound = SoundLoader.load('extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav'
+                            )
         sound.play()
 
     def Homescreen(self, instance):
@@ -1752,7 +2061,8 @@ class Level_5_Duel_Accept(character, BoxLayout):
 
     def music(self, instance):
         sound = SoundLoader.load(
-            'extra files for mini project\Legend Of Zelda Theme (8 Bit Remix Cover Version) [Tribute to NES] - 8 Bit Universe.wav')
+            'extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav'
+    )
         sound.play()
 
     def Homescreen(self, instance):
@@ -1830,7 +2140,8 @@ class Level_5_fort_escape_damage(character, BoxLayout):
         self.add_widget(grid)
 
     def music(self, instance):
-        sound = SoundLoader.load('extra files for mini project\Legend Of Zelda Theme (8 Bit Remix Cover Version) [Tribute to NES] - 8 Bit Universe.wav')
+        sound = SoundLoader.load('extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav'
+                            )
         sound.play()
 
     def Homescreen(self, instance):
@@ -1928,7 +2239,8 @@ class Level_5_solo_Game_over(character, BoxLayout):
         self.add_widget(grid)
 
     def music(self, instance):
-        sound = SoundLoader.load('extra files for mini project\Legend Of Zelda Theme (8 Bit Remix Cover Version) [Tribute to NES] - 8 Bit Universe.wav')
+        sound = SoundLoader.load('extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav'
+                            )
         sound.play()
 
     def Homescreen(self, instance):
@@ -1992,7 +2304,8 @@ class Level_5_group_Game_over(character, BoxLayout):
         self.add_widget(grid)
 
     def music(self, instance):
-        sound = SoundLoader.load('extra files for mini project\Legend Of Zelda Theme (8 Bit Remix Cover Version) [Tribute to NES] - 8 Bit Universe.wav')
+        sound = SoundLoader.load('extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav'
+                            )
         sound.play()
 
     def Homescreen(self, instance):
@@ -2068,11 +2381,7 @@ class Level_5_group_inside(character, BoxLayout):
 
         self.lvl5_group()
         self.bottom_bar()
-        if h.strength>500.00 and h.charisma == True:
-            h.hp *= 0.9
-        else:
-            h.hp *= 0.75
-        h.strength *= 0.9
+
 
     def bottom_bar(self):
         grid = GridLayout(cols=3, rows=1, padding=5, spacing=10)
@@ -2088,7 +2397,8 @@ class Level_5_group_inside(character, BoxLayout):
 
     def music(self,instance):
         sound = SoundLoader.load(
-            'extra files for mini project\Legend Of Zelda Theme (8 Bit Remix Cover Version) [Tribute to NES] - 8 Bit Universe.wav')
+            'extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav'
+    )
         sound.play()
 
     def Homescreen(self, instance):
@@ -2121,23 +2431,29 @@ and give us cover. Ruz, you and {h.name}
 are to protect Burk from incoming attackers. 
 Go for clean kills; aim for head, triceps, 
 and thighs only. If we can’t kill them at 
-least make it agonizing for them to pick up
- weapons against us. I will also use a bow 
- and help Burk. Deruvur you bring up the 
- rear with arrows, weapons and supplies. 
- Once we get out they will no doubt try to 
- surround us. Then remember circle formation. 
+least make it agonizing for them to pick 
+up weapons against us. I will also use a 
+bow and help Burk. Deruvur you bring up the 
+rear with arrows, weapons and supplies. 
+Once we get out they will no doubt try to 
+surround us. Then remember circle formation. 
 {h.name}, Ruz and Deruvur in the front, Burk 
-and I will get long range targets from the centre.”
-“Ruz open the door and throw a grenade to disorient
- them. I’ll follow it by smoke arrows. Burk and 
-{h.name} start taking down people.”
+and I will get long range targets from the 
+centre.”
 
-“Everybody got it?” We nod. “Good, then let’s go.” 
+“Ruz open the door and throw a grenade to 
+disorient them. I’ll follow it by smoke 
+arrows. Burk and {h.name} start taking down 
+people.”
+
+“Everybody got it?” We nod. “Good, then let’s
+go.” 
+
 The plan goes pretty according to how you 
-discussed it. The enemies may be a lot but between 
-Burk’s marksmanship, and your close range blows,
-the entire team was able to get out, without a scratch.
+discussed it. The enemies may be a lot but 
+between Burk’s marksmanship, and your close 
+range blows, the entire team was able to get 
+out, without a scratch.
 
 The entire town is on high alert,and the city
 gates are closed.
@@ -2146,14 +2462,18 @@ gates are closed.
 
 The soldiers quickly surround you
 
-‘Just like the old days guys’ says Caldor
+‘Just like the old days guys,’ says Caldor
 """, color=(0, 0, 0, 1), size_hint=(1, None), pos=(self.width, 400))
         frame.add_widget(texta)
         scroll.add_widget(frame)
         self.add_widget(scroll)
         h.hp *= 0.9
         self.add_widget(Label(text=f""" """, color=(0, 0, 0, 1)))
-
+        if h.strength>500.00 and h.charisma == True:
+            h.hp *= 0.9
+        else:
+            h.hp *= 0.75
+        h.strength *= 0.9
         choice = GridLayout(cols=2, rows=1)
         sNeakbutton = Label(text=" ")
         fIghtbutton = Button(text="MOVE ON")
@@ -2182,7 +2502,8 @@ class Level_5_group_outside(character, BoxLayout):
         grid = GridLayout(cols=3, rows=1, padding=5, spacing=10)
         homescreen_button = Button(text="Home")
         music_button = Button(text="Music")
-        back_button = Label(text=" ")
+        back_button = Button(text="Back")
+        back_button.add_widget(on_press = self.back)
         grid.add_widget(back_button)
         grid.add_widget(homescreen_button)
         homescreen_button.bind(on_press=self.Homescreen)
@@ -2192,11 +2513,15 @@ class Level_5_group_outside(character, BoxLayout):
 
     def music(self,instance):
         sound = SoundLoader.load(
-            'extra files for mini project\Legend Of Zelda Theme (8 Bit Remix Cover Version) [Tribute to NES] - 8 Bit Universe.wav')
+            'extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav'
+    )
         sound.play()
 
     def Homescreen(self, instance):
         game.screenmanager.current = "Home"
+
+    def back(self, instance):
+        game.screenmanager.current = "Level 5 group outside"
 
     def lvl5_groupOutside(self):
         frame = GridLayout(cols=1, rows=1, size_hint_y=None)
@@ -2278,7 +2603,8 @@ class Level_5_group_warlock_na(character, BoxLayout):
 
     def music(self,instance):
         sound = SoundLoader.load(
-            'extra files for mini project\Legend Of Zelda Theme (8 Bit Remix Cover Version) [Tribute to NES] - 8 Bit Universe.wav')
+            'extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav'
+    )
         sound.play()
 
     def Homescreen(self, instance):
@@ -2385,7 +2711,8 @@ class Level_5_group_warlock(character, BoxLayout):
 
     def music(self,instance):
         sound = SoundLoader.load(
-            'extra files for mini project\Legend Of Zelda Theme (8 Bit Remix Cover Version) [Tribute to NES] - 8 Bit Universe.wav')
+            'extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav'
+    )
         sound.play()
 
     def Homescreen(self, instance):
@@ -2473,21 +2800,13 @@ class Level_4_intro_page(character, BoxLayout):
         grid = GridLayout(cols=4, rows=1, padding=5, spacing=10)
         homescreen_button = Button(text="Home")
         music_button = Button(text="Music")
-        stop_music_button = Button(text="Stop Music")
         back_button = Label(text=" ")
         grid.add_widget(back_button)
         grid.add_widget(homescreen_button)
         homescreen_button.bind(on_press=self.Homescreen)
         grid.add_widget(music_button)
         music_button.bind(on_press=self.music)
-        grid.add_widget(stop_music_button)
-        stop_music_button.bind(on_press=self.stop_music)
         self.add_widget(grid)
-
-    def stop_music(self, instance):
-        sound = SoundLoader.load(
-            'extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav')
-        sound.stop()
 
     def music(self, instance):
         sound = SoundLoader.load(
@@ -2563,7 +2882,7 @@ class Level_4_sane(character, BoxLayout):
         self.add_widget(grid)
 
     def music(self, instance):
-        sound = SoundLoader.load('extra files for mini project\Legend Of Zelda Theme (8 Bit Remix Cover Version) [Tribute to NES] - 8 Bit Universe.wav')
+        sound = SoundLoader.load('extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav')
         sound.play()
 
     def Homescreen(self, instance):
@@ -2672,7 +2991,8 @@ class Level_4_lone(character, BoxLayout):
         self.add_widget(grid)
 
     def music(self, instance):
-        sound = SoundLoader.load('extra files for mini project\Legend Of Zelda Theme (8 Bit Remix Cover Version) [Tribute to NES] - 8 Bit Universe.wav')
+        sound = SoundLoader.load('extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav'
+                            )
         sound.play()
 
     def Homescreen(self, instance):
@@ -2743,7 +3063,8 @@ class Level_4_help(character, BoxLayout):
         self.add_widget(grid)
 
     def music(self, instance):
-        sound = SoundLoader.load('extra files for mini project\Legend Of Zelda Theme (8 Bit Remix Cover Version) [Tribute to NES] - 8 Bit Universe.wav')
+        sound = SoundLoader.load('extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav'
+                            )
         sound.play()
 
     def Homescreen(self, instance):
@@ -2804,7 +3125,8 @@ class Level_4_fort_attack(character, BoxLayout):
         self.add_widget(grid)
 
     def music(self, instance):
-        sound = SoundLoader.load('extra files for mini project\Legend Of Zelda Theme (8 Bit Remix Cover Version) [Tribute to NES] - 8 Bit Universe.wav')
+        sound = SoundLoader.load('extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav'
+                            )
         sound.play()
 
     def Homescreen(self, instance):
@@ -2888,7 +3210,7 @@ class Level_4_safehouse(character, BoxLayout):
         self.add_widget(grid)
 
     def music(self, instance):
-        sound = SoundLoader.load('extra files for mini project\Legend Of Zelda Theme (8 Bit Remix Cover Version) [Tribute to NES] - 8 Bit Universe.wav')
+        sound = SoundLoader.load('extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav')
         sound.play()
 
     def Homescreen(self, instance):
@@ -2987,7 +3309,7 @@ class Level_4_No_Dwarf(character, BoxLayout):
         self.add_widget(grid)
 
     def music(self, instance):
-        sound = SoundLoader.load('extra files for mini project\Legend Of Zelda Theme (8 Bit Remix Cover Version) [Tribute to NES] - 8 Bit Universe.wav')
+        sound = SoundLoader.load('extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav')
         sound.play()
 
     def Homescreen(self, instance):
@@ -3069,7 +3391,8 @@ class Level_4_disappear(character, BoxLayout):
         self.add_widget(grid)
 
     def music(self, instance):
-        sound = SoundLoader.load('extra files for mini project\Legend Of Zelda Theme (8 Bit Remix Cover Version) [Tribute to NES] - 8 Bit Universe.wav')
+        sound = SoundLoader.load('extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav'
+                            )
         sound.play()
 
     def Homescreen(self, instance):
@@ -3151,7 +3474,8 @@ class Level_4_no_disappear(character, BoxLayout):
         self.add_widget(grid)
 
     def music(self, instance):
-        sound = SoundLoader.load('extra files for mini project\Legend Of Zelda Theme (8 Bit Remix Cover Version) [Tribute to NES] - 8 Bit Universe.wav')
+        sound = SoundLoader.load('extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav'
+                            )
         sound.play()
 
     def Homescreen(self, instance):
@@ -3221,7 +3545,8 @@ class Level_4_Dwarf(character, BoxLayout):
         self.add_widget(grid)
 
     def music(self, instance):
-        sound = SoundLoader.load('extra files for mini project\Legend Of Zelda Theme (8 Bit Remix Cover Version) [Tribute to NES] - 8 Bit Universe.wav')
+        sound = SoundLoader.load('extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav'
+                            )
         sound.play()
 
     def Homescreen(self, instance):
@@ -3307,7 +3632,8 @@ class Level_4_Dwarf_escape(character, BoxLayout):
         self.add_widget(grid)
 
     def music(self, instance):
-        sound = SoundLoader.load('extra files for mini project\Legend Of Zelda Theme (8 Bit Remix Cover Version) [Tribute to NES] - 8 Bit Universe.wav')
+        sound = SoundLoader.load('extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav'
+                            )
         sound.play()
 
     def Homescreen(self, instance):
@@ -3368,7 +3694,6 @@ You set out alone,Lynaru in the distance.
     def proceed_1(self, instance):
         game.screenmanager.current = "Level 6 Intro"
 
-#lvl 3 has no bottom bar yet
 class Level_3_intro_page(character,BoxLayout):
     _disabled_count = 0
 
@@ -3379,6 +3704,28 @@ class Level_3_intro_page(character,BoxLayout):
         self.orientation = "vertical"
 
         self.level_3_intro_page()
+        self.bottom_bar()
+
+    def bottom_bar(self):
+        grid = GridLayout(cols=3, rows=1, padding=5, spacing=10)
+        homescreen_button = Button(text="Home")
+        music_button = Button(text="Music")
+        back_button = Label(text=" ")
+        grid.add_widget(back_button)
+        grid.add_widget(homescreen_button)
+        homescreen_button.bind(on_press=self.Homescreen)
+        grid.add_widget(music_button)
+        music_button.bind(on_press=self.music)
+        self.add_widget(grid)
+
+    def music(self,instance):
+        sound = SoundLoader.load('extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav')
+        sound.play()
+
+
+    def Homescreen(self, instance):
+        game.screenmanager.current = "Home"
+
 
     def level_3_intro_page(self):
         frame = GridLayout(cols=1, rows=1, size_hint_y=None)
@@ -3437,42 +3784,83 @@ class Level_3_friendly_charisma(character, BoxLayout):
         self.orientation = "vertical"
 
         self.level_3_friendly_charisma()
+        self.bottom_bar()
+
+    def bottom_bar(self):
+        grid = GridLayout(cols=3, rows=1, padding=5, spacing=10)
+        homescreen_button = Button(text="Home")
+        music_button = Button(text="Music")
+        back_button = Button(text="Back")
+        grid.add_widget(back_button)
+        back_button.bind(on_press=self.back)
+        grid.add_widget(homescreen_button)
+        homescreen_button.bind(on_press=self.Homescreen)
+        grid.add_widget(music_button)
+        music_button.bind(on_press=self.music)
+        self.add_widget(grid)
+
+    def music(self,instance):
+        sound = SoundLoader.load('extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav')
+        sound.play()
+
+
+    def Homescreen(self, instance):
+        game.screenmanager.current = "Home"
+
+    def back(self, instance):
+        game.screenmanager.current = "Level 3 intro"
 
     def level_3_friendly_charisma(self):
         frame = GridLayout(cols=1, rows=1, size_hint_y=None)
         frame.bind(minimum_height=frame.setter('height'))
         scroll = ScrollView(do_scroll_x=False, do_scroll_y=True, size_hint=(1, None),
                             size=(Window.width, Window.height * (1 / 3)))
-        texta = Label(text=f"""'You walk up to him, he immediately
-shouts “Th-There’s my drinking buddy!What say
-you buy me another round to old times eh pal”.
-He must be rather desperate if he made you, a
-complete stranger is buddy.
+        texta = Label(text=f"""
+You walk up to him, he immediately
+shouts “Th-There’s my drinking 
+buddy! What say you buy me another 
+round to old times eh pal”.
+
+He must be rather desperate if he
+made you, a complete stranger is 
+buddy.
+
 “Sure Feca, lets go get you a drink”.
-You get two pints of mead and slowly watch him
-get drunk. For a rather tiny man he sure could
-hold his drink. You were worried you’d run out of
-cash before you got anything out of him.Then, he 
-suddenly says,’Say what,you look trustworthy.
-Ya wanna share some secrets,I’ll go first. Ya know that
-inn that was raided a few days ago, I supplied them
-with the weapons .It was a proper massacre I hear,
-all thanks to my weapons.Their Ruthorham weapons
-looked like toys in front of my creations I tell ya!’
+
+You get two pints of mead and slowly 
+watch him get drunk. For a rather tiny 
+man he sure could hold his drink. You 
+were worried you’d run out of cash 
+before you got anything out of him. Then, 
+he suddenly says,’Say what,you look 
+trustworthy. Ya wanna share some secrets,
+I’ll go first. Ya know that inn that was 
+raided a few days ago, I supplied them
+with the weapons. It was a proper massacre 
+I hear, all thanks to my weapons. Their 
+Ruthorham weapons looked like toys in 
+front of my creations I tell ya!’
+
 “So they were from Ruthorham?” you ask
-“Where else would they be from, it’s where their dumb
-kind lurks all the time!Hey now, it’s your turn.Tell me
-a secret!”
+
+“Where else would they be from, it’s where 
+their dumb kind lurks all the time! Hey now, 
+it’s your turn.Tell me a secret!”
+
 “Ah-well that’s easy, I’m gay Feca”
-“You’re WHAT! Ge-Get out of my sight.You and your kind are
-truly the scum of the Earth,worse than them Ruthorham 
-folks yeah!”
+
+“You’re WHAT! Ge-Get out of my sight.You and 
+your kind are truly the scum of the Earth, 
+worse than them Ruthorham folks yeah!”
+
 “Oh well, as you say Feca,nice meeting you”
+
 “Don’t talk to me!”
-So the rumors of him being bigoted were true too.
-Doesn't matter though, he told you exactly where to
-go.After resting a little more you set out for Ruthorham
-the next morning\n""", color=(0, 0, 0, 1), size_hint=(1, None), pos=(self.width, 400))
+
+So the rumors of him being bigoted were true 
+too. Doesn't matter though, he told you exactly 
+where to go. After resting a little more you set 
+out for Ruthorham the next morning\n""", color=(0, 0, 0, 1), size_hint=(1, None), pos=(self.width, 400))
         frame.add_widget(texta)
         scroll.add_widget(frame)
         self.add_widget(scroll)
@@ -3498,6 +3886,31 @@ class Level_3_aggressive_yes(character, BoxLayout):
         self.orientation = "vertical"
 
         self.level_3_aggressive_yes()
+        self.bottom_bar()
+
+    def bottom_bar(self):
+        grid = GridLayout(cols=3, rows=1, padding=5, spacing=10)
+        homescreen_button = Button(text="Home")
+        music_button = Button(text="Music")
+        back_button = Button(text="Back")
+        grid.add_widget(back_button)
+        back_button.bind(on_press=self.back)
+        grid.add_widget(homescreen_button)
+        homescreen_button.bind(on_press=self.Homescreen)
+        grid.add_widget(music_button)
+        music_button.bind(on_press=self.music)
+        self.add_widget(grid)
+
+    def music(self,instance):
+        sound = SoundLoader.load('extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav')
+        sound.play()
+
+
+    def Homescreen(self, instance):
+        game.screenmanager.current = "Home"
+
+    def back(self, instance):
+        game.screenmanager.current = "Level 3 intro"
 
     def level_3_aggressive_yes(self):
         frame = GridLayout(cols=1, rows=1, size_hint_y=None)
@@ -3514,26 +3927,39 @@ back of the inn and tie him to the
 stable doors.
 “Now Feca, These past few days have
 been rather unpleasant for me, no
-thanks to you.So don’t make me ask you
-twice.Who bought the weapons for the
-mercenaries that attacked the inn on
-Dragontail Walk!”
+thanks to you.So don’t make me ask 
+you twice.Who bought the weapons for 
+the mercenaries that attacked the inn
+on Dragontail Walk!”
 “I-I don’t know what you’re talking
 about!! Me swears!”
 You punch him in the stomach and draw 
 your {h.weapon}
-“Do your worst! If I talk Hera will have my head!”
+“Do your worst! If I talk Hera will have 
+my head!”
+
 “If you don’t, Hera won’t get the chance to”
+
 “Go to hell!”
-This was taking too much time, you take out your
-knife and stab him in the gut. He screams and twitches.
-” All right All right!! It was a group from Ruthorham.
-They warned me not to talk, now make this stop!!”
+
+This was taking too much time, you take out 
+your knife and stab him in the gut. He 
+screams and twitches.
+
+” All right All right!! It was a group from 
+Ruthorham. They warned me not to talk, now 
+make this stop!!”
+
 “See, that was easy, now hold still”
+
 You bandage him up and release him.
+
 “This never happened Feca, are we clear?”
+
 “Y-Yes”
+
 “Good”
+
 With that out of the way, you now knew exactly where to go.
 After resting a little more you set out for Ruthorham the 
 next morning\n""", color=(0, 0, 0, 1), size_hint=(1, None), pos=(self.width, 400))
@@ -3562,6 +3988,30 @@ class Level_3_aggressive_no(character, BoxLayout):
         self.orientation = "vertical"
 
         self.level_3_aggressive_no()
+        self.bottom_bar()
+
+    def bottom_bar(self):
+        grid = GridLayout(cols=3, rows=1, padding=5, spacing=10)
+        homescreen_button = Button(text="Home")
+        music_button = Button(text="Music")
+        back_button = Button(text="Back")
+        grid.add_widget(back_button)
+        back_button.bind(on_press=self.back)
+        grid.add_widget(homescreen_button)
+        homescreen_button.bind(on_press=self.Homescreen)
+        grid.add_widget(music_button)
+        music_button.bind(on_press=self.music)
+        self.add_widget(grid)
+
+    def music(self,instance):
+        sound = SoundLoader.load('extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav')
+        sound.play()
+
+    def Homescreen(self, instance):
+        game.screenmanager.current = "Home"
+
+    def back(self, instance):
+        game.screenmanager.current = "Level 3 intro"
 
     def level_3_aggressive_no(self):
         frame = GridLayout(cols=1, rows=1, size_hint_y=None)
@@ -3636,45 +4086,93 @@ class Level_3_friendly_no_charisma(character, BoxLayout):
         self.orientation = "vertical"
 
         self.level_3_friendly_no_charisma()
+        self.bottom_bar()
+
+    def bottom_bar(self):
+        grid = GridLayout(cols=3, rows=1, padding=5, spacing=10)
+        homescreen_button = Button(text="Home")
+        music_button = Button(text="Music")
+        back_button = Button(text="Back")
+        grid.add_widget(back_button)
+        back_button.bind(on_press=self.back)
+        grid.add_widget(homescreen_button)
+        homescreen_button.bind(on_press=self.Homescreen)
+        grid.add_widget(music_button)
+        music_button.bind(on_press=self.music)
+        self.add_widget(grid)
+
+    def music(self,instance):
+        sound = SoundLoader.load('extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav')
+        sound.play()
+
+
+    def Homescreen(self, instance):
+        game.screenmanager.current = "Home"
+
+    def back(self, instance):
+        game.screenmanager.current = "Level 3 intro"
 
     def level_3_friendly_no_charisma(self):
         frame = GridLayout(cols=1, rows=1, size_hint_y=None)
         frame.bind(minimum_height=frame.setter('height'))
         scroll = ScrollView(do_scroll_x=False, do_scroll_y=True, size_hint=(1, None),
                             size=(Window.width, Window.height * (1 / 3)))
-        texta = Label(text=f"""You walk up to him, he immediately shouts
-“Th-There’s my drinking buddy!What say you
-buy me another round to old times eh pal”.
-He must be rather desperate if he made you,
-a complete stranger is buddy.
-“Sure Feca, lets go get you a drink”.
-You get two pints of mead and slowly watch 
-him get drunk. For a rather tiny man he sure
-could hold his drink. You were worried you’d
-run out of cash before you got anything out of
-him.Desperate for information, you ask him 
-“So,what do you know about the inn that burned
-down a few days ago”.He looked at you suspiciously.
-“No-Nothing! Why do you ask!Ya know what, you’re 
-not my buddy!A buddy won’t ask incriminating questions
-like that.N-Now get out before I call the guards!!”
+        texta = Label(text=f"""
+You walk up to him, he 
+immediately shouts 
+“Th-There’s my drinking buddy!
+What say you buy me another 
+round to old times eh pal”.
+He must be rather desperate 
+if he made you, a complete 
+stranger is buddy.
 
-You blew it, now he won’t tell you anything. There 
-must be some other way to find out more about the 
-attack.You head to his shop and notice the lights
-are out, maybe no one’s inside?You manage to break
-in through the back window.It’s pitch black, though
-you manage to light a lamp and look around. You 
-find a fancy trunk with a huge padlock on it.
-Using your {h.weapon} you break it and find it’s full
-of gold from Ruthorham .That must mean his “clients” must
-be from Ruthorham, and that’s where you must go next.
+“Sure Feca, lets go get you a 
+drink."
 
-As you’re leaving you accidentally trip the lamp,and it
-lands directly on his mead collection. The fire spreads
-quickly and you manage to get out of there.Guards and
-villagers alike quickly surround the burning building.
-“Stop right there {h.race}! Explain Yourself!""", color=(0, 0, 0, 1), size_hint=(1, None), pos=(self.width, 400))
+You get two pints of mead and 
+slowly watch him get drunk. For 
+a rather tiny man he sure could 
+hold his drink. You were worried 
+you’d run out of cash before you 
+got anything out of him. Desperate 
+for information, you ask him 
+
+“So,what do you know about the inn 
+that burned down a few days ago."
+
+He looked at you suspiciously.
+
+“No-Nothing! Why do you ask!Ya know 
+what, you’re not my buddy!A buddy 
+won’t ask incriminating questions
+like that.N-Now get out before I 
+call the guards!!”
+
+You blew it, now he won’t tell you 
+anything. There must be some other 
+way to find out more about the 
+attack.You head to his shop and 
+notice the lights are out, maybe 
+no one’s inside?You manage to break
+in through the back window. It’s pitch 
+black, though you manage to light a lamp 
+and look around. You find a fancy trunk 
+with a huge padlock on it. Using your 
+{h.weapon} you break it and find it’s 
+full of gold from Ruthorham. That must 
+mean his “clients” must be from Ruthorham, 
+and that’s where you must go next.
+
+As you’re leaving you accidentally trip 
+the lamp,and it lands directly on his 
+mead collection. The fire spreads
+quickly and you manage to get out 
+of there. Guards and villagers alike 
+quickly surround the burning building.
+
+“Stop right there {h.race}! 
+Explain Yourself!""", color=(0, 0, 0, 1), size_hint=(1, None), pos=(self.width, 400))
         frame.add_widget(texta)
         scroll.add_widget(frame)
         self.add_widget(scroll)
@@ -3700,24 +4198,57 @@ class Level_3_caught(character, BoxLayout):
         self.orientation = "vertical"
 
         self.level_3_caught()
+        self.bottom_bar()
+
+    def bottom_bar(self):
+        grid = GridLayout(cols=3, rows=1, padding=5, spacing=10)
+        homescreen_button = Button(text="Home")
+        music_button = Button(text="Music")
+        back_button = Button(text="Back")
+        grid.add_widget(back_button)
+        back_button.bind(on_press=self.back)
+        grid.add_widget(homescreen_button)
+        homescreen_button.bind(on_press=self.Homescreen)
+        grid.add_widget(music_button)
+        music_button.bind(on_press=self.music)
+        self.add_widget(grid)
+
+    def music(self,instance):
+        sound = SoundLoader.load('extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav')
+        sound.play()
+
+
+    def Homescreen(self, instance):
+        game.screenmanager.current = "Home"
+
+    def back(self, instance):
+        game.screenmanager.current = "Level 3 intro"
 
     def level_3_caught(self):
         frame = GridLayout(cols=1, rows=1, size_hint_y=None)
         frame.bind(minimum_height=frame.setter('height'))
         scroll = ScrollView(do_scroll_x=False, do_scroll_y=True, size_hint=(1, None),
                             size=(Window.width, Window.height * (1 / 3)))
-        texta = Label(text=f"""“Woah now, let’s all just calm down.
+        texta = Label(text=f"""
+“Woah now, let’s all just calm down.
 That was nothing more than an accident,
-I’m sure we can find a compromise here”.
-You throw a pouch of Ruthorham gold you took
-from the trunk.
-“That pouch is more valuable than anything either
-of you own, let me go and it’s all yours”.
+I’m sure we can find a compromise here."
+
+You throw a pouch of Ruthorham gold you 
+took from the trunk.
+
+“That pouch is more valuable than anything 
+either of you own, let me go and it’s all 
+yours."
+
 One of the guards slowly approaches the pouch
 and picks it up.
+
 “By the Gods, it’s Ruthorham gold!”
+
 The captain of the guards fires an arrow that
 whizzes past your ear.
+
 “Thanks for the treasure scum!”
 
 You need to think fast.
@@ -3726,7 +4257,8 @@ You need to think fast.
         scroll.add_widget(frame)
         self.add_widget(scroll)
 
-        self.add_widget(Label(text=f"""Take them head on or try and take them out one by one? """, color=(0, 0, 0, 1)))
+        self.add_widget(Label(text=f"""Take them head on or try 
+and take them out one by one? """, color=(0, 0, 0, 1)))
 
         choice = GridLayout(cols=2, rows=1)
         attackbutton = Button(text="Be Aggressive")
@@ -3761,6 +4293,31 @@ class Level_3_attack(character, BoxLayout):
         self.orientation = "vertical"
 
         self.level_3_attack()
+        self.bottom_bar()
+
+    def bottom_bar(self):
+        grid = GridLayout(cols=3, rows=1, padding=5, spacing=10)
+        homescreen_button = Button(text="Home")
+        music_button = Button(text="Music")
+        back_button = Button(text="Back")
+        grid.add_widget(back_button)
+        back_button.bind(on_press=self.back)
+        grid.add_widget(homescreen_button)
+        homescreen_button.bind(on_press=self.Homescreen)
+        grid.add_widget(music_button)
+        music_button.bind(on_press=self.music)
+        self.add_widget(grid)
+
+    def music(self,instance):
+        sound = SoundLoader.load('extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav')
+        sound.play()
+
+
+    def Homescreen(self, instance):
+        game.screenmanager.current = "Home"
+
+    def back(self, instance):
+        game.screenmanager.current = "Level 3 caught"
 
     def level_3_attack(self):
         frame = GridLayout(cols=1, rows=1, size_hint_y=None)
@@ -3808,6 +4365,31 @@ class Level_3_tactical(character, BoxLayout):
         self.orientation = "vertical"
 
         self.level_3_tactical()
+        self.bottom_bar()
+
+    def bottom_bar(self):
+        grid = GridLayout(cols=3, rows=1, padding=5, spacing=10)
+        homescreen_button = Button(text="Home")
+        music_button = Button(text="Music")
+        back_button = Button(text="Back")
+        grid.add_widget(back_button)
+        back_button.bind(on_press=self.back)
+        grid.add_widget(homescreen_button)
+        homescreen_button.bind(on_press=self.Homescreen)
+        grid.add_widget(music_button)
+        music_button.bind(on_press=self.music)
+        self.add_widget(grid)
+
+    def music(self,instance):
+        sound = SoundLoader.load('extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav')
+        sound.play()
+
+
+    def Homescreen(self, instance):
+        game.screenmanager.current = "Home"
+
+    def back(self, instance):
+        game.screenmanager.current = "Level 3 caught"
 
     def level_3_tactical(self):
         frame = GridLayout(cols=1, rows=1, size_hint_y=None)
@@ -3847,6 +4429,31 @@ class Level_3_tactical_death(character, BoxLayout):
         self.orientation = "vertical"
 
         self.level_3_tactical_death()
+        self.bottom_bar()
+
+    def bottom_bar(self):
+        grid = GridLayout(cols=3, rows=1, padding=5, spacing=10)
+        homescreen_button = Button(text="Home")
+        music_button = Button(text="Music")
+        back_button = Button(text="Back")
+        grid.add_widget(back_button)
+        back_button.bind(on_press=self.back)
+        grid.add_widget(homescreen_button)
+        homescreen_button.bind(on_press=self.Homescreen)
+        grid.add_widget(music_button)
+        music_button.bind(on_press=self.music)
+        self.add_widget(grid)
+
+    def music(self,instance):
+        sound = SoundLoader.load('extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav')
+        sound.play()
+
+
+    def Homescreen(self, instance):
+        game.screenmanager.current = "Home"
+
+    def back(self, instance):
+        game.screenmanager.current = "Level 3 caught"
 
     def level_3_tactical_death(self):
         frame = GridLayout(cols=1, rows=1, size_hint_y=None)
@@ -3875,6 +4482,31 @@ class Level_3_attack_death(character, BoxLayout):
         self.orientation = "vertical"
 
         self.level_3_attack_death()
+        self.bottom_bar()
+
+    def bottom_bar(self):
+        grid = GridLayout(cols=3, rows=1, padding=5, spacing=10)
+        homescreen_button = Button(text="Home")
+        music_button = Button(text="Music")
+        back_button = Button(text="Back")
+        grid.add_widget(back_button)
+        back_button.bind(on_press=self.back)
+        grid.add_widget(homescreen_button)
+        homescreen_button.bind(on_press=self.Homescreen)
+        grid.add_widget(music_button)
+        music_button.bind(on_press=self.music)
+        self.add_widget(grid)
+
+    def music(self,instance):
+        sound = SoundLoader.load('extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav')
+        sound.play()
+
+
+    def Homescreen(self, instance):
+        game.screenmanager.current = "Home"
+
+    def back(self, instance):
+        game.screenmanager.current = "Level 3 caught"
 
     def level_3_attack_death(self):
         frame = GridLayout(cols=1, rows=1, size_hint_y=None)
@@ -3917,10 +4549,8 @@ class Level_2_final_no(character,BoxLayout):
         self.add_widget(grid)
 
     def music(self,instance):
-        '''sound = SoundLoader.load('extra files for mini project\Legend Of Zelda Theme (8 Bit Remix Cover Version) [Tribute to NES] - 8 Bit Universe.wav')
-        sound.play()'''
-        pass
-
+        sound = SoundLoader.load('extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav')
+        sound.play()
 
     def Homescreen(self, instance):
         game.screenmanager.current = "Home"
@@ -3985,10 +4615,8 @@ class Level_2_final_yes_d(character,BoxLayout):
         self.add_widget(grid)
 
     def music(self,instance):
-        '''sound = SoundLoader.load('extra files for mini project\Legend Of Zelda Theme (8 Bit Remix Cover Version) [Tribute to NES] - 8 Bit Universe.wav')
-        sound.play()'''
-        pass
-
+        sound = SoundLoader.load('extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav')
+        sound.play()
 
     def Homescreen(self, instance):
         game.screenmanager.current = "Home"
@@ -4075,10 +4703,8 @@ class Level_2_final_yes(character,BoxLayout):
         self.add_widget(grid)
 
     def music(self,instance):
-        '''sound = SoundLoader.load('extra files for mini project\Legend Of Zelda Theme (8 Bit Remix Cover Version) [Tribute to NES] - 8 Bit Universe.wav')
-        sound.play()'''
-        pass
-
+        sound = SoundLoader.load('extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav')
+        sound.play()
 
     def Homescreen(self, instance):
         game.screenmanager.current = "Home"
@@ -4168,9 +4794,8 @@ class Level_2_Sneak_2_SCES(character,BoxLayout):
         self.add_widget(grid)
 
     def music(self,instance):
-        '''sound = SoundLoader.load('extra files for mini project\Legend Of Zelda Theme (8 Bit Remix Cover Version) [Tribute to NES] - 8 Bit Universe.wav')
-        sound.play()'''
-        pass
+        sound = SoundLoader.load('extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav')
+        sound.play()
 
 
     def Homescreen(self, instance):
@@ -4242,9 +4867,8 @@ class Level_2_Sneak_2_FAIL(character,BoxLayout):
         self.add_widget(grid)
 
     def music(self,instance):
-        '''sound = SoundLoader.load('extra files for mini project\Legend Of Zelda Theme (8 Bit Remix Cover Version) [Tribute to NES] - 8 Bit Universe.wav')
-        sound.play()'''
-        pass
+        sound = SoundLoader.load('extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav')
+        sound.play()
 
 
     def Homescreen(self, instance):
@@ -4338,9 +4962,8 @@ class Level_2_Sneak_2_No(character,BoxLayout):
         self.add_widget(grid)
 
     def music(self,instance):
-        '''sound = SoundLoader.load('extra files for mini project\Legend Of Zelda Theme (8 Bit Remix Cover Version) [Tribute to NES] - 8 Bit Universe.wav')
-        sound.play()'''
-        pass
+        sound = SoundLoader.load('extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav')
+        sound.play()
 
 
     def Homescreen(self, instance):
@@ -4468,10 +5091,8 @@ class Level_2_Sneak_2_Yes(character,BoxLayout):
         self.add_widget(grid)
 
     def music(self,instance):
-        '''sound = SoundLoader.load('extra files for mini project\Legend Of Zelda Theme (8 Bit Remix Cover Version) [Tribute to NES] - 8 Bit Universe.wav')
-        sound.play()'''
-        pass
-
+        sound = SoundLoader.load('extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav')
+        sound.play()
 
     def Homescreen(self, instance):
         game.screenmanager.current = "Home"
@@ -4589,10 +5210,8 @@ class Level_2_Sneak_1_SCES(character,BoxLayout):
         self.add_widget(grid)
 
     def music(self,instance):
-        '''sound = SoundLoader.load('extra files for mini project\Legend Of Zelda Theme (8 Bit Remix Cover Version) [Tribute to NES] - 8 Bit Universe.wav')
-        sound.play()'''
-        pass
-
+        sound = SoundLoader.load('extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav')
+        sound.play()
 
     def Homescreen(self, instance):
         game.screenmanager.current = "Home"
@@ -4691,10 +5310,8 @@ class Level_2_Sneak_1_FAIL(character,BoxLayout):
         self.add_widget(grid)
 
     def music(self,instance):
-        '''sound = SoundLoader.load('extra files for mini project\Legend Of Zelda Theme (8 Bit Remix Cover Version) [Tribute to NES] - 8 Bit Universe.wav')
-        sound.play()'''
-        pass
-
+        sound = SoundLoader.load('extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav')
+        sound.play()
 
     def Homescreen(self, instance):
         game.screenmanager.current = "Home"
@@ -4777,9 +5394,8 @@ class Level_2_Fight_1_FAIL(character,BoxLayout):
         self.add_widget(grid)
 
     def music(self,instance):
-        '''sound = SoundLoader.load('extra files for mini project\Legend Of Zelda Theme (8 Bit Remix Cover Version) [Tribute to NES] - 8 Bit Universe.wav')
-        sound.play()'''
-        pass
+        sound = SoundLoader.load('extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav')
+        sound.play()
 
 
     def Homescreen(self, instance):
@@ -4860,10 +5476,8 @@ class Level_2_Fight_1_NORM(character,BoxLayout):
         self.add_widget(grid)
 
     def music(self,instance):
-        '''sound = SoundLoader.load('extra files for mini project\Legend Of Zelda Theme (8 Bit Remix Cover Version) [Tribute to NES] - 8 Bit Universe.wav')
-        sound.play()'''
-        pass
-
+        sound = SoundLoader.load('extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav')
+        sound.play()
 
     def Homescreen(self, instance):
         game.screenmanager.current = "Home"
@@ -4960,9 +5574,8 @@ class Level_2_Fight_1_SCES(character,BoxLayout):
         self.add_widget(grid)
 
     def music(self,instance):
-        '''sound = SoundLoader.load('extra files for mini project\Legend Of Zelda Theme (8 Bit Remix Cover Version) [Tribute to NES] - 8 Bit Universe.wav')
-        sound.play()'''
-        pass
+        sound = SoundLoader.load('extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav')
+        sound.play()
 
 
     def Homescreen(self, instance):
@@ -5059,9 +5672,8 @@ class Level_2_INTRO(character,BoxLayout):
         self.add_widget(grid)
 
     def music(self,instance):
-        '''sound = SoundLoader.load('extra files for mini project\Legend Of Zelda Theme (8 Bit Remix Cover Version) [Tribute to NES] - 8 Bit Universe.wav')
-        sound.play()'''
-        pass
+        sound = SoundLoader.load('extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav')
+        sound.play()
 
 
     def Homescreen(self, instance):
@@ -5159,10 +5771,8 @@ class Level_1_inn_fight_norm(character,BoxLayout):
         self.add_widget(grid)
 
     def music(self,instance):
-        '''sound = SoundLoader.load('extra files for mini project\Legend Of Zelda Theme (8 Bit Remix Cover Version) [Tribute to NES] - 8 Bit Universe.wav')
-        sound.play()'''
-        pass
-
+        sound = SoundLoader.load('extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav')
+        sound.play()
 
     def Homescreen(self, instance):
         game.screenmanager.current = "Home"
@@ -5265,10 +5875,8 @@ class Level_1_inn_fight_fail(character,BoxLayout):
         self.add_widget(grid)
 
     def music(self,instance):
-        '''sound = SoundLoader.load('extra files for mini project\Legend Of Zelda Theme (8 Bit Remix Cover Version) [Tribute to NES] - 8 Bit Universe.wav')
-        sound.play()'''
-        pass
-
+        sound = SoundLoader.load('extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav')
+        sound.play()
 
     def Homescreen(self, instance):
         game.screenmanager.current = "Home"
@@ -5365,7 +5973,6 @@ class Level_1_inn_fight_sces(character,BoxLayout):
         grid = GridLayout(cols=4, rows=1, padding=5, spacing=10)
         homescreen_button = Button(text="Home")
         music_button = Button(text="Music")
-        stop_music_button = Button(text="Stop Music")
         back_button = Button(text="Back")
         grid.add_widget(back_button)
         back_button.bind(on_press=self.back)
@@ -5373,14 +5980,7 @@ class Level_1_inn_fight_sces(character,BoxLayout):
         homescreen_button.bind(on_press=self.Homescreen)
         grid.add_widget(music_button)
         music_button.bind(on_press=self.music)
-        grid.add_widget(stop_music_button)
-        stop_music_button.bind(on_press=self.stop_music)
         self.add_widget(grid)
-
-    def stop_music(self, instance):
-        sound = SoundLoader.load(
-            'extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav')
-        sound.stop()
 
     def music(self, instance):
         sound = SoundLoader.load(
@@ -5440,7 +6040,8 @@ at play here?
         scroll.add_widget(frame)
         self.add_widget(scroll)
 
-        self.add_widget(Label(text=f"""Do you want to infiltrate the camp? 
+        self.add_widget(Label(text=f"""
+Do you want to infiltrate the camp? 
 Or do you want to move on 
 to Tiefling village?""", color=(0, 0, 0, 1)))
 
@@ -5473,10 +6074,9 @@ class Level_1_inn_sneak_fail(character,BoxLayout):
         self.bottom_bar()
 
     def bottom_bar(self):
-        grid = GridLayout(cols=4, rows=1, padding=5, spacing=10)
+        grid = GridLayout(cols=3, rows=1, padding=5, spacing=10)
         homescreen_button = Button(text="Home")
         music_button = Button(text="Music")
-        stop_music_button = Button(text="Stop Music")
         back_button = Button(text="Back")
         grid.add_widget(back_button)
         back_button.bind(on_press=self.back)
@@ -5484,14 +6084,7 @@ class Level_1_inn_sneak_fail(character,BoxLayout):
         homescreen_button.bind(on_press=self.Homescreen)
         grid.add_widget(music_button)
         music_button.bind(on_press=self.music)
-        grid.add_widget(stop_music_button)
-        stop_music_button.bind(on_press=self.stop_music)
         self.add_widget(grid)
-
-    def stop_music(self, instance):
-        sound = SoundLoader.load(
-            'extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav')
-        sound.stop()
 
     def music(self, instance):
         sound = SoundLoader.load(
@@ -5505,7 +6098,7 @@ class Level_1_inn_sneak_fail(character,BoxLayout):
         game.screenmanager.current = "Home"
 
 
-    def lvl1_isf(self):
+    def lvl1_iss(self):
         frame = GridLayout(cols=1, rows=1, size_hint_y=None)
         frame.bind(minimum_height=frame.setter('height'))
         scroll = ScrollView(do_scroll_x=False, do_scroll_y=True, size_hint=(1, None), scroll_y = (1),
@@ -5591,7 +6184,6 @@ class Level_1_inn_sneak_sces(character,BoxLayout):
         grid = GridLayout(cols=4, rows=1, padding=5, spacing=10)
         homescreen_button = Button(text="Home")
         music_button = Button(text="Music")
-        stop_music_button = Button(text="Stop Music")
         back_button = Button(text="Back")
         grid.add_widget(back_button)
         back_button.bind(on_press=self.back)
@@ -5599,14 +6191,7 @@ class Level_1_inn_sneak_sces(character,BoxLayout):
         homescreen_button.bind(on_press=self.Homescreen)
         grid.add_widget(music_button)
         music_button.bind(on_press=self.music)
-        grid.add_widget(stop_music_button)
-        stop_music_button.bind(on_press=self.stop_music)
         self.add_widget(grid)
-
-    def stop_music(self, instance):
-        sound = SoundLoader.load(
-            'extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav')
-        sound.stop()
 
     def music(self, instance):
         sound = SoundLoader.load(
@@ -5699,7 +6284,6 @@ class Level_1_1_fight(character,BoxLayout):
         grid = GridLayout(cols=4, rows=1, padding=5, spacing=10)
         homescreen_button = Button(text="Home")
         music_button = Button(text="Music")
-        stop_music_button = Button(text="Stop Music")
         back_button = Button(text="Back")
         grid.add_widget(back_button)
         back_button.bind(on_press=self.back)
@@ -5707,14 +6291,7 @@ class Level_1_1_fight(character,BoxLayout):
         homescreen_button.bind(on_press=self.Homescreen)
         grid.add_widget(music_button)
         music_button.bind(on_press=self.music)
-        grid.add_widget(stop_music_button)
-        stop_music_button.bind(on_press=self.stop_music)
         self.add_widget(grid)
-
-    def stop_music(self, instance):
-        sound = SoundLoader.load(
-            'extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav')
-        sound.stop()
 
     def music(self, instance):
         sound = SoundLoader.load(
@@ -5800,7 +6377,6 @@ class Level_1_1_rjump(character,BoxLayout):
         grid = GridLayout(cols=4, rows=1, padding=5, spacing=10)
         homescreen_button = Button(text="Home")
         music_button = Button(text="Music")
-        stop_music_button = Button(text="Stop Music")
         back_button = Button(text="Back")
         grid.add_widget(back_button)
         back_button.bind(on_press=self.back)
@@ -5808,14 +6384,7 @@ class Level_1_1_rjump(character,BoxLayout):
         homescreen_button.bind(on_press=self.Homescreen)
         grid.add_widget(music_button)
         music_button.bind(on_press=self.music)
-        grid.add_widget(stop_music_button)
-        stop_music_button.bind(on_press=self.stop_music)
         self.add_widget(grid)
-
-    def stop_music(self, instance):
-        sound = SoundLoader.load(
-            'extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav')
-        sound.stop()
 
     def music(self, instance):
         sound = SoundLoader.load(
@@ -6030,14 +6599,7 @@ class Level_1_1_hjump(character,BoxLayout):
         homescreen_button.bind(on_press=self.Homescreen)
         grid.add_widget(music_button)
         music_button.bind(on_press=self.music)
-        grid.add_widget(stop_music_button)
-        stop_music_button.bind(on_press=self.stop_music)
         self.add_widget(grid)
-
-    def stop_music(self, instance):
-        sound = SoundLoader.load(
-            'extra files for mini project\VIKING music -Epic Action Background Music No Copyright.wav')
-        sound.stop()
 
     def music(self, instance):
         sound = SoundLoader.load(
@@ -6637,7 +7199,6 @@ class Home_page(BoxLayout):
 
     def game(self, instance):
         game.screenmanager.current = "User Input"
-
 class cyoaApp(App):
         def build(self):
         self.screenmanager = ScreenManager()
