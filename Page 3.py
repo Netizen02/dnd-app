@@ -849,7 +849,7 @@ class Level_7_courtyard(character, BoxLayout):
         music_button = Button(text="Music")
         back_button = Label(text=" ")
         grid.add_widget(back_button)
-        back_button.bind(on_press=self.back)
+
         grid.add_widget(homescreen_button)
         homescreen_button.bind(on_press=self.Homescreen)
         grid.add_widget(music_button)
@@ -908,13 +908,16 @@ has led to this moment…
             game.screenmanager.current = "Level 7 artifact attack"
         else:
             game.screenmanager.current = "Level 7 attack 0"
+            h.hp -= 70
 
     def defend(self, instance):
         if h.defense == 0:
             game.screenmanager.current = "Level 7 defend 0"
+            h.hp -= 50
             h.defense += 1
         elif h.defense == 1:
             game.screenmanager.current = "Level 7 defend 1"
+            h.hp -= 50
             h.defense += 1
 
 
@@ -968,7 +971,8 @@ you and regroup.
 
         self.add_widget(Label(text=f"""Do you attack? Or Hold your ground
 """, color=(0, 0, 0, 1)))
-        h.hp -= 70
+
+        print(h.hp)
         choice = GridLayout(cols=2, rows=1)
         attackbutton = Button(text="Attack")
         defendbutton = Button(text="Defend")
@@ -985,6 +989,7 @@ you and regroup.
         else:
             if h.hp > 0:
                 game.screenmanager.current = "Level 7 attack 1"
+                h.hp -= 70
             else:
                 game.screenmanager.current = "Level 7 death"
 
@@ -992,19 +997,24 @@ you and regroup.
         if h.hp > 0:
             if h.defense == 0:
                 game.screenmanager.current = "Level 7 defend 0"
+                h.hp -= 50
                 h.defense += 1
             elif h.defense == 1:
                 game.screenmanager.current = "Level 7 defend 1"
+                h.hp -= 50
                 h.defense += 1
             elif h.defense == 2:
                 game.screenmanager.current = "Level 7 defend 2"
+                h.hp -= 50
                 h.defense += 1
             elif h.defense == 3:
                 game.screenmanager.current = "Level 7 defend 3"
+                h.hp -= 50
                 h.defense += 1
             elif h.defense == 4:
                 game.lvl7defend4()
                 game.screenmanager.current = "Level 7 defend 4"
+                h.hp -= 50
                 h.defense += 1
         else:
             game.screenmanager.current = "Level 7 death"
@@ -1058,6 +1068,7 @@ the two of you and regroup.
         scroll.add_widget(frame)
         self.add_widget(scroll)
         h.hp -= 70
+        print(h.hp)
         self.add_widget(Label(text=f"""Do you attack? Or Hold your ground""", color=(0, 0, 0, 1)))
 
         choice = GridLayout(cols=2, rows=1)
@@ -1076,6 +1087,7 @@ the two of you and regroup.
         else:
             if h.hp > 0:
                 game.screenmanager.current = "Level 7 attack 0"
+                h.hp -= 70
             else:
                 game.screenmanager.current = "Level 7 death"
 
@@ -1083,19 +1095,24 @@ the two of you and regroup.
         if h.hp > 0:
             if h.defense == 0:
                 game.screenmanager.current = "Level 7 defend 0"
+                h.hp -= 50
                 h.defense += 1
             elif h.defense == 1:
                 game.screenmanager.current = "Level 7 defend 1"
+                h.hp -= 50
                 h.defense += 1
             elif h.defense == 2:
                 game.screenmanager.current = "Level 7 defend 2"
+                h.hp -= 50
                 h.defense += 1
             elif h.defense == 3:
                 game.screenmanager.current = "Level 7 defend 3"
+                h.hp -= 50
                 h.defense += 1
             elif h.defense == 4:
                 game.lvl7defend4()
                 game.screenmanager.current = "Level 7 defend 4"
+                h.hp -= 50
                 h.defense += 1
             else:
                 game.screenmanager.current = "Level 7 death"
@@ -1166,6 +1183,7 @@ screams in pain
         else:
             if h.hp > 0:
                 game.screenmanager.current = "Level 7 attack 0"
+                h.hp -= 70
                 pass
             else:
                 game.screenmanager.current = "Level 7 death"
@@ -1175,19 +1193,24 @@ screams in pain
         if h.hp > 0:
             if h.defense == 0:
                 game.screenmanager.current = "Level 7 defend 0"
+                h.hp -= 50
                 h.defense += 1
             elif h.defense == 1:
                 game.screenmanager.current = "Level 7 defend 1"
+                h.hp -= 50
                 h.defense += 1
             elif h.defense == 2:
                 game.screenmanager.current = "Level 7 defend 2"
+                h.hp -= 50
                 h.defense += 1
             elif h.defense == 3:
                 game.screenmanager.current = "Level 7 defend 3"
+                h.hp -= 50
                 h.defense += 1
             elif h.defense == 4:
                 game.lvl7defend4()
                 game.screenmanager.current = "Level 7 defend 4"
+                h.hp -= 50
                 h.defense += 1
         else:
             game.screenmanager.current = "Level 7 death"
@@ -1257,6 +1280,7 @@ not expecting you to match his skill
         else:
             if h.hp > 0:
                 game.screenmanager.current = "Level 7 attack 0"
+                h.hp -= 70
             else:
                 game.screenmanager.current = "Level 7 death"
 
@@ -1264,19 +1288,24 @@ not expecting you to match his skill
         if h.hp > 0:
             if h.defense == 0:
                 game.screenmanager.current = "Level 7 defend 0"
+                h.hp -= 50
                 h.defense += 1
             elif h.defense == 1:
                 game.screenmanager.current = "Level 7 defend 1"
+                h.hp -= 50
                 h.defense += 1
             elif h.defense == 2:
                 game.screenmanager.current = "Level 7 defend 2"
+                h.hp -= 50
                 h.defense += 1
             elif h.defense == 3:
                 game.screenmanager.current = "Level 7 defend 3"
+                h.hp -= 50
                 h.defense += 1
             elif h.defense == 4:
                 game.lvl7defend4()
                 game.screenmanager.current = "Level 7 defend 4"
+                h.hp -= 50
                 h.defense += 1
         else:
             game.screenmanager.current = "Level 7 death"
@@ -1399,6 +1428,7 @@ and hit him from the side!
         else:
             if h.hp > 0:
                 game.screenmanager.current = "Level 7 attack 0"
+                h.hp -= 70
             else:
                 game.screenmanager.current = "Level 7 death"
 
@@ -1406,23 +1436,28 @@ and hit him from the side!
         if h.hp > 0:
             if h.defense == 0:
                 game.screenmanager.current = "Level 7 defend 0"
+                h.hp -= 50
                 h.defense += 1
 
             elif h.defense == 1:
                 game.screenmanager.current = "Level 7 defend 1"
+                h.hp -= 50
                 h.defense += 1
 
             elif h.defense == 2:
                 game.screenmanager.current = "Level 7 defend 2"
+                h.hp -= 50
                 h.defense += 1
 
             elif h.defense == 3:
                 game.screenmanager.current = "Level 7 defend 3"
+                h.hp -= 50
                 h.defense += 1
 
             elif h.defense == 4:
                 game.lvl7defend4()
                 game.screenmanager.current = "Level 7 defend 4"
+                h.hp -= 50
                 h.defense += 1
 
         else:
@@ -1494,6 +1529,7 @@ destroying his wolf form
         else:
             if h.hp > 0:
                 game.screenmanager.current = "Level 7 attack 0"
+                h.hp -= 70
             else:
                 game.screenmanager.current = "Level 7 death"
 
@@ -1501,19 +1537,24 @@ destroying his wolf form
         if h.hp > 0:
             if h.defense == 0:
                 game.screenmanager.current = "Level 7 defend 0"
+                h.hp -= 50
                 h.defense += 1
             elif h.defense == 1:
                 game.screenmanager.current = "Level 7 defend 1"
+                h.hp -= 50
                 h.defense += 1
             elif h.defense == 2:
                 game.screenmanager.current = "Level 7 defend 2"
+                h.hp -= 50
                 h.defense += 1
             elif h.defense == 3:
                 game.screenmanager.current = "Level 7 defend 3"
+                h.hp -= 50
                 h.defense += 1
             elif h.defense == 4:
                 game.lvl7defend4()
                 game.screenmanager.current = "Level 7 defend 4"
+                h.hp -= 50
                 h.defense += 1
         else:
             game.screenmanager.current = "Level 7 death"
@@ -1536,7 +1577,7 @@ class Level_7_defend_4(character, BoxLayout):
         music_button = Button(text="Music")
         back_button = Label(text=" ")
         grid.add_widget(back_button)
-        back_button.bind(on_press=self.back)
+
         grid.add_widget(homescreen_button)
         homescreen_button.bind(on_press=self.Homescreen)
         grid.add_widget(music_button)
@@ -2043,7 +2084,6 @@ can shoot arrows at pretty far distances,
 quite accurately. Her throw finds its 
 aim and hits you on the back of the 
 head, killing you instantly. 
-            GAME OVER
 """, color=(0, 0, 0, 1), size_hint=(1, None), pos=(self.width, 400))
         frame.add_widget(texta)
         scroll.add_widget(frame)
@@ -2127,7 +2167,7 @@ You are on your way now to Mount Lynaru.
         scroll.add_widget(frame)
         self.add_widget(scroll)
 
-        self.add_widget(Label(text=f""" GAME OVER """, color=(0, 0, 0, 1)))
+        self.add_widget(Label(text=f"""  """, color=(0, 0, 0, 1)))
 
         choice = GridLayout(cols=2, rows=1)
         rationalbutton = Label(text=" ")
@@ -2292,7 +2332,7 @@ Now you fall to the ground ready for death,
 but not ready to die. You eventually fall 
 into the eternal sleep, with oyur warrior
 spirit still fighting. 
-        GAME OVER  
+        
 """, color=(0, 0, 0, 1), size_hint=(1, None), pos=(self.width, 400))
         frame.add_widget(texta)
         scroll.add_widget(frame)
@@ -2379,7 +2419,7 @@ Alas, you cannot. As soon as Caldor leaves
 a mercenary throws a grenade into the room. 
 It explodes killing you and everyone in 
 the room, instantaneously.
-        GAME OVER  
+       
 """, color=(0, 0, 0, 1), size_hint=(1, None), pos=(self.width, 400))
         frame.add_widget(texta)
         scroll.add_widget(frame)
@@ -2599,7 +2639,7 @@ class Level_5_group_warlock_na(character, BoxLayout):
 
         self.orientation = "vertical"
 
-        self.lvl5_groupOutside()
+        self.lvl5_group()
         self.bottom_bar()
 
     def bottom_bar(self):
@@ -4526,7 +4566,7 @@ You never found out why they were out
 to kill you. You slowly give in to the 
 Eternal Slumber, 
 the warrior spirit still fighting...
-            GAME OVER
+           
 """, color=(0, 0, 0, 1), size_hint=(1, None), pos=(self.width, 400))
         frame.add_widget(texta)
         scroll.add_widget(frame)
@@ -5354,7 +5394,7 @@ You never were able to take revenge
 for what happened at the inn.
 You slowly give in to the Eternal Slumber, 
 the warrior spirit still fighting...
-            GAME OVER
+           
 """, color=(0, 0, 0, 1), size_hint=(1, None), pos=(self.width, 400))
         frame.add_widget(texta)
         scroll.add_widget(frame)
