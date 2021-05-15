@@ -113,7 +113,7 @@ are here.It’s time to get to Revan
 
 class Level_6_Rito(character, BoxLayout):
     _disabled_count = 0
-
+    h.hp += 150
     def __init__(self, race, hp, stealth, strength, charisma, home, **kwargs):
         character.__init__(self, race, hp, stealth, strength, charisma, home)
         BoxLayout.__init__(self, **kwargs)
@@ -253,7 +253,8 @@ near it.\n""", color=(0, 0, 0, 1), size_hint=(1, None), pos=(self.width, 400))
 
 class Level_6_yes(character, BoxLayout):
     _disabled_count = 0
-
+    h.strength += 50
+    h.hp +=150
     def __init__(self, race, hp, stealth, strength, charisma, home, **kwargs):
         character.__init__(self, race, hp, stealth, strength, charisma, home)
         BoxLayout.__init__(self, **kwargs)
@@ -380,7 +381,7 @@ something in it.
 
 class Level_7_yes_drink(character, BoxLayout):
     _disabled_count = 0
-
+    h.stealth +=50
     def __init__(self, race, hp, stealth, strength, charisma, home, **kwargs):
 
         character.__init__(self, race, hp, stealth, strength, charisma, home)
@@ -462,7 +463,7 @@ class Level_7_no_drink(character, BoxLayout):
         self.add_widget(choice)
 
     def attack(self, instance):
-        if h.str >= 500:
+        if h.strength >= 500:
             game.screenmanager.current = "Level 7 attack"
             pass
         else:
@@ -479,7 +480,8 @@ class Level_7_no_drink(character, BoxLayout):
 
 class Level_7_attack(character, BoxLayout):
     _disabled_count = 0
-
+    if h.strength<= 600:
+        h.hp -= 200
     def __init__(self, race, hp, stealth, strength, charisma, home, **kwargs):
         character.__init__(self, race, hp, stealth, strength, charisma, home)
         BoxLayout.__init__(self, **kwargs)
@@ -2651,7 +2653,7 @@ done anything alone.
 
 class Level_4_help(character, BoxLayout):
     _disabled_count = 0
-
+    h.stealth +=50
 
     def __init__(self, race, hp, stealth, strength, charisma, home,name, weapon, artifact, defense, **kwargs):
         character.__init__(self, race, hp, stealth, strength, charisma, home,name, weapon, artifact, defense)
