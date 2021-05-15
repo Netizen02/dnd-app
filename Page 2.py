@@ -5505,7 +5505,7 @@ class Level_1_inn_sneak_fail(character,BoxLayout):
         game.screenmanager.current = "Home"
 
 
-    def lvl1_iss(self):
+    def lvl1_isf(self):
         frame = GridLayout(cols=1, rows=1, size_hint_y=None)
         frame.bind(minimum_height=frame.setter('height'))
         scroll = ScrollView(do_scroll_x=False, do_scroll_y=True, size_hint=(1, None), scroll_y = (1),
@@ -6877,7 +6877,7 @@ class cyoaApp(App):
 
         self.level_4_Dwarf_escape = Level_4_Dwarf_escape(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home, h.name,
                                                     h.weapon, h.artifact, h.defense)
-        screen = Screen(name="Level 4 Dwarf escape")
+        screen = Screen(name="Level 4 dwarf escape")
         screen.add_widget(self.level_4_Dwarf_escape)
         self.screenmanager.add_widget(screen)
 
