@@ -519,6 +519,7 @@ It’s not very effective but it still helps.
 
     def attack(self, instance):
         if h.strength >= 500:
+            game. lvl7attack()
             game.screenmanager.current = "Level 7 attack"
         else:
             game.screenmanager.current = "Level 7 no attack"
@@ -588,6 +589,7 @@ class Level_7_no_drink(character, BoxLayout):
 
     def attack(self, instance):
         if h.strength >= 500:
+            game. lvl7attack()
             game.screenmanager.current = "Level 7 attack"
         else:
             game.screenmanager.current = "Level 7 no attack"
