@@ -1000,6 +1000,7 @@ you and regroup.
                 game.screenmanager.current = "Level 7 defend 3"
                 h.defense += 1
             elif h.defense == 4:
+                lvl7defend4()
                 game.screenmanager.current = "Level 7 defend 4"
                 h.defense += 1
         else:
