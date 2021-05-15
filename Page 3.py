@@ -1774,6 +1774,7 @@ class Level_5_solo_human(character, BoxLayout):
         game.screenmanager.current = "Home"
 
     def back(self, instance):
+        game.lvl5solo()
         game.screenmanager.current = "Level 5 solo"
 
     def level_5_solo_human(self):
@@ -1860,6 +1861,7 @@ class Level_5_solo_not_human(character, BoxLayout):
         game.screenmanager.current = "Home"
 
     def back(self, instance):
+        game.lvl5solo()
         game.screenmanager.current = "Level 5 solo"
 
     def level_5_solo_not_human(self):
@@ -1948,6 +1950,7 @@ class Level_5_fort_escape(character, BoxLayout):
         game.screenmanager.current = "Home"
 
     def back(self, instance):
+        game.lvl5solo()
         game.screenmanager.current = "Level 5 solo"
 
     def level_5_fort_escape(self):
@@ -2040,6 +2043,7 @@ class Level_5_Duel_Decline(character, BoxLayout):
         game.screenmanager.current = "Home"
 
     def back(self, instance):
+        game.lvl5solo()
         game.screenmanager.current = "Level 5 solo"
 
     def level_5_duel_decline(self):
@@ -2109,6 +2113,7 @@ class Level_5_Duel_Accept(character, BoxLayout):
         game.screenmanager.current = "Home"
 
     def back(self, instance):
+        game.lvl5solo()
         game.screenmanager.current = "Level 5 solo"
 
     def level_5_duel_Accept(self):
@@ -2190,6 +2195,7 @@ class Level_5_fort_escape_damage(character, BoxLayout):
         game.screenmanager.current = "Home"
 
     def back(self, instance):
+        game.lvl5solo()
         game.screenmanager.current = "Level 5 solo"
 
     def level_5_fort_escape_damage(self):
@@ -3244,6 +3250,7 @@ rappelling down the walls.
 
     def proceed_1(self, instance):
         if h.hp > 350.00:
+            game.lvl5solo()
             game.screenmanager.current = "Level 5 solo"
         else:
             game.screenmanager.current = "Level 5 solo Game Over"
