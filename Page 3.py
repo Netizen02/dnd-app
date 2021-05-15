@@ -125,7 +125,7 @@ class Level_6_Rito(character, BoxLayout):
         self.bottom_bar()
 
     def bottom_bar(self):
-        grid = GridLayout(cols=4, rows=1, padding=5, spacing=10)
+        grid = GridLayout(cols=3, rows=1, padding=5, spacing=10)
         homescreen_button = Button(text="Home")
         music_button = Button(text="Music")
         stop_music_button = Button(text="Stop Music")
