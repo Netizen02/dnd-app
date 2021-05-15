@@ -7322,7 +7322,7 @@ class Home_page(BoxLayout):
 
 class cyoaApp(App):
     def build(self):
-        self.screenmanager = ScreenManager()
+       self.screenmanager = ScreenManager()
 
         self.home_page = Home_page()
         screen = Screen(name="Home")
@@ -7370,53 +7370,12 @@ class cyoaApp(App):
         screen.add_widget(self.user_input_page)
         self.screenmanager.add_widget(screen)
 
-        self.level_1_1_rjump = Level_1_1_rjump(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home, h.name,
-                                               h.weapon, h.artifact, h.defense)
-        screen = Screen(name="Level 1 JUMP Rito")
-        screen.add_widget(self.level_1_1_rjump)
-        self.screenmanager.add_widget(screen)
-
-        self.level_1_1_ejump = Level_1_1_ejump(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home, h.name,
-                                               h.weapon, h.artifact, h.defense)
-        screen = Screen(name="Level 1 JUMP Elf")
-        screen.add_widget(self.level_1_1_ejump)
-        self.screenmanager.add_widget(screen)
-
-        self.level_1_1_fight = Level_1_1_fight(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home, h.name,
-                                               h.weapon, h.artifact, h.defense)
-        screen = Screen(name="Level 1 FIGHT")
-        screen.add_widget(self.level_1_1_fight)
-        self.screenmanager.add_widget(screen)
-
-        self.level_1_innfs = Level_1_inn_fight_sces(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home, h.name,
-                                                    h.weapon, h.artifact, h.defense)
-        screen = Screen(name="Level 1 inn fight successful")
-        screen.add_widget(self.level_1_innfs)
-        self.screenmanager.add_widget(screen)
-
-        self.level_1_innss = Level_1_inn_sneak_sces(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home, h.name,
-                                                    h.weapon, h.artifact, h.defense)
-        screen = Screen(name="Level 1 inn sneak successful")
-        screen.add_widget(self.level_1_innss)
-        self.screenmanager.add_widget(screen)
-
         self.level_2_intro = Level_2_INTRO(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home, h.name,
                                            h.weapon, h.artifact, h.defense)
         screen = Screen(name="Level 2 intro")
         screen.add_widget(self.level_2_intro)
         self.screenmanager.add_widget(screen)
 
-        self.level_2_s1sces = Level_2_Sneak_1_SCES(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home, h.name,
-                                                   h.weapon, h.artifact, h.defense)
-        screen = Screen(name="Level 2 Sneak 1 Successful")
-        screen.add_widget(self.level_2_s1sces)
-        self.screenmanager.add_widget(screen)
-
-        self.level_2_s1fail = Level_2_Sneak_1_FAIL(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home, h.name,
-                                                   h.weapon, h.artifact, h.defense)
-        screen = Screen(name="Level 2 Sneak 1 Fail")
-        screen.add_widget(self.level_2_s1fail)
-        self.screenmanager.add_widget(screen)
 
         self.level_2_f1fail = Level_2_Fight_1_FAIL(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home, h.name,
                                                    h.weapon, h.artifact, h.defense)
@@ -7461,26 +7420,6 @@ class cyoaApp(App):
         screen.add_widget(self.level_3_friendly_charisma)
         self.screenmanager.add_widget(screen)
 
-        self.level_3_aggressive_yes = Level_3_aggressive_yes(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home,
-                                                             h.name,
-                                                             h.weapon, h.artifact, h.defense)
-        screen = Screen(name="Level 3 aggressive yes")
-        screen.add_widget(self.level_3_aggressive_yes)
-        self.screenmanager.add_widget(screen)
-
-        self.level_3_aggressive_no = Level_3_aggressive_no(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home,
-                                                           h.name,
-                                                           h.weapon, h.artifact, h.defense)
-        screen = Screen(name="Level 3 aggressive no")
-        screen.add_widget(self.level_3_aggressive_no)
-        self.screenmanager.add_widget(screen)
-
-        self.level_3_friendly_no_charisma = Level_3_friendly_no_charisma(h.race, h.hp, h.stealth, h.strength,
-                                                                         h.charisma, h.home, h.name,
-                                                                         h.weapon, h.artifact, h.defense)
-        screen = Screen(name="Level 3 friendly no charisma")
-        screen.add_widget(self.level_3_friendly_no_charisma)
-        self.screenmanager.add_widget(screen)
 
         self.level_3_caught = Level_3_caught(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home, h.name,
                                              h.weapon, h.artifact, h.defense)
@@ -7494,13 +7433,6 @@ class cyoaApp(App):
         screen.add_widget(self.level_3_tactical)
         self.screenmanager.add_widget(screen)
 
-        self.level_3_attack_death = Level_3_attack_death(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home,
-                                                         h.name,
-                                                         h.weapon, h.artifact, h.defense)
-        screen = Screen(name="Level 3 attack death")
-        screen.add_widget(self.level_3_attack_death)
-        self.screenmanager.add_widget(screen)
-
         self.level_3_tactical_death = Level_3_tactical_death(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home,
                                                              h.name,
                                                              h.weapon, h.artifact, h.defense)
@@ -7512,18 +7444,6 @@ class cyoaApp(App):
                                                      h.weapon, h.artifact, h.defense)
         screen = Screen(name="Level 4 Intro")
         screen.add_widget(self.level_4_intro_page)
-        self.screenmanager.add_widget(screen)
-
-        self.level_4_fort_attack = Level_4_fort_attack(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home, h.name,
-                                                       h.weapon, h.artifact, h.defense)
-        screen = Screen(name="Level 4 fort attack")
-        screen.add_widget(self.level_4_fort_attack)
-        self.screenmanager.add_widget(screen)
-
-        self.level_4_sane = Level_4_sane(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home, h.name,
-                                         h.weapon, h.artifact, h.defense)
-        screen = Screen(name="Level 4 sane")
-        screen.add_widget(self.level_4_sane)
         self.screenmanager.add_widget(screen)
 
         self.level_4_lone = Level_4_lone(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home, h.name,
@@ -7550,17 +7470,6 @@ class cyoaApp(App):
         screen.add_widget(self.level_4_Dwarf)
         self.screenmanager.add_widget(screen)
 
-        self.level_4_No_Dwarf = Level_4_No_Dwarf(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home, h.name,
-                                                 h.weapon, h.artifact, h.defense)
-        screen = Screen(name="Level 4 No Dwarf")
-        screen.add_widget(self.level_4_No_Dwarf)
-        self.screenmanager.add_widget(screen)
-
-        self.level_4_disappear = Level_4_disappear(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home, h.name,
-                                                   h.weapon, h.artifact, h.defense)
-        screen = Screen(name="Level 4 disappear")
-        screen.add_widget(self.level_4_disappear)
-        self.screenmanager.add_widget(screen)
 
         self.level_4_no_disappear = Level_4_no_disappear(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home,
                                                          h.name,
@@ -7569,36 +7478,12 @@ class cyoaApp(App):
         screen.add_widget(self.level_4_no_disappear)
         self.screenmanager.add_widget(screen)
 
-        self.level_4_Dwarf_escape = Level_4_Dwarf_escape(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home,
-                                                         h.name,
-                                                         h.weapon, h.artifact, h.defense)
-        screen = Screen(name="Level 4 Dwarf escape")
-        screen.add_widget(self.level_4_Dwarf_escape)
-        self.screenmanager.add_widget(screen)
 
         self.level_5_gw = Level_5_group_warlock(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home,
                                                 h.name, h.weapon, h.artifact, h.defense)
         screen = Screen(name="Level 5 group outside warlock")
         screen.add_widget(self.level_5_gw)
-        self.screenmanager.add_widget(screen)
-
-        self.level_5_gout = Level_5_group_outside(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home,
-                                                  h.name, h.weapon, h.artifact, h.defense)
-        screen = Screen(name="Level 5 group outside")
-        screen.add_widget(self.level_5_gout)
-        self.screenmanager.add_widget(screen)
-
-        self.level_5_gko = Level_5_group_Game_over(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home,
-                                                   h.name, h.weapon, h.artifact, h.defense)
-        screen = Screen(name="Level 5 group game over")
-        screen.add_widget(self.level_5_gko)
-        self.screenmanager.add_widget(screen)
-
-        self.level_5_solo = Level_5_solo(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home,
-                                         h.name, h.weapon, h.artifact, h.defense)
-        screen = Screen(name="Level 5 solo")
-        screen.add_widget(self.level_5_solo)
-        self.screenmanager.add_widget(screen)
+        self.screenmanager.add_widget(screen)       
 
         self.level_5_soloh = Level_5_solo_human(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home,
                                                 h.name, h.weapon, h.artifact, h.defense)
@@ -7624,11 +7509,7 @@ class cyoaApp(App):
         screen.add_widget(self.level_5_dd)
         self.screenmanager.add_widget(screen)
 
-        self.level_5_da = Level_5_Duel_Accept(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home,
-                                              h.name, h.weapon, h.artifact, h.defense)
-        screen = Screen(name="level 5 duel accept")
-        screen.add_widget(self.level_5_da)
-        self.screenmanager.add_widget(screen)
+        
 
         self.level_6_intro_page = Level_6_intro_page(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home, h.name,
                                                      h.weapon, h.artifact, h.defense)
@@ -7672,12 +7553,6 @@ class cyoaApp(App):
         screen.add_widget(self.level_7_no_drink)
         self.screenmanager.add_widget(screen)
 
-        self.level_7_attack = Level_7_attack(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home, h.name, h.weapon,
-                                             h.artifact, h.defense)
-        screen = Screen(name="Level 7 attack")
-        screen.add_widget(self.level_7_attack)
-        self.screenmanager.add_widget(screen)
-
         self.level_7_attack_no = Level_7_attack_no(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home, h.name,
                                                    h.weapon, h.artifact, h.defense)
         screen = Screen(name="Level 7 no attack")
@@ -7696,11 +7571,6 @@ class cyoaApp(App):
         screen.add_widget(self.level_7_sneak_no)
         self.screenmanager.add_widget(screen)
 
-        self.level_7_courtyard = Level_7_courtyard(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home, h.name,
-                                                   h.weapon, h.artifact, h.defense)
-        screen = Screen(name="Level 7 courtyard")
-        screen.add_widget(self.level_7_courtyard)
-        self.screenmanager.add_widget(screen)
 
         self.level_7_attack_0 = Level_7_attack_0(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home, h.name,
                                                  h.weapon, h.artifact, h.defense)
@@ -7738,22 +7608,10 @@ class cyoaApp(App):
         screen.add_widget(self.level_7_defend_3)
         self.screenmanager.add_widget(screen)
 
-        self.level_7_defend_4 = Level_7_defend_4(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home, h.name,
-                                                 h.weapon, h.artifact, h.defense)
-        screen = Screen(name="Level 7 defend 4")
-        screen.add_widget(self.level_7_defend_4)
-        self.screenmanager.add_widget(screen)
-
         self.level_7_death = Level_7_death(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home, h.name, h.weapon,
                                            h.artifact, h.defense)
         screen = Screen(name="Level 7 death")
         screen.add_widget(self.level_7_death)
-        self.screenmanager.add_widget(screen)
-
-        self.level_7_artifact_attack = Level_7_artifact_attack(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home,
-                                                               h.name, h.weapon, h.artifact, h.defense)
-        screen = Screen(name="Level 7 artifact attack")
-        screen.add_widget(self.level_7_artifact_attack)
         self.screenmanager.add_widget(screen)
 
         return self.screenmanager
@@ -7876,7 +7734,156 @@ class cyoaApp(App):
         screen = Screen(name="Level 6 offering")
         screen.add_widget(self.level_6_yes)
         self.screenmanager.add_widget(screen)
-
+########################################################################################################################
+    def lvl7defend4(self):
+        self.level_7_defend_4 = Level_7_defend_4(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home, h.name,
+                                                 h.weapon, h.artifact, h.defense)
+        screen = Screen(name="Level 7 defend 4")
+        screen.add_widget(self.level_7_defend_4)
+        self.screenmanager.add_widget(screen)
+    def lvl7artifactattack(self):
+        self.level_7_artifact_attack = Level_7_artifact_attack(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home,
+                                                               h.name, h.weapon, h.artifact, h.defense)
+        screen = Screen(name="Level 7 artifact attack")
+        screen.add_widget(self.level_7_artifact_attack)
+        self.screenmanager.add_widget(screen)
+    def lvl7attack(self):
+        self.level_7_attack = Level_7_attack(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home, h.name, h.weapon,
+                                             h.artifact, h.defense)
+        screen = Screen(name="Level 7 attack")
+        screen.add_widget(self.level_7_attack)
+        self.screenmanager.add_widget(screen)
+    def lvl4nodwarf(self):
+        self.level_4_No_Dwarf = Level_4_No_Dwarf(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home, h.name,
+                                                 h.weapon, h.artifact, h.defense)
+        screen = Screen(name="Level 4 No Dwarf")
+        screen.add_widget(self.level_4_No_Dwarf)
+        self.screenmanager.add_widget(screen)
+    def lvl5groupgameover(self):
+        self.level_5_gko = Level_5_group_Game_over(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home,
+                                                   h.name, h.weapon, h.artifact, h.defense)
+        screen = Screen(name="Level 5 group game over")
+        screen.add_widget(self.level_5_gko)
+        self.screenmanager.add_widget(screen)
+    def lvl5groupoutside(self):
+        self.level_5_gout = Level_5_group_outside(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home,
+                                                  h.name, h.weapon, h.artifact, h.defense)
+        screen = Screen(name="Level 5 group outside")
+        screen.add_widget(self.level_5_gout)
+        self.screenmanager.add_widget(screen)
+    def lvl4sane(self):
+        self.level_4_sane = Level_4_sane(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home, h.name,
+                                         h.weapon, h.artifact, h.defense)
+        screen = Screen(name="Level 4 sane")
+        screen.add_widget(self.level_4_sane)
+        self.screenmanager.add_widget(screen)
+    def lvl4disappear(self):
+        self.level_4_disappear = Level_4_disappear(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home, h.name,
+                                                   h.weapon, h.artifact, h.defense)
+        screen = Screen(name="Level 4 disappear")
+        screen.add_widget(self.level_4_disappear)
+        self.screenmanager.add_widget(screen)
+    def lvl4dwarfescape(self):
+        self.level_4_Dwarf_escape = Level_4_Dwarf_escape(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home,
+                                                         h.name,
+                                                         h.weapon, h.artifact, h.defense)
+        screen = Screen(name="Level 4 dwarf escape")
+        screen.add_widget(self.level_4_Dwarf_escape)
+        self.screenmanager.add_widget(screen)
+    def lvl7courtyard(self):
+        self.level_7_courtyard = Level_7_courtyard(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home, h.name,
+                                                   h.weapon, h.artifact, h.defense)
+        screen = Screen(name="Level 7 courtyard")
+        screen.add_widget(self.level_7_courtyard)
+        self.screenmanager.add_widget(screen)
+    def lvl3aggressiveno(self):
+        self.level_3_aggressive_no = Level_3_aggressive_no(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home,
+                                                           h.name,
+                                                           h.weapon, h.artifact, h.defense)
+        screen = Screen(name="Level 3 aggressive no")
+        screen.add_widget(self.level_3_aggressive_no)
+        self.screenmanager.add_widget(screen)
+    def lvl3fnoc(self):
+        self.level_3_friendly_no_charisma = Level_3_friendly_no_charisma(h.race, h.hp, h.stealth, h.strength,
+                                                                         h.charisma, h.home, h.name,
+                                                                         h.weapon, h.artifact, h.defense)
+        screen = Screen(name="Level 3 friendly no charisma")
+        screen.add_widget(self.level_3_friendly_no_charisma)
+        self.screenmanager.add_widget(screen)
+    def lvl2s1secs(self):
+        self.level_2_s1sces = Level_2_Sneak_1_SCES(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home, h.name,
+                                                   h.weapon, h.artifact, h.defense)
+        screen = Screen(name="Level 2 Sneak 1 Successful")
+        screen.add_widget(self.level_2_s1sces)
+        self.screenmanager.add_widget(screen)
+    def lvl2s1f(self):
+        self.level_2_s1fail = Level_2_Sneak_1_FAIL(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home, h.name,
+                                                   h.weapon, h.artifact, h.defense)
+        screen = Screen(name="Level 2 Sneak 1 Fail")
+        screen.add_widget(self.level_2_s1fail)
+        self.screenmanager.add_widget(screen)
+    def lvl5solo(self):
+        self.level_5_solo = Level_5_solo(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home,
+                                         h.name, h.weapon, h.artifact, h.defense)
+        screen = Screen(name="Level 5 solo")
+        screen.add_widget(self.level_5_solo)
+        self.screenmanager.add_widget(screen)
+    def lvl5da(self):
+        self.level_5_da = Level_5_Duel_Accept(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home,
+                                              h.name, h.weapon, h.artifact, h.defense)
+        screen = Screen(name="level 5 duel accept")
+        screen.add_widget(self.level_5_da)
+        self.screenmanager.add_widget(screen)
+    def lvl4forta(self):
+        self.level_4_fort_attack = Level_4_fort_attack(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home, h.name,
+                                                       h.weapon, h.artifact, h.defense)
+        screen = Screen(name="Level 4 fort attack")
+        screen.add_widget(self.level_4_fort_attack)
+        self.screenmanager.add_widget(screen)
+    def lvl3aggressivey(self):
+        self.level_3_aggressive_yes = Level_3_aggressive_yes(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home,
+                                                             h.name,
+                                                             h.weapon, h.artifact, h.defense)
+        screen = Screen(name="Level 3 aggressive yes")
+        screen.add_widget(self.level_3_aggressive_yes)
+        self.screenmanager.add_widget(screen)
+    def lvl3attackd(self):
+        self.level_3_attack_death = Level_3_attack_death(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home,
+                                                         h.name,
+                                                         h.weapon, h.artifact, h.defense)
+        screen = Screen(name="Level 3 attack death")
+        screen.add_widget(self.level_3_attack_death)
+        self.screenmanager.add_widget(screen)
+    def lvl1ifs(self):
+        self.level_1_innfs = Level_1_inn_fight_sces(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home, h.name,
+                                                    h.weapon, h.artifact, h.defense)
+        screen = Screen(name="Level 1 inn fight successful")
+        screen.add_widget(self.level_1_innfs)
+        self.screenmanager.add_widget(screen)
+    def lvl1iss(self):
+        self.level_1_innss = Level_1_inn_sneak_sces(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home, h.name,
+                                                    h.weapon, h.artifact, h.defense)
+        screen = Screen(name="Level 1 inn sneak successful")
+        screen.add_widget(self.level_1_innss)
+        self.screenmanager.add_widget(screen)
+    def lvl1fight(self):
+        self.level_1_1_fight = Level_1_1_fight(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home, h.name,
+                                               h.weapon, h.artifact, h.defense)
+        screen = Screen(name="Level 1 FIGHT")
+        screen.add_widget(self.level_1_1_fight)
+        self.screenmanager.add_widget(screen)
+    def lvl1ejump(self):
+        self.level_1_1_ejump = Level_1_1_ejump(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home, h.name,
+                                               h.weapon, h.artifact, h.defense)
+        screen = Screen(name="Level 1 JUMP Elf")
+        screen.add_widget(self.level_1_1_ejump)
+        self.screenmanager.add_widget(screen)
+    def lvl1rjump(self):
+        self.level_1_1_rjump = Level_1_1_rjump(h.race, h.hp, h.stealth, h.strength, h.charisma, h.home, h.name,
+                                               h.weapon, h.artifact, h.defense)
+        screen = Screen(name="Level 1 JUMP Rito")
+        screen.add_widget(self.level_1_1_rjump)
+        self.screenmanager.add_widget(screen)
 
 if __name__ == "__main__":
     game = cyoaApp()
