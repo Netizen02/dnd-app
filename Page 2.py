@@ -6129,7 +6129,7 @@ class User_input_page(character, BoxLayout):
         self.add_widget(self.nameinput)
         self.add_widget(Label(text=f"""Choose a race for your character from below""", color=(0, 0, 0, 1)))
         self.Race_Input()
-        self.add_widget(Label(text=f"""Choose a weapon for your character from below""", color=(0, 0, 0, 1)))
+        self.add_widget(Label(text=f"""It's dangerous to go alone!Choose a weapon to take with you""", color=(0, 0, 0, 1)))
         self.Weapon_Input()
         story_button = Button(text="Go to story")
         story_button.bind(on_press=self.story)
@@ -6422,7 +6422,7 @@ class Help(BoxLayout):
 
     def homescreen(self):
         display = Label(text=f"""
-Welcome to the Dragontale Quest. 
+Welcome to the DragonTail Quest. 
 This is a choose your own adventure,
 which means that you are in command
 of your character's adventure. Upon 
@@ -6492,7 +6492,7 @@ class Home_page(BoxLayout):
         self.homescreen()
 
     def homescreen(self):
-        titledisplay = Label(text= f"""Dragon Tale Quest""", color = (0, 0, 0, 1), font_size = 32)
+        titledisplay = Label(text= f"""DragonTail Quest""", color = (0, 0, 0, 1), font_size = 32)
         self.add_widget(titledisplay)
         subtitledisplay = Label(text = f"""A Choose your Own adventure Story""", color = (0,0,0, 1), font_size = 20)
         self.add_widget(subtitledisplay)
